@@ -1,0 +1,211 @@
+/* HireSalesforcePage.css */
+
+.salesforce-page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a202c;
+    background-color: #FFFFFF;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0 40px;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #2D6A4F;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    color: #4a5568;
+}
+
+.cta-button {
+    background-color: #2D6A4F;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #1b4332;
+    transform: translateY(-2px);
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2D6A4F, transparent);
+    margin-top: 60px;
+    opacity: 0.3;
+}
+
+/* Logos Section */
+.logos-section {
+    padding: 40px 0;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logos-text {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #718096;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logos-marquee {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.logo-item {
+    font-weight: 700;
+    color: #2D6A4F;
+    padding: 10px 20px;
+    border: 1px dashed #2D6A4F;
+    border-radius: 4px;
+    opacity: 0.6;
+}
+
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+}
+
+.services-section h2, 
+.tech-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1a202c;
+}
+
+.services-section h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    color: #2D6A4F;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: #FFFFFF;
+    border: 1px solid #e2e8f0;
+    padding: 30px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+    border-color: #2D6A4F;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.1);
+}
+
+.service-card h4 {
+    color: #2D6A4F;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+/* Tech Section */
+.tech-section {
+    padding: 80px 0 120px;
+    background-color: #FFFFFF;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.tech-card {
+    background: #FFFFFF;
+    border: 2px solid #2D6A4F;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.tech-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.2);
+    background-color: #2D6A4F;
+}
+
+.tech-card:hover h4 {
+    color: #FFFFFF;
+}
+
+.tech-card h4 {
+    font-size: 1.4rem;
+    color: #2D6A4F;
+    transition: color 0.3s ease;
+}
+
+/* Footer Override for this page */
+.salesforce-page .footer {
+    background-color: #FFFFFF !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .services-grid, .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .services-grid, .tech-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-section h2, .tech-section h2 {
+        font-size: 2rem;
+    }
+}

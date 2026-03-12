@@ -8,6 +8,7 @@ import TermsCondition from './Components/Policies/TermsCondition';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import About from './Pages/About';
+import HireSalesforcePage from './Pages/HireSalesforcePage';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/*" element={<Homepage />} />
         <Route path="/hire-servicenow-professionals" element={<ServicePage1 />} /> 
         <Route path="/hire-salesforce-professionals" element={<ServicePage2 />} /> 
+        <Route path="/hire-salesforce-developer" element={<HireSalesforcePage />} /> 
         <Route path="/about" element={<About />} /> 
         <Route path="/privacy-policy" element={
           <>
