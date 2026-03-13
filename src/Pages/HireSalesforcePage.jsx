@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import './HireSalesforcePage.css';
@@ -6,10 +6,32 @@ import './HireSalesforcePage.css';
 const HireSalesforcePage = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [openFaq, setOpenFaq] = useState(null);
+    const serviceCardsRef = useRef([]);
 
     const toggleFaq = (index) => {
         setOpenFaq(openFaq === index ? null : index);
     };
+
+    // Scroll-triggered reveal for service cards
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('srv-revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        serviceCardsRef.current.forEach((card) => {
+            if (card) observer.observe(card);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const skillCategories = [
         {
@@ -152,55 +174,125 @@ const HireSalesforcePage = () => {
 
             {/* Logos Section */}
             <section className="logos-section">
-                <div className="logos-text animate-up">
-                    LOGOS OF CLIENTS (WE HAVE WORKED WITH IN STRIPE)
-                </div>
-                <div className="marquee-container animate-up">
-                    <div className="logos-marquee">
-                        {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
-                            <div key={i} className="logo-item">
-                                CLIENT LOGO {num}
-                            </div>
-                        ))}
+                <div className="logos-grid-static animate-up">
+                    {/* Salesforce */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
+                            <path d="M49.8 21.5c3.2-3.3 7.6-5.4 12.5-5.4 6 0 11.3 3.2 14.3 8 2.5-1.1 5.2-1.7 8.1-1.7 11.2 0 20.3 9.1 20.3 20.4 0 11.2-9.1 20.3-20.3 20.3-.9 0-1.8-.1-2.6-.2-2.7 5-7.9 8.4-14 8.4-2.5 0-4.9-.6-7-1.7-2.7 6-8.7 10.2-15.7 10.2-6.6 0-12.3-3.7-15.2-9.2-1.3.3-2.6.4-4 .4-9.8 0-17.7-7.9-17.7-17.7 0-6.6 3.6-12.4 9-15.5-.6-1.7-.9-3.5-.9-5.4 0-9.1 7.4-16.5 16.5-16.5 5.3 0 10 2.5 13 6.4" fill="#00A1E0"/>
+                            <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Arial, sans-serif" fontWeight="bold">Salesforce</text>
+                        </svg>
+                    </div>
+                    {/* Slack */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Slack">
+                            <rect x="18" y="22" width="8" height="16" rx="4" fill="#E01E5A"/>
+                            <rect x="30" y="22" width="16" height="8" rx="4" fill="#E01E5A"/>
+                            <rect x="30" y="14" width="8" height="8" rx="4" fill="#ECB22E"/>
+                            <rect x="42" y="30" width="8" height="16" rx="4" fill="#2EB67D"/>
+                            <rect x="30" y="30" width="12" height="8" rx="4" fill="#2EB67D"/>
+                            <rect x="42" y="22" width="8" height="8" rx="4" fill="#36C5F0"/>
+                            <rect x="18" y="30" width="12" height="8" rx="4" fill="#36C5F0"/>
+                            <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="'Lato', Arial, sans-serif" fontWeight="bold">Slack</text>
+                        </svg>
+                    </div>
+                    {/* MuleSoft */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="MuleSoft">
+                            <circle cx="30" cy="30" r="14" fill="#00A0DF"/>
+                            <circle cx="30" cy="30" r="7" fill="#fff"/>
+                            <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="bold">MuleSoft</text>
+                        </svg>
+                    </div>
+                    {/* Tableau */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau">
+                            <rect x="26" y="10" width="6" height="40" fill="#E8762D"/>
+                            <rect x="19" y="20" width="20" height="6" fill="#E8762D"/>
+                            <rect x="42" y="20" width="6" height="26" fill="#5B9BD5"/>
+                            <rect x="36" y="26" width="18" height="6" fill="#5B9BD5"/>
+                            <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="bold">Tableau</text>
+                        </svg>
+                    </div>
+                    {/* Heroku */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Heroku">
+                            <rect x="16" y="8" width="24" height="44" rx="6" fill="#6762A6"/>
+                            <path d="M24 42 L24 28 L33 36 Z" fill="#fff"/>
+                            <path d="M28 20 Q32 16 36 20" stroke="#fff" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                            <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="bold">Heroku</text>
+                        </svg>
+                    </div>
+                    {/* AWS */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="AWS">
+                            <path d="M20 38 Q30 45 40 38 Q30 50 20 38Z" fill="#FF9900"/>
+                            <path d="M18 36 L30 32 L42 36" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                            <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Arial, sans-serif" fontWeight="bold">AWS</text>
+                            <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Arial, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
+                        </svg>
                     </div>
                 </div>
             </section>
 
-            {/* Split Services Section */}
-            <section className="services-section-split">
-                <div className="split-container">
-                    {/* Left Side: Sticky Content & Image */}
-                    <div className="split-left">
-                        <div className="sticky-content">
-                            <div className="unique-badge pulse-glow">What We Do Best</div>
-                            <h2 className="unique-heading">Detailed Briefing of the Services We Offer</h2>
-                            <p className="unique-sub">Explore our comprehensive suite of Salesforce solutions, engineered to transform your business operations.</p>
-                            <div className="services-image-wrapper animate-up">
-                                <img src="/services_illustration.png" alt="Salesforce Services Illustration" className="services-main-img" />
-                            </div>
-                        </div>
+            {/* ===== BENTO SERVICES SECTION ===== */}
+            <section className="bento-section">
+                <div className="bento-container">
+                    {/* Header */}
+                    <div className="bento-header">
+                        <span className="bento-label">✦ What We Do Best</span>
+                        <h2 className="bento-heading">
+                            Services That Drive<br/>
+                            <span className="bento-heading-accent">Real Growth</span>
+                        </h2>
+                        <p className="bento-sub">Our comprehensive Salesforce solutions, engineered to transform your business.</p>
                     </div>
 
-                    {/* Right Side: Scrolling Service Cards */}
-                    <div className="split-right">
+                    {/* Bento Grid */}
+                    <div className="bento-grid">
                         {[
-                            { title: "Custom CRM Solutions", icon: "💎", desc: "We architect tailored Salesforce instances designed specifically around your unique business workflows, ensuring every feature aligns perfectly with your goals for maximum efficiency and adoption.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"] },
-                            { title: "Lightning Web Components", icon: "⚡", desc: "Enhance user experience with fast, responsive, and intuitive UX/UI built entirely on the modern Lightning Web Components (LWC) framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"] },
-                            { title: "AppExchange Development", icon: "🚀", desc: "From ideation to deployment, we handle the end-to-end development of robust AppExchange products that pass security reviews and are ready for the global Salesforce ecosystem.", tags: ["Product Engineering", "Security Review", "Publishing"] },
-                            { title: "Enterprise Integration", icon: "🔗", desc: "Break down data silos through seamless, secure connectivity between Salesforce and your entire enterprise tech stack using MuleSoft, REST/SOAP APIs, and intelligent middleware.", tags: ["MuleSoft", "API Hub", "Middleware"] },
-                            { title: "Migration & Data Upgrades", icon: "📤", desc: "Execute risk-free, compliant, and zero-downtime data transitions from legacy CRM systems or older Salesforce Classic platforms directly into modern Lightning environments.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"] },
-                            { title: "Consulting & Strategy", icon: "📊", desc: "Our certified architects provide strategic roadmaps, comprehensive environment audits, and actionable execution plans to maximize your expected Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"] }
+                            { title: "Custom CRM Solutions", icon: "💎", num: "01", desc: "We architect tailored Salesforce instances designed around your unique business workflows for maximum efficiency.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"], featured: true },
+                            { title: "Lightning Web Components", icon: "⚡", num: "02", desc: "Fast, responsive UX/UI built on the modern LWC framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"], featured: false },
+                            { title: "AppExchange Development", icon: "🚀", num: "03", desc: "End-to-end development of robust AppExchange products that pass security reviews.", tags: ["Product Engineering", "Security Review", "Publishing"], featured: false },
+                            { title: "Enterprise Integration", icon: "🔗", num: "04", desc: "Seamless connectivity between Salesforce and your enterprise tech stack using MuleSoft and APIs.", tags: ["MuleSoft", "API Hub", "Middleware"], featured: false },
+                            { title: "Migration & Data Upgrades", icon: "📤", num: "05", desc: "Risk-free, zero-downtime data transitions from legacy CRM systems into modern Lightning.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"], featured: false },
+                            { title: "Consulting & Strategy", icon: "📊", num: "06", desc: "Strategic roadmaps, environment audits, and execution plans to maximize your Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"], featured: true }
                         ].map((service, i) => (
-                            <div key={i} className={`split-service-card animate-up`} style={{ animationDelay: `${i * 0.1}s` }}>
-                                <div className="split-card-header">
-                                    <div className="split-icon-box">{service.icon}</div>
-                                    <h3 className="split-card-title">{service.title}</h3>
-                                </div>
-                                <p className="split-card-desc">{service.desc}</p>
-                                <div className="split-tags">
-                                    {service.tags.map((tag, tagIndex) => (
-                                        <span key={tagIndex} className="split-tag">{tag}</span>
-                                    ))}
+                            <div
+                                key={i}
+                                className={`bento-card ${service.featured ? 'bento-featured' : ''}`}
+                                ref={(el) => (serviceCardsRef.current[i] = el)}
+                                onMouseMove={(e) => {
+                                    const card = e.currentTarget;
+                                    const rect = card.getBoundingClientRect();
+                                    const x = e.clientX - rect.left;
+                                    const y = e.clientY - rect.top;
+                                    const centerX = rect.width / 2;
+                                    const centerY = rect.height / 2;
+                                    const rotateX = ((y - centerY) / centerY) * -6;
+                                    const rotateY = ((x - centerX) / centerX) * 6;
+                                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                                    card.querySelector('.bento-card-shine').style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15), transparent 60%)`;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                                    e.currentTarget.querySelector('.bento-card-shine').style.background = 'transparent';
+                                }}
+                            >
+                                <div className="bento-card-shine"></div>
+                                <div className="bento-card-border"></div>
+                                <div className="bento-card-inner">
+                                    <span className="bento-num">{service.num}</span>
+                                    <div className="bento-icon">{service.icon}</div>
+                                    <h3 className="bento-card-title">{service.title}</h3>
+                                    <p className="bento-card-desc">{service.desc}</p>
+                                    <div className="bento-card-footer">
+                                        <div className="bento-tags">
+                                            {service.tags.map((tag, ti) => (
+                                                <span key={ti} className="bento-tag">{tag}</span>
+                                            ))}
+                                        </div>
+                                        <span className="bento-arrow">→</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -209,23 +301,32 @@ const HireSalesforcePage = () => {
             </section>
 
 
-            {/* Salesforce Technologies Section */}
-            <section className="tech-section">
-                <div className="container">
-                    <h2 className="animate-up gradient-heading">Salesforce Technologies we specialize</h2>
-                    <div className="tech-grid">
+            {/* Elegant Tech Stack Section */}
+            <section className="tech-stack-section">
+                <div className="tech-stack-bg">
+                    <div className="tech-glow glow-1"></div>
+                    <div className="tech-glow glow-2"></div>
+                </div>
+                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+                    <div className="tech-stack-header animate-up">
+                        <span className="tech-stack-label">Our Expertise</span>
+                        <h2 className="tech-stack-heading">Salesforce Technologies<br/>We Specialize In</h2>
+                    </div>
+                    
+                    <div className="tech-stack-grid">
                         {[
-                            "Apex & Visualforce",
-                            "Lightning Web Components",
-                            "Salesforce Shield",
-                            "Marketing Cloud",
-                            "Sales Cloud",
-                            "Service Cloud"
+                            { name: "Sales Cloud", icon: "📊", desc: "Drive growth with AI-powered sales automation and complete customer lifecycle management." },
+                            { name: "Service Cloud", icon: "🎧", desc: "Deliver personalized, intelligent service experiences across every channel." },
+                            { name: "Marketing Cloud", icon: "🎯", desc: "Create 1-to-1 customer journeys and optimize multi-channel campaigns." },
+                            { name: "Lightning Web Components", icon: "⚡", desc: "Build lightning-fast, enterprise-grade custom UI with modern web standards." },
+                            { name: "Apex & Visualforce", icon: "⚙️", desc: "Develop robust backend logic and complex server-side architectures." },
+                            { name: "Salesforce Shield", icon: "🛡️", desc: "Enhance trust, compliance, and governance with premium platform encryption." }
                         ].map((tech, i) => (
-                            <div key={i} className="tech-card animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
-                                <div className="tech-card-content">
-                                    <h4>{tech}</h4>
-                                </div>
+                            <div key={i} className="tech-stack-card animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="tech-stack-icon">{tech.icon}</div>
+                                <h3 className="tech-stack-title">{tech.name}</h3>
+                                <p className="tech-stack-desc">{tech.desc}</p>
+                                <div className="tech-stack-border"></div>
                             </div>
                         ))}
                     </div>
@@ -235,74 +336,68 @@ const HireSalesforcePage = () => {
             {/* Engagement Models Section */}
             <section className="engagement-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">Engagement Models we offer</h2>
+                    <div className="engagement-header animate-up">
+                        <span className="engagement-label">How We Work</span>
+                        <h2 className="engagement-heading">Engagement Models</h2>
+                        <p className="engagement-sub">Flexible hiring tailored to your project scope and timeline.</p>
+                    </div>
+                    
                     <div className="engagement-grid">
-                        <div className="engagement-card animate-stagger glass-card">
-                            <h3>Full-time</h3>
-                            <ul>
+                        <div className="engagement-card animate-stagger">
+                            <div className="engagement-icon">🏢</div>
+                            <h3>Full-time Dedicated</h3>
+                            <div className="engagement-price">160 Hours/Month</div>
+                            <ul className="engagement-features">
                                 <li>Dedicated Salesforce Expert</li>
-                                <li>160 Hours/Month Guarantee</li>
-                                <li>Direct Communication</li>
-                                <li>Ideal for Long-term Projects</li>
+                                <li>Direct Communication & Reporting</li>
+                                <li>Long-term project continuity</li>
+                                <li>Seamless team integration</li>
                             </ul>
+                            <button className="engagement-btn">Hire Full-time →</button>
                         </div>
-                        <div className="engagement-card animate-stagger glass-card" style={{ animationDelay: '0.2s' }}>
-                            <h3>Hourly</h3>
-                            <ul>
-                                <li>Pay as You Go</li>
-                                <li>Flexible Scaling</li>
-                                <li>Perfect for Small Tasks</li>
-                                <li>Quick Bug Fixes & Support</li>
+                        
+                        <div className="engagement-card animate-stagger" style={{ animationDelay: '0.2s' }}>
+                            <div className="engagement-icon">⏱️</div>
+                            <h3>Hourly / Part-time</h3>
+                            <div className="engagement-price">Pay as You Go</div>
+                            <ul className="engagement-features">
+                                <li>Flexible hours & scaling</li>
+                                <li>Perfect for smaller tasks</li>
+                                <li>Quick bug fixes & updates</li>
+                                <li>Ongoing admin support</li>
                             </ul>
+                            <button className="engagement-btn">Hire Hourly →</button>
                         </div>
-                    </div>
-                    <div className="engagement-cta animate-up">
-                        <button className="secondary-button">Select Your Model</button>
                     </div>
                 </div>
             </section>
 
-            {/* Hiring Steps Section */}
-            <section className="steps-section">
+            {/* Unique Interlocking Path Grid - Hiring Steps */}
+            <section className="steps-grid-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">Hire Best Salesforce Developer in 4 Easy Steps</h2>
-                    <div className="steps-grid">
-                        {[
-                            { step: "01", title: "Requirement Discovery", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
-                            { step: "02", title: "Expert Matching", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
-                            { step: "03", title: "Interview & Vetting", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
-                            { step: "04", title: "Seamless Onboarding", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
-                        ].map((item, i) => (
-                            <div key={i} className="step-card animate-stagger" style={{ animationDelay: `${i * 0.1}s` }}>
-                                <div className="step-number">{item.step}</div>
-                                <h3>{item.title}</h3>
-                                <p>{item.text}</p>
-                            </div>
-                        ))}
+                    <div className="steps-grid-header animate-up">
+                        <span className="steps-grid-label">Our Process</span>
+                        <h2 className="steps-grid-heading">Hire Salesforce Expertise<br/>in 4 Simple Steps</h2>
                     </div>
-                </div>
-            </section>
-
-            {/* Key Skills Section */}
-            <section className="skills-section">
-                <div className="container">
-                    <h2 className="animate-up gradient-heading">Key skills</h2>
-                    <div className="skills-tabs animate-up">
-                        {skillCategories.map((category, i) => (
-                            <button 
-                                key={i} 
-                                className={`tab-btn ${activeTab === i ? 'active' : ''}`}
-                                onClick={() => setActiveTab(i)}
-                            >
-                                {category.name}
-                            </button>
-                        ))}
-                    </div>
-                    <div className="skills-content">
-                        <div className="skills-grid-new">
-                            {skillCategories[activeTab].skills.map((skill, i) => (
-                                <div key={i} className="skill-card-new animate-stagger" style={{ animationDelay: `${i * 0.05}s` }}>
-                                    {skill}
+                    
+                    <div className="steps-interlock-container">
+                        <div className="steps-path-line"></div>
+                        <div className="steps-interlock-grid">
+                            {[
+                                { step: "01", title: "Requirement Discovery", icon: "🔍", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
+                                { step: "02", title: "Expert Matching", icon: "🧩", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
+                                { step: "03", title: "Interview & Vetting", icon: "✅", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
+                                { step: "04", title: "Seamless Onboarding", icon: "🚀", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
+                            ].map((item, i) => (
+                                <div key={i} className={`interlock-card card-${i + 1} animate-up`} style={{ animationDelay: `${i * 0.15}s` }}>
+                                    <div className="interlock-node">
+                                        <div className="interlock-icon">{item.icon}</div>
+                                        <div className="interlock-num">{item.step}</div>
+                                    </div>
+                                    <div className="interlock-content">
+                                        <h3>{item.title}</h3>
+                                        <p>{item.text}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -310,14 +405,86 @@ const HireSalesforcePage = () => {
                 </div>
             </section>
 
-            {/* Testimonials Section */}
+            {/* Elegant Tech Expertise Section */}
+            <section className="tech-expertise-section">
+                <div className="expertise-bg-pattern"></div>
+                <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+                    <div className="expertise-header animate-up">
+                        <span className="expertise-label">Core Competencies</span>
+                        <h2 className="expertise-heading">Our Salesforce <span className="text-gradient">Tech Stack</span></h2>
+                        <p className="expertise-sub">Mastering the technologies that drive modern enterprise success.</p>
+                    </div>
+
+                    <div className="expertise-layout">
+                        <div className="expertise-sidebar animate-up" style={{ animationDelay: '0.1s' }}>
+                            {skillCategories.map((category, i) => (
+                                <button 
+                                    key={i} 
+                                    className={`expertise-tab ${activeTab === i ? 'active' : ''}`}
+                                    onClick={() => setActiveTab(i)}
+                                >
+                                    <span className="tab-indicator"></span>
+                                    {category.name}
+                                </button>
+                            ))}
+                        </div>
+                        
+                        <div className="expertise-content">
+                            <div className="expertise-grid" key={activeTab}>
+                                {skillCategories[activeTab].skills.map((skill, i) => (
+                                    <div key={i} className="expertise-card" style={{ animationDelay: `${i * 0.05}s` }}>
+                                        <div className="card-glare"></div>
+                                        <div className="expertise-icon">
+                                            {activeTab === 0 ? "☁️" : activeTab === 1 ? "🔗" : activeTab === 2 ? "🤖" : "⚙️"}
+                                        </div>
+                                        <span className="expertise-skill-name">{skill}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Premium Testimonials Section */}
             <section className="testimonials-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">Testimonials</h2>
+                    <div className="section-header animate-up">
+                        <span className="badge-outline">Testimonials</span>
+                        <h2 className="gradient-heading">Success Stories</h2>
+                        <p className="section-sub">Hear from industry leaders who scaled their Salesforce teams with us.</p>
+                    </div>
                     <div className="testimonials-grid">
-                        {[1, 2, 3].map((num) => (
-                            <div key={num} className="testimonial-card animate-stagger" style={{ animationDelay: `${num * 0.1}s` }}>
-                                <p>Testimonial {num}</p>
+                        {[
+                            { 
+                                name: "Sarah Jenkins", 
+                                role: "VP of Engineering, CloudScale", 
+                                text: "The expertise Hiristhan brought to our project was transformative. We onboarded a Senior Developer in just 4 days, and his integration was seamless.",
+                                image: "https://i.pravatar.cc/150?u=sarah"
+                            },
+                            { 
+                                name: "Michael Cheng", 
+                                role: "Product Owner, FinTech Solutions", 
+                                text: "Finding certified Salesforce talent was a bottleneck for us. Hiristhan's vetting process is top-notch – the developer surpassed our expectations.",
+                                image: "https://i.pravatar.cc/150?u=michael"
+                            },
+                            { 
+                                name: "Elena Rodriguez", 
+                                role: "CTO, Global Retail Group", 
+                                text: "They don't just provide developers; they provide partners. The strategic approach to our CRM migration saved us months of rework.",
+                                image: "https://i.pravatar.cc/150?u=elena"
+                            }
+                        ].map((t, i) => (
+                            <div key={i} className="testimonial-card-premium animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="test-quote">"</div>
+                                <p className="test-text">{t.text}</p>
+                                <div className="test-footer">
+                                    <img src={t.image} alt={t.name} className="test-avatar" />
+                                    <div className="test-info">
+                                        <h4 className="test-name">{t.name}</h4>
+                                        <span className="test-role">{t.role}</span>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -350,51 +517,82 @@ const HireSalesforcePage = () => {
                 </div>
             </section>
 
-            {/* FAQs Section */}
+            {/* Premium FAQs Section */}
             <section className="faqs-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">FAQs</h2>
+                    <div className="faq-header animate-up">
+                        <span className="badge-outline">FAQs</span>
+                        <h2 className="gradient-heading">Frequently Asked Questions</h2>
+                    </div>
                     <div className="faq-list animate-up">
                         {[
-                            { q: "What is the typical experience level of your Salesforce developers?", a: "Our developers typically have 5+ years of experience and hold multiple Salesforce certifications including Platform Developer I & II." },
+                            { q: "What is the typical experience level of your developers?", a: "Our developers typically have 5+ years of experience and hold multiple Salesforce certifications including Platform Developer I & II." },
                             { q: "How quickly can I onboard a developer?", a: "Depending on your requirements, we can typically have a developer ready to start within 3-5 business days." },
                             { q: "Do you offer post-implementation support?", a: "Yes, we provide flexible support packages to ensure your Salesforce environment remains optimized and up-to-date." },
                             { q: "Can I interview the developers before hiring?", a: "Absolutely! We encourage interviews to ensure there is a perfect match both technically and culturally." }
                         ].map((faq, i) => (
-                            <div key={i} className={`faq-item ${openFaq === i ? 'open' : ''}`} onClick={() => toggleFaq(i)}>
+                            <div key={i} className={`faq-item-premium ${openFaq === i ? 'open' : ''}`} onClick={() => toggleFaq(i)}>
                                 <div className="faq-question">
                                     <h4>{faq.q}</h4>
-                                    <span className="faq-icon">{openFaq === i ? '−' : '+'}</span>
+                                    <div className={`faq-toggle ${openFaq === i ? 'active' : ''}`}>
+                                        <span className="line1"></span>
+                                        <span className="line2"></span>
+                                    </div>
                                 </div>
-                                {openFaq === i && (
+                                <div className={`faq-answer-wrapper ${openFaq === i ? 'active' : ''}`}>
                                     <div className="faq-answer">
                                         <p>{faq.a}</p>
                                     </div>
-                                )}
+                                </div>
                             </div>
                         ))}
                     </div>
-                    <div className="divider-full"></div>
                 </div>
             </section>
 
-            {/* Blogs Section */}
+            {/* Premium Blogs Section */}
             <section className="blogs-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">Blogs</h2>
+                    <div className="section-header animate-up">
+                        <span className="badge-outline">Insights</span>
+                        <h2 className="gradient-heading">Latest from Our Blog</h2>
+                    </div>
                     <div className="blogs-grid">
                         {[
-                            { title: "The Future of Salesforce AI with Agentforce", date: "Oct 12, 2025", desc: "Exploring how autonomous agents are transforming customer service and sales workflows." },
-                            { title: "Migrating to Lightning Web Components", date: "Sep 28, 2025", desc: "A comprehensive guide for businesses looking to modernize their legacy Visualforce pages." },
-                            { title: "Salesforce Integration Best Practices", date: "Aug 15, 2025", desc: "Top 5 strategies for seamless data flow between Salesforce and your external enterprise systems." }
+                            { 
+                                title: "Future of Agentforce AI", 
+                                date: "Oct 12, 2025", 
+                                desc: "Exploring how autonomous agents are transforming customer service.",
+                                category: "AI",
+                                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+                            },
+                            { 
+                                title: "LWC Migration Guide", 
+                                date: "Sep 28, 2025", 
+                                desc: "Modernize legacy Visualforce pages with performance-driven LWC.",
+                                category: "Development",
+                                image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=800"
+                            },
+                            { 
+                                title: "Integration Best Practices", 
+                                date: "Aug 15, 2025", 
+                                desc: "Seamless data flow between Salesforce and your enterprise systems.",
+                                category: "Integration",
+                                image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=800"
+                            }
                         ].map((blog, i) => (
-                            <div key={i} className="blog-card animate-stagger" style={{ animationDelay: `${i * 0.1}s` }}>
-                                <div className="blog-image-placeholder"></div>
-                                <div className="blog-content">
-                                    <span className="blog-date">{blog.date}</span>
-                                    <h4>{blog.title}</h4>
-                                    <p>{blog.desc}</p>
-                                    <button className="read-more">Read More →</button>
+                            <div key={i} className="blog-card-premium animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="blog-img-container">
+                                    <img src={blog.image} alt={blog.title} className="blog-img" />
+                                    <span className="blog-category-label">{blog.category}</span>
+                                </div>
+                                <div className="blog-body">
+                                    <span className="blog-date-premium">{blog.date}</span>
+                                    <h4 className="blog-title-premium">{blog.title}</h4>
+                                    <p className="blog-desc-premium">{blog.desc}</p>
+                                    <button className="blog-cta-btn">
+                                        Read Article <span className="btn-icon">→</span>
+                                    </button>
                                 </div>
                             </div>
                         ))}
