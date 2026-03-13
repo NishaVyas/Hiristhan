@@ -503,14 +503,40 @@ const HireSalesforcePage = () => {
                 </div>
             </section>
 
-            {/* Other Salesforce Resources Section */}
+            {/* Premium Resources Section */}
             <section className="resources-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">Other Salesforce Resources</h2>
-                    <div className="resources-grid">
-                        {["SF QA", "SF BA", "SF Admin"].map((resource, i) => (
-                            <div key={i} className="resource-card-box animate-stagger" style={{ animationDelay: `${i * 0.1}s` }}>
-                                <p>{resource}</p>
+                    <div className="section-header animate-up">
+                        <span className="badge-outline">Scale Further</span>
+                        <h2 className="gradient-heading">Hire More Salesforce Experts</h2>
+                        <p className="section-sub">Beyond developers, we provide specialized talent to optimize every aspect of your Salesforce ecosystem.</p>
+                    </div>
+                    <div className="resources-premium-grid">
+                        {[
+                            { 
+                                title: "SF QA Engineers", 
+                                desc: "Rigorous testing and quality assurance to ensure bug-free, scalable deployments.",
+                                icon: "🛡️"
+                            },
+                            { 
+                                title: "Business Analysts", 
+                                desc: "Strategic thinkers who translate complex business needs into actionable technical requirements.",
+                                icon: "📊"
+                            },
+                            { 
+                                title: "Certified Admins", 
+                                desc: "Dedicated support for user management, security, and daily platform optimization.",
+                                icon: "⚙️"
+                            }
+                        ].map((resource, i) => (
+                            <div key={i} className="resource-card-premium animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="res-icon-box">{resource.icon}</div>
+                                <h3 className="res-card-title">{resource.title}</h3>
+                                <p className="res-card-desc">{resource.desc}</p>
+                                <button className="res-card-btn">
+                                    Learn More <span className="btn-icon">→</span>
+                                </button>
+                                <div className="res-card-bg-accent"></div>
                             </div>
                         ))}
                     </div>
