@@ -37,15 +37,116 @@ const HireSalesforcePage = () => {
         <div className="salesforce-page">
             <Navbar />
             
-            {/* Hero Section */}
-            <section className="hero-section">
-                <div className="container">
-                    <h1 className="animate-up gradient-heading">Hire a Salesforce Developer</h1>
-                    <p className="intro-text">
-                        Empower your business with top-tier Salesforce expertise. Our dedicated developers specialize in tailoring the world's leading CRM to your unique needs, driving growth and efficiency. Whether it's complex integrations, custom lightning components, or strategic implementation, we deliver solutions that transform your operations and maximize your ROI with Salesforce.
-                    </p>
-                    <button className="cta-button">Get Started Now</button>
-                    <div className="divider"></div>
+            {/* Unique Hero Section */}
+            <section className="unique-hero-section">
+                {/* Background animated elements */}
+                <div className="hero-bg-elements">
+                    <div className="hero-blob blob-1"></div>
+                    <div className="hero-blob blob-2"></div>
+                    <div className="hero-grid"></div>
+                </div>
+
+                <div className="container unique-hero-container">
+                    <div className="hero-content">
+                        <div className="hero-badge animate-up">
+                            <span className="badge-icon">✨</span>
+                            <span className="badge-text">Premium Salesforce Talent Network</span>
+                        </div>
+                        
+                        <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
+                            Transform Your Vision Into Reality With <br/>
+                            <span className="hero-highlight">
+                                Elite Salesforce <br/> Developers
+                                <svg className="highlight-underline" viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M 0 15 Q 100 0, 200 10 T 400 15" fill="none" stroke="#2D6A4F" strokeWidth="4" strokeLinecap="round"/>
+                                </svg>
+                            </span>
+                        </h1>
+
+                        <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>
+                            Bridge the gap between your ambitious goals and technical execution. We provide pre-vetted, certified professionals ready to integrate into your team.
+                        </p>
+
+                        <div className="hero-cta-group animate-up" style={{ animationDelay: '0.3s' }}>
+                            <button className="btn-primary-glow">
+                                <span>Start Hiring Now</span>
+                                <div className="btn-arrow">→</div>
+                            </button>
+                            <button className="btn-outline">
+                                View Engagement Models
+                            </button>
+                        </div>
+                        
+                        <div className="hero-social-proof animate-up" style={{ animationDelay: '0.4s' }}>
+                            <div className="proof-avatars">
+                                <img src={`https://i.pravatar.cc/100?img=1`} alt="User" />
+                                <img src={`https://i.pravatar.cc/100?img=2`} alt="User" />
+                                <img src={`https://i.pravatar.cc/100?img=3`} alt="User" />
+                                <img src={`https://i.pravatar.cc/100?img=4`} alt="User" />
+                                <div className="proof-count">+100</div>
+                            </div>
+                            <div className="proof-text">
+                                <div className="stars">★★★★★</div>
+                                <span>Trusted by innovative companies</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="hero-visual animate-up" style={{ animationDelay: '0.5s' }}>
+                        <div className="orbit-system">
+                            <div className="center-planet">
+                                <div className="sf-icon-wrapper">
+                                    ☁️
+                                </div>
+                                <div className="pulse-ring"></div>
+                                <div className="pulse-ring delay-1"></div>
+                            </div>
+
+                            <div className="orbit orbit-1">
+                                <div className="satellite sat-1">
+                                    <span className="sat-icon">⚡</span>
+                                    <span className="sat-label">Lightning</span>
+                                </div>
+                            </div>
+
+                            <div className="orbit orbit-2">
+                                <div className="satellite sat-2">
+                                    <span className="sat-icon">📊</span>
+                                    <span className="sat-label">Sales Cloud</span>
+                                </div>
+                                <div className="satellite sat-3">
+                                    <span className="sat-icon">⚙️</span>
+                                    <span className="sat-label">Apex</span>
+                                </div>
+                            </div>
+
+                            <div className="orbit orbit-3">
+                                <div className="satellite sat-4">
+                                    <span className="sat-icon">🔗</span>
+                                    <span className="sat-label">MuleSoft</span>
+                                </div>
+                                <div className="satellite sat-5">
+                                    <span className="sat-icon">🤖</span>
+                                    <span className="sat-label">Einstein</span>
+                                </div>
+                            </div>
+                            
+                            {/* Floating Glass Panels */}
+                            <div className="glass-panel panel-left float-slow">
+                                <div className="panel-header">Performance</div>
+                                <div className="panel-value">↑ 3x ROI</div>
+                                <div className="panel-chart"></div>
+                            </div>
+                            
+                            <div className="glass-panel panel-right float-fast">
+                                <div className="panel-header">Efficiency</div>
+                                <div className="panel-value">+ 45%</div>
+                                <div className="panel-progress">
+                                    <div className="progress-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
