@@ -38,7 +38,10 @@ const Navbar = () => {
             {isServicesDropdownOpen && (
               <ul className="dropdown-menu">
                 <li className="dropdown-item">
-                  <Link to="/hire-salesforce-professionals">Salesforce</Link>
+                  <Link to="/hire-salesforce-professionals">Salesforce Professionals</Link>
+                </li>
+                <li className="dropdown-item">
+                  <Link to="/hire-salesforce-developer">Salesforce Developer</Link>
                 </li>
                 <li className="dropdown-item">
                   <Link to="/hire-servicenow-professionals">ServiceNow</Link>

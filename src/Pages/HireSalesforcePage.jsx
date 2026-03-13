@@ -5,6 +5,11 @@ import './HireSalesforcePage.css';
 
 const HireSalesforcePage = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const [openFaq, setOpenFaq] = useState(null);
+
+    const toggleFaq = (index) => {
+        setOpenFaq(openFaq === index ? null : index);
+    };
 
     const skillCategories = [
         {
@@ -35,7 +40,7 @@ const HireSalesforcePage = () => {
             {/* Hero Section */}
             <section className="hero-section">
                 <div className="container">
-                    <h1>Hire a Salesforce Developer</h1>
+                    <h1 className="animate-up gradient-heading">Hire a Salesforce Developer</h1>
                     <p className="intro-text">
                         Empower your business with top-tier Salesforce expertise. Our dedicated developers specialize in tailoring the world's leading CRM to your unique needs, driving growth and efficiency. Whether it's complex integrations, custom lightning components, or strategic implementation, we deliver solutions that transform your operations and maximize your ROI with Salesforce.
                     </p>
@@ -46,15 +51,16 @@ const HireSalesforcePage = () => {
 
             {/* Logos Section */}
             <section className="logos-section">
-                <div className="container">
-                    <p className="logos-text">Logos of clients (we have worked with in stripe)</p>
+                <div className="logos-text animate-up">
+                    LOGOS OF CLIENTS (WE HAVE WORKED WITH IN STRIPE)
+                </div>
+                <div className="marquee-container animate-up">
                     <div className="logos-marquee">
-                        {/* Placeholder for logos */}
-                        <div className="logo-item">CLIENT LOGO 1</div>
-                        <div className="logo-item">CLIENT LOGO 2</div>
-                        <div className="logo-item">CLIENT LOGO 3</div>
-                        <div className="logo-item">CLIENT LOGO 4</div>
-                        <div className="logo-item">CLIENT LOGO 5</div>
+                        {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, i) => (
+                            <div key={i} className="logo-item">
+                                CLIENT LOGO {num}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -62,7 +68,7 @@ const HireSalesforcePage = () => {
             {/* Detailed Briefing Section */}
             <section className="services-section">
                 <div className="container">
-                    <h2 className="animate-up">Detailed Briefing of the services that we offer</h2>
+                    <h2 className="animate-up gradient-heading">Detailed Briefing of the services that we offer</h2>
                     <h3 className="animate-up" style={{ animationDelay: '0.2s' }}>Salesforce development services we offer</h3>
                     
                     <div className="services-grid">
@@ -89,7 +95,7 @@ const HireSalesforcePage = () => {
             {/* Salesforce Technologies Section */}
             <section className="tech-section">
                 <div className="container">
-                    <h2 className="animate-up">Salesforce Technologies we specialize</h2>
+                    <h2 className="animate-up gradient-heading">Salesforce Technologies we specialize</h2>
                     <div className="tech-grid">
                         {[
                             "Apex & Visualforce",
@@ -108,9 +114,9 @@ const HireSalesforcePage = () => {
             {/* Engagement Models Section */}
             <section className="engagement-section">
                 <div className="container">
-                    <h2 className="animate-up">Engagement Models we offer</h2>
+                    <h2 className="animate-up gradient-heading">Engagement Models we offer</h2>
                     <div className="engagement-grid">
-                        <div className="engagement-card animate-stagger">
+                        <div className="engagement-card animate-stagger glass-card">
                             <h3>Full-time</h3>
                             <ul>
                                 <li>Dedicated Salesforce Expert</li>
@@ -119,7 +125,7 @@ const HireSalesforcePage = () => {
                                 <li>Ideal for Long-term Projects</li>
                             </ul>
                         </div>
-                        <div className="engagement-card animate-stagger" style={{ animationDelay: '0.2s' }}>
+                        <div className="engagement-card animate-stagger glass-card" style={{ animationDelay: '0.2s' }}>
                             <h3>Hourly</h3>
                             <ul>
                                 <li>Pay as You Go</li>
@@ -138,7 +144,7 @@ const HireSalesforcePage = () => {
             {/* Hiring Steps Section */}
             <section className="steps-section">
                 <div className="container">
-                    <h2 className="animate-up">Hire Best Salesforce Developer in 4 Easy Steps</h2>
+                    <h2 className="animate-up gradient-heading">Hire Best Salesforce Developer in 4 Easy Steps</h2>
                     <div className="steps-grid">
                         {[
                             { step: "01", title: "Requirement Discovery", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
@@ -159,7 +165,7 @@ const HireSalesforcePage = () => {
             {/* Key Skills Section */}
             <section className="skills-section">
                 <div className="container">
-                    <h2 className="animate-up">Key skills</h2>
+                    <h2 className="animate-up gradient-heading">Key skills</h2>
                     <div className="skills-tabs animate-up">
                         {skillCategories.map((category, i) => (
                             <button 
@@ -179,6 +185,98 @@ const HireSalesforcePage = () => {
                                 </div>
                             ))}
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Testimonials Section */}
+            <section className="testimonials-section">
+                <div className="container">
+                    <h2 className="animate-up gradient-heading">Testimonials</h2>
+                    <div className="testimonials-grid">
+                        {[1, 2, 3].map((num) => (
+                            <div key={num} className="testimonial-card animate-stagger" style={{ animationDelay: `${num * 0.1}s` }}>
+                                <p>Testimonial {num}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="cta-banner-section">
+                <div className="container">
+                    <h2 className="animate-up gradient-heading">CTA</h2>
+                    <div className="cta-content animate-up">
+                        <h3>Access Our Pool of Verified Salesforce Experts Ready to Join Your Team</h3>
+                        <p>Meet pre-screened Salesforce experts with comprehensive platform knowledge, verified experience, and relevant certifications.</p>
+                        <button className="cta-button-green">Contact Us</button>
+                    </div>
+                </div>
+            </section>
+
+            {/* Other Salesforce Resources Section */}
+            <section className="resources-section">
+                <div className="container">
+                    <h2 className="animate-up gradient-heading">Other Salesforce Resources</h2>
+                    <div className="resources-grid">
+                        {["SF QA", "SF BA", "SF Admin"].map((resource, i) => (
+                            <div key={i} className="resource-card-box animate-stagger" style={{ animationDelay: `${i * 0.1}s` }}>
+                                <p>{resource}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQs Section */}
+            <section className="faqs-section">
+                <div className="container">
+                    <h2 className="animate-up gradient-heading">FAQs</h2>
+                    <div className="faq-list animate-up">
+                        {[
+                            { q: "What is the typical experience level of your Salesforce developers?", a: "Our developers typically have 5+ years of experience and hold multiple Salesforce certifications including Platform Developer I & II." },
+                            { q: "How quickly can I onboard a developer?", a: "Depending on your requirements, we can typically have a developer ready to start within 3-5 business days." },
+                            { q: "Do you offer post-implementation support?", a: "Yes, we provide flexible support packages to ensure your Salesforce environment remains optimized and up-to-date." },
+                            { q: "Can I interview the developers before hiring?", a: "Absolutely! We encourage interviews to ensure there is a perfect match both technically and culturally." }
+                        ].map((faq, i) => (
+                            <div key={i} className={`faq-item ${openFaq === i ? 'open' : ''}`} onClick={() => toggleFaq(i)}>
+                                <div className="faq-question">
+                                    <h4>{faq.q}</h4>
+                                    <span className="faq-icon">{openFaq === i ? '−' : '+'}</span>
+                                </div>
+                                {openFaq === i && (
+                                    <div className="faq-answer">
+                                        <p>{faq.a}</p>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="divider-full"></div>
+                </div>
+            </section>
+
+            {/* Blogs Section */}
+            <section className="blogs-section">
+                <div className="container">
+                    <h2 className="animate-up gradient-heading">Blogs</h2>
+                    <div className="blogs-grid">
+                        {[
+                            { title: "The Future of Salesforce AI with Agentforce", date: "Oct 12, 2025", desc: "Exploring how autonomous agents are transforming customer service and sales workflows." },
+                            { title: "Migrating to Lightning Web Components", date: "Sep 28, 2025", desc: "A comprehensive guide for businesses looking to modernize their legacy Visualforce pages." },
+                            { title: "Salesforce Integration Best Practices", date: "Aug 15, 2025", desc: "Top 5 strategies for seamless data flow between Salesforce and your external enterprise systems." }
+                        ].map((blog, i) => (
+                            <div key={i} className="blog-card animate-stagger" style={{ animationDelay: `${i * 0.1}s` }}>
+                                <div className="blog-image-placeholder"></div>
+                                <div className="blog-content">
+                                    <span className="blog-date">{blog.date}</span>
+                                    <h4>{blog.title}</h4>
+                                    <p>{blog.desc}</p>
+                                    <button className="read-more">Read More →</button>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
