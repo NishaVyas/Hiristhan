@@ -167,26 +167,42 @@ const HireSalesforcePage = () => {
             </section>
 
             {/* Detailed Briefing Section */}
-            <section className="services-section">
+            <section className="services-section-unique">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">Detailed Briefing of the services that we offer</h2>
-                    <h3 className="animate-up" style={{ animationDelay: '0.2s' }}>Salesforce development services we offer</h3>
-                    
-                    <div className="services-grid">
+                    <div className="services-unique-header animate-up">
+                        <div className="unique-badge pulse-glow">What We Do Best</div>
+                        <h2 className="unique-heading">Detailed Briefing of the Services We Offer</h2>
+                        <p className="unique-sub">Explore our comprehensive suite of Salesforce solutions, engineered to transform your business operations.</p>
+                    </div>
+
+                    <div className="services-accordion-container">
                         {[
-                            { title: "Custom CRM Solutions", icon: "💎" },
-                            { title: "Lightning Components", icon: "⚡" },
-                            { title: "AppExchange Development", icon: "🚀" },
-                            { title: "Salesforce Integration", icon: "🔗" },
-                            { title: "Migration & Upgrades", icon: "📤" },
-                            { title: "Consulting & Strategy", icon: "📊" }
+                            { title: "Custom CRM Solutions", icon: "💎", desc: "We architect tailored Salesforce instances designed specifically around your unique business workflows, ensuring every feature aligns perfectly with your goals for maximum efficiency and adoption.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"] },
+                            { title: "Lightning Web Components", icon: "⚡", desc: "Enhance user experience with fast, responsive, and intuitive UX/UI built entirely on the modern Lightning Web Components (LWC) framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"] },
+                            { title: "AppExchange Development", icon: "🚀", desc: "From ideation to deployment, we handle the end-to-end development of robust AppExchange products that pass security reviews and are ready for the global Salesforce ecosystem.", tags: ["Product Engineering", "Security Review", "Publishing"] },
+                            { title: "Enterprise Integration", icon: "🔗", desc: "Break down data silos through seamless, secure connectivity between Salesforce and your entire enterprise tech stack using MuleSoft, REST/SOAP APIs, and intelligent middleware.", tags: ["MuleSoft", "API Hub", "Middleware"] },
+                            { title: "Migration & Data Upgrades", icon: "📤", desc: "Execute risk-free, compliant, and zero-downtime data transitions from legacy CRM systems or older Salesforce Classic platforms directly into modern Lightning environments.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"] },
+                            { title: "Consulting & Strategy", icon: "📊", desc: "Our certified architects provide strategic roadmaps, comprehensive environment audits, and actionable execution plans to maximize your expected Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"] }
                         ].map((service, i) => (
-                            <div key={i} className="service-card animate-stagger" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
-                                <div className="card-icon">{service.icon}</div>
-                                <h4>{service.title}</h4>
-                                <p>
-                                    We provide comprehensive Salesforce solutions tailored to your business goals. Our developers excel in creating scalable, secure, and high-performance applications.
-                                </p>
+                            <div key={i} className={`service-accordion-item animate-up`} style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="accordion-visible-bar">
+                                    <div className="accordion-icon-box">{service.icon}</div>
+                                    <h3 className="accordion-title">{service.title}</h3>
+                                    <div className="accordion-toggle-btn">
+                                        <span className="plus-line horizontal"></span>
+                                        <span className="plus-line vertical"></span>
+                                    </div>
+                                </div>
+                                <div className="accordion-hidden-content">
+                                    <div className="accordion-content-inner">
+                                        <p className="accordion-desc">{service.desc}</p>
+                                        <div className="accordion-tags">
+                                            {service.tags.map((tag, tagIndex) => (
+                                                <span key={tagIndex} className="service-tag">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
