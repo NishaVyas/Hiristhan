@@ -92,6 +92,7 @@ const HireSalesforcePage = () => {
                 </div>
             </section>
 
+
             {/* Salesforce Technologies Section */}
             <section className="tech-section">
                 <div className="container">
@@ -100,11 +101,15 @@ const HireSalesforcePage = () => {
                         {[
                             "Apex & Visualforce",
                             "Lightning Web Components",
-                            "Salesforce Shield"
+                            "Salesforce Shield",
+                            "Marketing Cloud",
+                            "Sales Cloud",
+                            "Service Cloud"
                         ].map((tech, i) => (
-                            <div key={i} className="tech-card animate-float" style={{ animationDelay: `${i * 0.2}s` }}>
-                                <div className="tech-orb"></div>
-                                <h4>{tech}</h4>
+                            <div key={i} className="tech-card animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="tech-card-content">
+                                    <h4>{tech}</h4>
+                                </div>
                             </div>
                         ))}
                     </div>

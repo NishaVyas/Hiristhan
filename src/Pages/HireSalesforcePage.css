@@ -1,13 +1,50 @@
 /* HireSalesforcePage.css */
 
 .salesforce-page {
-    font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
+    font-family: 'Verdana', Geneva, sans-serif;
     color: #1a202c;
     background: linear-gradient(-45deg, #f8fafc, #edf2f7, #fdfbf7, #f8fafc);
     background-size: 400% 400%;
     animation: gradientFlow 15s ease infinite;
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Ambient Floating Background Orbs */
+.salesforce-page::before,
+.salesforce-page::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: floatOrb 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.salesforce-page::before {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(45, 106, 79, 0.1) 0%, transparent 60%);
+    top: -100px;
+    left: -200px;
+}
+
+.salesforce-page::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(82, 183, 136, 0.1) 0%, transparent 60%);
+    bottom: -100px;
+    right: -150px;
+    animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, 50px) scale(1.1); }
+    100% { transform: translate(-50px, 150px) scale(0.9); }
 }
 
 @keyframes gradientFlow {
@@ -43,11 +80,13 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px) scale(0.95);
+        transform: translateY(30px);
+        filter: blur(10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
+        filter: blur(0);
     }
 }
 
@@ -114,6 +153,7 @@
 }
 
 .hero-section h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 24px;
@@ -240,8 +280,9 @@
     padding: 100px 0;
 }
 
-.services-section h2, 
+.services-section h2,
 .tech-section h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     font-size: 2.25rem;
     font-weight: 700;
@@ -270,124 +311,189 @@
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(226, 232, 240, 0.8);
-    padding: 40px;
-    border-radius: 30px;
+    padding: 30px; /* Reduced padding */
+    border-radius: 20px; /* Reduced border-radius */
     transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     position: relative;
     overflow: hidden;
+    z-index: 1;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 40%,
+        #2D6A4F 50%,
+        transparent 60%,
+        transparent 100%
+    );
+    animation: rotateGlow 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .service-card::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #2D6A4F, #52B788);
-    transform: scaleX(0);
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    transform-origin: center;
+    inset: 2px;
+    background: #FFFFFF;
+    border-radius: 18px;
+    z-index: -1;
+    transition: background 0.4s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(45, 106, 79, 0.15);
-    border-color: rgba(45, 106, 79, 0.3);
-    background: #FFFFFF;
-}
-
-.service-card:hover::after {
-    transform: scaleX(1);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(45, 106, 79, 0.12);
 }
 
 .card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 24px;
+    font-size: 2.2rem; /* Slightly smaller icon */
+    margin-bottom: 20px;
     display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .card-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .service-card h4 {
     color: #1a202c;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Slightly smaller title */
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     transition: color 0.3s ease;
 }
 
-.service-card:hover h4 {
-    color: #2D6A4F;
-}
-
 .service-card p {
-    font-size: 1rem;
+    font-size: 0.95rem; /* Slightly smaller text */
     color: #718096;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
-/* Tech Section */
+/* Tech Section (Redesigned) */
 .tech-section {
-    padding: 100px 0 140px;
-    background-color: #FFFFFF;
+    padding: 100px 0;
 }
 
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 60px;
+    gap: 30px;
+    margin-top: 50px;
+    perspective: 1000px; /* Add perspective for 3D effect */
 }
 
 .tech-card {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(8px);
-    border: 2px solid rgba(226, 232, 240, 0.5);
-    height: 240px;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    height: 140px; /* Compact size */
+    border-radius: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 32px;
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    cursor: pointer;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    z-index: 1;
+    transform-style: preserve-3d; /* Enable 3D space for children */
 }
 
-.tech-orb {
+.tech-card::before {
+    content: '';
     position: absolute;
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle, rgba(45, 106, 79, 0.2) 0%, transparent 70%);
-    border-radius: 50%;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent,
+        rgba(45, 106, 79, 1),
+        transparent 30%
+    );
+    animation: rotateGlowTech 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -2;
+}
+
+@keyframes rotateGlowTech {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.tech-card::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
     transition: all 0.5s ease;
+    z-index: -1;
 }
 
-.tech-card:hover {
-    border-color: #2D6A4F;
-    background-color: #2D6A4F;
-}
-
-.tech-card:hover .tech-orb {
-    transform: scale(3);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+.tech-card-content {
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    transition: transform 0.4s ease;
+    transform: translateZ(0); /* Enable hardware acceleration and 3D positioning */
 }
 
 .tech-card h4 {
-    font-size: 1.6rem;
-    color: #2D6A4F;
-    font-weight: 800;
-    z-index: 1;
+    font-size: 1.25rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a202c;
+    font-weight: 700;
+    margin: 0;
     transition: all 0.4s ease;
-    text-align: center;
-    max-width: 80%;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px) rotateX(10deg) rotateY(-5deg);
+    box-shadow: -15px 25px 30px rgba(45, 106, 79, 0.15);
+    border-color: transparent;
+}
+
+.tech-card:hover::before {
+    opacity: 1;
+}
+
+.tech-card:hover::after {
+    background: rgba(45, 106, 79, 0.95);
+}
+
+.tech-card:hover .tech-card-content {
+    transform: translateZ(40px); /* Text pops out in 3D */
 }
 
 .tech-card:hover h4 {
     color: #FFFFFF;
-    transform: scale(1.1);
 }
+
 
 /* Engagement Models Section */
 .engagement-section {
@@ -415,6 +521,7 @@
 }
 
 .engagement-card h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -509,6 +616,7 @@
 }
 
 .step-card h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 15px;
@@ -530,68 +638,95 @@
 .skills-tabs {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
-    border-bottom: 2px solid #edf2f7;
-    padding-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 60px;
+    padding-bottom: 0;
     overflow-x: auto;
     white-space: nowrap;
+    border-bottom: none;
 }
 
 .tab-btn {
     background: none;
-    border: none;
-    font-size: 1.1rem;
+    border: 2px solid #edf2f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #718096;
     cursor: pointer;
-    padding: 10px 0;
+    padding: 12px 24px;
+    border-radius: 50px;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tab-btn:hover {
+    color: #2D6A4F;
+    border-color: rgba(45, 106, 79, 0.3);
+    background: rgba(45, 106, 79, 0.05);
 }
 
 .tab-btn.active {
-    color: #2D6A4F;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #2D6A4F, #1b4332);
+    border-color: transparent;
+    box-shadow: 0 8px 25px rgba(45, 106, 79, 0.3);
 }
 
 .tab-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: -17px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #2D6A4F;
+    display: none;
 }
 
 .skills-grid-new {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    column-gap: 35px;
+    row-gap: 50px; /* More vertical space between rows */
 }
 
 .skill-card-new {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(226, 232, 240, 0.6);
-    padding: 20px 15px;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    padding: 25px 18px;
+    border-radius: 20px;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: #4a5568;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80px;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    min-height: 90px;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.skill-card-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(45, 106, 79, 0.08), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.skill-card-new:hover::before {
+    left: 150%;
 }
 
 .skill-card-new:hover {
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-10px);
     background: #FFFFFF;
-    box-shadow: 0 15px 30px rgba(45, 106, 79, 0.1);
+    box-shadow: 0 20px 40px rgba(45, 106, 79, 0.12);
     border-color: #2D6A4F;
     color: #2D6A4F;
 }
@@ -599,12 +734,14 @@
 @media (max-width: 1024px) {
     .skills-grid-new {
         grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
     }
 }
 
 @media (max-width: 768px) {
     .skills-grid-new {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     .skills-tabs {
         justify-content: flex-start;
