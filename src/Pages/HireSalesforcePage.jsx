@@ -166,16 +166,23 @@ const HireSalesforcePage = () => {
                 </div>
             </section>
 
-            {/* Detailed Briefing Section */}
-            <section className="services-section-unique">
-                <div className="container">
-                    <div className="services-unique-header animate-up">
-                        <div className="unique-badge pulse-glow">What We Do Best</div>
-                        <h2 className="unique-heading">Detailed Briefing of the Services We Offer</h2>
-                        <p className="unique-sub">Explore our comprehensive suite of Salesforce solutions, engineered to transform your business operations.</p>
+            {/* Split Services Section */}
+            <section className="services-section-split">
+                <div className="split-container">
+                    {/* Left Side: Sticky Content & Image */}
+                    <div className="split-left">
+                        <div className="sticky-content">
+                            <div className="unique-badge pulse-glow">What We Do Best</div>
+                            <h2 className="unique-heading">Detailed Briefing of the Services We Offer</h2>
+                            <p className="unique-sub">Explore our comprehensive suite of Salesforce solutions, engineered to transform your business operations.</p>
+                            <div className="services-image-wrapper animate-up">
+                                <img src="/services_illustration.png" alt="Salesforce Services Illustration" className="services-main-img" />
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="services-accordion-container">
+                    {/* Right Side: Scrolling Service Cards */}
+                    <div className="split-right">
                         {[
                             { title: "Custom CRM Solutions", icon: "💎", desc: "We architect tailored Salesforce instances designed specifically around your unique business workflows, ensuring every feature aligns perfectly with your goals for maximum efficiency and adoption.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"] },
                             { title: "Lightning Web Components", icon: "⚡", desc: "Enhance user experience with fast, responsive, and intuitive UX/UI built entirely on the modern Lightning Web Components (LWC) framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"] },
@@ -184,24 +191,16 @@ const HireSalesforcePage = () => {
                             { title: "Migration & Data Upgrades", icon: "📤", desc: "Execute risk-free, compliant, and zero-downtime data transitions from legacy CRM systems or older Salesforce Classic platforms directly into modern Lightning environments.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"] },
                             { title: "Consulting & Strategy", icon: "📊", desc: "Our certified architects provide strategic roadmaps, comprehensive environment audits, and actionable execution plans to maximize your expected Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"] }
                         ].map((service, i) => (
-                            <div key={i} className={`service-accordion-item animate-up`} style={{ animationDelay: `${i * 0.15}s` }}>
-                                <div className="accordion-visible-bar">
-                                    <div className="accordion-icon-box">{service.icon}</div>
-                                    <h3 className="accordion-title">{service.title}</h3>
-                                    <div className="accordion-toggle-btn">
-                                        <span className="plus-line horizontal"></span>
-                                        <span className="plus-line vertical"></span>
-                                    </div>
+                            <div key={i} className={`split-service-card animate-up`} style={{ animationDelay: `${i * 0.1}s` }}>
+                                <div className="split-card-header">
+                                    <div className="split-icon-box">{service.icon}</div>
+                                    <h3 className="split-card-title">{service.title}</h3>
                                 </div>
-                                <div className="accordion-hidden-content">
-                                    <div className="accordion-content-inner">
-                                        <p className="accordion-desc">{service.desc}</p>
-                                        <div className="accordion-tags">
-                                            {service.tags.map((tag, tagIndex) => (
-                                                <span key={tagIndex} className="service-tag">{tag}</span>
-                                            ))}
-                                        </div>
-                                    </div>
+                                <p className="split-card-desc">{service.desc}</p>
+                                <div className="split-tags">
+                                    {service.tags.map((tag, tagIndex) => (
+                                        <span key={tagIndex} className="split-tag">{tag}</span>
+                                    ))}
                                 </div>
                             </div>
                         ))}
