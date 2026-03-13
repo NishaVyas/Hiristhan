@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import './HireSalesforcePage.css';
 
 const HireSalesforcePage = () => {
+    const [activeTab, setActiveTab] = useState(0);
+
+    const skillCategories = [
+        {
+            name: "Salesforce Platforms & Core Technologies",
+            skills: [
+                "Customer 360 Platform", "Force.com", "Heroku", "Salesforce Mobile App", "Lightning Experience",
+                "Salesforce Data Cloud", "Industries Cloud like Vlocity/Omnistudio", "Hyperforce (Infrastructure knowledge)", "Tableau", "Agentforce vibes"
+            ]
+        },
+        {
+            name: "Integration & API Tools",
+            skills: ["MuleSoft", "REST/SOAP APIs", "Platform Events", "Change Data Capture", "Data Loader"]
+        },
+        {
+            name: "AI, Automation & Advanced Capabilities",
+            skills: ["Einstein AI", "Flow Builder", "Apex Triggers", "Next Best Action", "OmniStudio"]
+        },
+        {
+            name: "Development Tools",
+            skills: ["Salesforce CLI", "VS Code", "GitHub Actions", "Scratch Orgs", "SFDX"]
+        }
+    ];
+
     return (
         <div className="salesforce-page">
             <Navbar />
@@ -38,15 +62,23 @@ const HireSalesforcePage = () => {
             {/* Detailed Briefing Section */}
             <section className="services-section">
                 <div className="container">
-                    <h2>Detailed Briefing of the services that we offer</h2>
-                    <h3>Salesforce development services we offer</h3>
+                    <h2 className="animate-up">Detailed Briefing of the services that we offer</h2>
+                    <h3 className="animate-up" style={{ animationDelay: '0.2s' }}>Salesforce development services we offer</h3>
                     
                     <div className="services-grid">
-                        {[1, 2, 3, 4, 5, 6].map((i) => (
-                            <div key={i} className="service-card">
-                                <h4>Salesforce Service {i}</h4>
+                        {[
+                            { title: "Custom CRM Solutions", icon: "💎" },
+                            { title: "Lightning Components", icon: "⚡" },
+                            { title: "AppExchange Development", icon: "🚀" },
+                            { title: "Salesforce Integration", icon: "🔗" },
+                            { title: "Migration & Upgrades", icon: "📤" },
+                            { title: "Consulting & Strategy", icon: "📊" }
+                        ].map((service, i) => (
+                            <div key={i} className="service-card animate-stagger" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
+                                <div className="card-icon">{service.icon}</div>
+                                <h4>{service.title}</h4>
                                 <p>
-                                    We provide comprehensive Salesforce solutions tailored to your business goals. Our developers excel in creating scalable, secure, and high-performance applications that enhance user experience and drive significant business growth through expert customization and strategic implementation.
+                                    We provide comprehensive Salesforce solutions tailored to your business goals. Our developers excel in creating scalable, secure, and high-performance applications.
                                 </p>
                             </div>
                         ))}
@@ -57,13 +89,96 @@ const HireSalesforcePage = () => {
             {/* Salesforce Technologies Section */}
             <section className="tech-section">
                 <div className="container">
-                    <h2>Salesforce Technologies we specialize</h2>
+                    <h2 className="animate-up">Salesforce Technologies we specialize</h2>
                     <div className="tech-grid">
-                        {[1, 2, 3].map((i) => (
-                            <div key={i} className="tech-card">
-                                <h4>Salesforce Technology {i}</h4>
+                        {[
+                            "Apex & Visualforce",
+                            "Lightning Web Components",
+                            "Salesforce Shield"
+                        ].map((tech, i) => (
+                            <div key={i} className="tech-card animate-float" style={{ animationDelay: `${i * 0.2}s` }}>
+                                <div className="tech-orb"></div>
+                                <h4>{tech}</h4>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Engagement Models Section */}
+            <section className="engagement-section">
+                <div className="container">
+                    <h2 className="animate-up">Engagement Models we offer</h2>
+                    <div className="engagement-grid">
+                        <div className="engagement-card animate-stagger">
+                            <h3>Full-time</h3>
+                            <ul>
+                                <li>Dedicated Salesforce Expert</li>
+                                <li>160 Hours/Month Guarantee</li>
+                                <li>Direct Communication</li>
+                                <li>Ideal for Long-term Projects</li>
+                            </ul>
+                        </div>
+                        <div className="engagement-card animate-stagger" style={{ animationDelay: '0.2s' }}>
+                            <h3>Hourly</h3>
+                            <ul>
+                                <li>Pay as You Go</li>
+                                <li>Flexible Scaling</li>
+                                <li>Perfect for Small Tasks</li>
+                                <li>Quick Bug Fixes & Support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="engagement-cta animate-up">
+                        <button className="secondary-button">Select Your Model</button>
+                    </div>
+                </div>
+            </section>
+
+            {/* Hiring Steps Section */}
+            <section className="steps-section">
+                <div className="container">
+                    <h2 className="animate-up">Hire Best Salesforce Developer in 4 Easy Steps</h2>
+                    <div className="steps-grid">
+                        {[
+                            { step: "01", title: "Requirement Discovery", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
+                            { step: "02", title: "Expert Matching", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
+                            { step: "03", title: "Interview & Vetting", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
+                            { step: "04", title: "Seamless Onboarding", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
+                        ].map((item, i) => (
+                            <div key={i} className="step-card animate-stagger" style={{ animationDelay: `${i * 0.1}s` }}>
+                                <div className="step-number">{item.step}</div>
+                                <h3>{item.title}</h3>
+                                <p>{item.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Key Skills Section */}
+            <section className="skills-section">
+                <div className="container">
+                    <h2 className="animate-up">Key skills</h2>
+                    <div className="skills-tabs animate-up">
+                        {skillCategories.map((category, i) => (
+                            <button 
+                                key={i} 
+                                className={`tab-btn ${activeTab === i ? 'active' : ''}`}
+                                onClick={() => setActiveTab(i)}
+                            >
+                                {category.name}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="skills-content">
+                        <div className="skills-grid-new">
+                            {skillCategories[activeTab].skills.map((skill, i) => (
+                                <div key={i} className="skill-card-new animate-stagger" style={{ animationDelay: `${i * 0.05}s` }}>
+                                    {skill}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

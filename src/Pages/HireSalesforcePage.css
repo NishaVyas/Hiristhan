@@ -1,211 +1,564 @@
 /* HireSalesforcePage.css */
 
 .salesforce-page {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
     color: #1a202c;
     background-color: #FFFFFF;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Background Pattern */
+.salesforce-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#2D6A4F 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(45, 106, 79, 0.2); }
+    50% { transform: scale(1.02); box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(45, 106, 79, 0.2); }
+}
+
+.animate-up {
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.animate-stagger {
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
 }
 
 /* Hero Section */
 .hero-section {
-    padding: 80px 0 40px;
+    padding: 120px 0 60px;
     text-align: center;
-    background: #FFFFFF;
+    background: radial-gradient(circle at top, rgba(45, 106, 79, 0.05) 0%, transparent 70%);
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    color: #1a202c;
+    letter-spacing: -1px;
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.hero-section h1 span {
     color: #2D6A4F;
 }
 
 .intro-text {
-    max-width: 800px;
-    margin: 0 auto 30px;
-    font-size: 1.1rem;
+    max-width: 850px;
+    margin: 0 auto 40px;
+    font-size: 1.25rem;
     color: #4a5568;
+    line-height: 1.8;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
 .cta-button {
     background-color: #2D6A4F;
     color: #FFFFFF;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 8px;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-    box-shadow: 0 4px 15px rgba(45, 106, 79, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
 .cta-button:hover {
     background-color: #1b4332;
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.3);
 }
 
 .divider {
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #2D6A4F, transparent);
-    margin-top: 60px;
-    opacity: 0.3;
+    height: 4px;
+    width: 100px;
+    background: #2D6A4F;
+    margin: 80px auto 0;
+    border-radius: 2px;
+    opacity: 0.2;
 }
 
 /* Logos Section */
 .logos-section {
-    padding: 40px 0;
+    padding: 60px 0;
     background-color: #FFFFFF;
-    border-bottom: 1px solid #e2e8f0;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
 }
 
 .logos-text {
     text-align: center;
-    margin-bottom: 20px;
-    color: #718096;
-    font-size: 0.9rem;
+    margin-bottom: 30px;
+    color: #cbd5e0;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+    font-weight: 600;
 }
 
 .logos-marquee {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
 }
 
 .logo-item {
-    font-weight: 700;
+    font-weight: 800;
+    color: #cbd5e0;
+    padding: 15px 25px;
+    border: 2px solid #edf2f7;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.logo-item:hover {
     color: #2D6A4F;
-    padding: 10px 20px;
-    border: 1px dashed #2D6A4F;
-    border-radius: 4px;
-    opacity: 0.6;
+    border-color: #2D6A4F;
+    transform: scale(1.1);
 }
 
 /* Services Section */
 .services-section {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .services-section h2, 
 .tech-section h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 16px;
     color: #1a202c;
+    letter-spacing: -0.5px;
 }
 
 .services-section h3 {
     text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 50px;
+    font-size: 1.25rem;
+    margin-bottom: 60px;
     color: #2D6A4F;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 32px;
 }
 
 .service-card {
     background: #FFFFFF;
-    border: 1px solid #e2e8f0;
-    padding: 30px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #edf2f7;
+    padding: 40px;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #2D6A4F;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
 }
 
 .service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(45, 106, 79, 0.1);
     border-color: #2D6A4F;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.1);
+}
+
+.service-card:hover::after {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    display: inline-block;
 }
 
 .service-card h4 {
+    color: #1a202c;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover h4 {
     color: #2D6A4F;
-    font-size: 1.25rem;
-    margin-bottom: 15px;
 }
 
 .service-card p {
-    font-size: 0.95rem;
-    color: #4a5568;
+    font-size: 1rem;
+    color: #718096;
+    line-height: 1.7;
 }
 
 /* Tech Section */
 .tech-section {
-    padding: 80px 0 120px;
+    padding: 100px 0 140px;
     background-color: #FFFFFF;
 }
 
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
+    gap: 32px;
+    margin-top: 60px;
 }
 
 .tech-card {
     background: #FFFFFF;
-    border: 2px solid #2D6A4F;
-    height: 180px;
+    border: 2px solid #edf2f7;
+    height: 220px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    border-radius: 24px;
+    transition: all 0.5s ease;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.tech-orb {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(45, 106, 79, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.5s ease;
 }
 
 .tech-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.2);
+    border-color: #2D6A4F;
     background-color: #2D6A4F;
+}
+
+.tech-card:hover .tech-orb {
+    transform: scale(3);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+}
+
+.tech-card h4 {
+    font-size: 1.6rem;
+    color: #2D6A4F;
+    font-weight: 800;
+    z-index: 1;
+    transition: all 0.4s ease;
+    text-align: center;
+    max-width: 80%;
 }
 
 .tech-card:hover h4 {
     color: #FFFFFF;
+    transform: scale(1.1);
 }
 
-.tech-card h4 {
+/* Engagement Models Section */
+.engagement-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.engagement-card {
+    background: #e1effe;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #1a202c;
+    text-align: center;
+}
+
+.engagement-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a202c;
+}
+
+.engagement-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.engagement-card li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+    color: #4a5568;
+}
+
+.engagement-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    color: #1a202c;
+    line-height: 1;
+}
+
+.engagement-cta {
+    margin-top: 40px;
+}
+
+.secondary-button {
+    background-color: #e1effe;
+    color: #1a202c;
+    border: 1px solid #1a202c;
+    padding: 12px 60px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: #bfdbfe;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Hiring Steps Section */
+.steps-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.steps-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.step-card {
+    background: #e1effe;
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid #1a202c;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.step-card h3 {
     font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1a202c;
+}
+
+.step-card p {
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* Key Skills Section */
+.skills-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.skills-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #edf2f7;
+    padding-bottom: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #718096;
+    cursor: pointer;
+    padding: 10px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
     color: #2D6A4F;
-    transition: color 0.3s ease;
 }
 
-/* Footer Override for this page */
-.salesforce-page .footer {
-    background-color: #FFFFFF !important;
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #2D6A4F;
 }
 
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .services-grid, .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
+.skills-grid-new {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.skill-card-new {
+    background: #FFFFFF;
+    border: 1px solid #edf2f7;
+    padding: 20px 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4a5568;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    transition: all 0.3s ease;
+}
+
+.skill-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: #2D6A4F;
+    color: #2D6A4F;
+}
+
+@media (max-width: 1024px) {
+    .skills-grid-new {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2.5rem;
+    .skills-grid-new {
+        grid-template-columns: repeat(2, 1fr);
     }
+    .skills-tabs {
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    .engagement-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer Override */
+.salesforce-page .footer {
+    background-color: #FFFFFF !important;
+    border-top: 1px solid #edf2f7;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .services-grid, .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-section h1 { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .hero-section { padding-top: 80px; }
+    .hero-section h1 { font-size: 2.5rem; }
     .services-grid, .tech-grid {
         grid-template-columns: 1fr;
     }
-    .services-section h2, .tech-section h2 {
-        font-size: 2rem;
-    }
+    .services-section h2, .tech-section h2 { font-size: 2.2rem; }
+    .intro-text { font-size: 1.1rem; }
 }
