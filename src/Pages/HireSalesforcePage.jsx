@@ -2,10 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import './HireSalesforcePage.css';
+import salesforceImage from '../assets/images/Servicepage/salesforce.jpg';
+import serviceImage from '../assets/images/Servicepage/service.jpg';
+import projectImage from '../assets/images/Homepage/project.jpg';
+import teamImage from '../assets/images/Homepage/team.jpg';
+import hourlyImage from '../assets/images/Homepage/hourly.jpg';
 
 const HireSalesforcePage = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [openFaq, setOpenFaq] = useState(null);
+    const [activeBlogSlide, setActiveBlogSlide] = useState(0);
     const serviceCardsRef = useRef([]);
 
     const toggleFaq = (index) => {
@@ -54,6 +60,46 @@ const HireSalesforcePage = () => {
             skills: ["Salesforce CLI", "VS Code", "GitHub Actions", "Scratch Orgs", "SFDX"]
         }
     ];
+
+    const blogPosts = [
+        {
+            title: "Future of Agentforce AI",
+            date: "Oct 12, 2025",
+            desc: "Exploring how autonomous agents are transforming customer service.",
+            category: "AI",
+            image: projectImage
+        },
+        {
+            title: "LWC Migration Guide",
+            date: "Sep 28, 2025",
+            desc: "Modernize legacy Visualforce pages with performance-driven LWC.",
+            category: "Development",
+            image: teamImage
+        },
+        {
+            title: "Integration Best Practices",
+            date: "Aug 15, 2025",
+            desc: "Seamless data flow between Salesforce and your enterprise systems.",
+            category: "Integration",
+            image: hourlyImage
+        }
+    ];
+
+    const handlePrevBlog = () => {
+        setActiveBlogSlide((prev) => (prev === 0 ? blogPosts.length - 1 : prev - 1));
+    };
+
+    const handleNextBlog = () => {
+        setActiveBlogSlide((prev) => (prev === blogPosts.length - 1 ? 0 : prev + 1));
+    };
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setActiveBlogSlide((prev) => (prev === blogPosts.length - 1 ? 0 : prev + 1));
+        }, 5000);
+
+        return () => clearInterval(intervalId);
+    }, [blogPosts.length]);
 
     return (
         <div className="salesforce-page">
@@ -344,7 +390,10 @@ const HireSalesforcePage = () => {
                     
                     <div className="engagement-grid">
                         <div className="engagement-card animate-stagger">
-                            <div className="engagement-icon">🏢</div>
+                            <div className="engagement-media">
+                                <img src={salesforceImage} alt="Full-time Salesforce developer collaboration" />
+                                <span className="engagement-tag">Best for long-term projects</span>
+                            </div>
                             <h3>Full-time Dedicated</h3>
                             <div className="engagement-price">160 Hours/Month</div>
                             <ul className="engagement-features">
@@ -357,7 +406,10 @@ const HireSalesforcePage = () => {
                         </div>
                         
                         <div className="engagement-card animate-stagger" style={{ animationDelay: '0.2s' }}>
-                            <div className="engagement-icon">⏱️</div>
+                            <div className="engagement-media">
+                                <img src={serviceImage} alt="Part-time Salesforce support and delivery" />
+                                <span className="engagement-tag">Ideal for flexible workloads</span>
+                            </div>
                             <h3>Hourly / Part-time</h3>
                             <div className="engagement-price">Pay as You Go</div>
                             <ul className="engagement-features">
@@ -449,10 +501,13 @@ const HireSalesforcePage = () => {
             {/* Premium Testimonials Section */}
             <section className="testimonials-section">
                 <div className="container">
-                    <div className="section-header animate-up">
-                        <span className="badge-outline">Testimonials</span>
-                        <h2 className="gradient-heading">Success Stories</h2>
-                        <p className="section-sub">Hear from industry leaders who scaled their Salesforce teams with us.</p>
+                    <div className="section-header testimonials-header animate-up">
+                        <span className="testimonials-kicker">
+                            <span className="kicker-dot"></span>
+                            Testimonials
+                        </span>
+                        <h2 className="testimonials-title">Success Stories</h2>
+                        <p className="section-sub testimonials-sub">Hear from industry leaders who scaled their Salesforce teams with us.</p>
                     </div>
                     <div className="testimonials-grid">
                         {[
@@ -579,35 +634,19 @@ const HireSalesforcePage = () => {
             {/* Premium Blogs Section */}
             <section className="blogs-section">
                 <div className="container">
-                    <div className="section-header animate-up">
-                        <span className="badge-outline">Insights</span>
+                    <div className="section-header blogs-header animate-up">
                         <h2 className="gradient-heading">Latest from Our Blog</h2>
                     </div>
-                    <div className="blogs-grid">
-                        {[
-                            { 
-                                title: "Future of Agentforce AI", 
-                                date: "Oct 12, 2025", 
-                                desc: "Exploring how autonomous agents are transforming customer service.",
-                                category: "AI",
-                                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
-                            },
-                            { 
-                                title: "LWC Migration Guide", 
-                                date: "Sep 28, 2025", 
-                                desc: "Modernize legacy Visualforce pages with performance-driven LWC.",
-                                category: "Development",
-                                image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=800"
-                            },
-                            { 
-                                title: "Integration Best Practices", 
-                                date: "Aug 15, 2025", 
-                                desc: "Seamless data flow between Salesforce and your enterprise systems.",
-                                category: "Integration",
-                                image: "https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&q=80&w=800"
-                            }
-                        ].map((blog, i) => (
-                            <div key={i} className="blog-card-premium animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                    <div className="blogs-carousel animate-up">
+                        <button className="blog-nav-btn prev" onClick={handlePrevBlog} aria-label="Previous blog">
+                            ←
+                        </button>
+
+                        <div className="blogs-viewport">
+                            <div className="blogs-track" style={{ transform: `translateX(-${activeBlogSlide * 100}%)` }}>
+                                {blogPosts.map((blog, i) => (
+                                    <div key={i} className="blog-slide">
+                                        <div className="blog-card-premium">
                                 <div className="blog-img-container">
                                     <img src={blog.image} alt={blog.title} className="blog-img" />
                                     <span className="blog-category-label">{blog.category}</span>
@@ -620,7 +659,25 @@ const HireSalesforcePage = () => {
                                         Read Article <span className="btn-icon">→</span>
                                     </button>
                                 </div>
+                                        </div>
                             </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <button className="blog-nav-btn next" onClick={handleNextBlog} aria-label="Next blog">
+                            →
+                        </button>
+                    </div>
+
+                    <div className="blog-dots" aria-label="Blog slides">
+                        {blogPosts.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`blog-dot ${activeBlogSlide === i ? 'active' : ''}`}
+                                onClick={() => setActiveBlogSlide(i)}
+                                aria-label={`Go to blog ${i + 1}`}
+                            />
                         ))}
                     </div>
                 </div>
