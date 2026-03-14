@@ -4,6 +4,7 @@ import Footer from '../Components/Footer';
 import './HireSalesforcePage.css';
 import salesforceImage from '../assets/images/Servicepage/salesforce.jpg';
 import serviceImage from '../assets/images/Servicepage/service.jpg';
+import salesImage from '../assets/images/Servicepage/sales.png';
 import projectImage from '../assets/images/Homepage/project.jpg';
 import teamImage from '../assets/images/Homepage/team.jpg';
 import hourlyImage from '../assets/images/Homepage/hourly.jpg';
@@ -561,31 +562,33 @@ const HireSalesforcePage = () => {
             {/* Premium Resources Section */}
             <section className="resources-section">
                 <div className="container">
-                    <div className="section-header animate-up">
-                        <span className="badge-outline">Scale Further</span>
-                        <h2 className="gradient-heading">Hire More Salesforce Experts</h2>
-                        <p className="section-sub">Beyond developers, we provide specialized talent to optimize every aspect of your Salesforce ecosystem.</p>
+                    <div className="section-header resources-header-alt animate-up">
+                        <span className="resources-kicker">Scale Further</span>
+                        <h2 className="resources-heading-alt">Hire More Salesforce Experts</h2>
+                        <p className="section-sub resources-sub-alt">Beyond developers, we provide specialized talent to optimize every aspect of your Salesforce ecosystem.</p>
                     </div>
                     <div className="resources-premium-grid">
                         {[
                             { 
                                 title: "SF QA Engineers", 
                                 desc: "Rigorous testing and quality assurance to ensure bug-free, scalable deployments.",
-                                icon: "🛡️"
+                                image: serviceImage
                             },
                             { 
                                 title: "Business Analysts", 
                                 desc: "Strategic thinkers who translate complex business needs into actionable technical requirements.",
-                                icon: "📊"
+                                image: salesforceImage
                             },
                             { 
                                 title: "Certified Admins", 
                                 desc: "Dedicated support for user management, security, and daily platform optimization.",
-                                icon: "⚙️"
+                                image: salesImage
                             }
                         ].map((resource, i) => (
                             <div key={i} className="resource-card-premium animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
-                                <div className="res-icon-box">{resource.icon}</div>
+                                <div className="res-image-wrap">
+                                    <img src={resource.image} alt={resource.title} className="res-card-image" />
+                                </div>
                                 <h3 className="res-card-title">{resource.title}</h3>
                                 <p className="res-card-desc">{resource.desc}</p>
                                 <button className="res-card-btn">
@@ -635,7 +638,8 @@ const HireSalesforcePage = () => {
             <section className="blogs-section">
                 <div className="container">
                     <div className="section-header blogs-header animate-up">
-                        <h2 className="gradient-heading">Latest from Our Blog</h2>
+                        <span className="blogs-kicker">Knowledge Center</span>
+                        <h2 className="blogs-heading">Expert Insights & Updates</h2>
                     </div>
                     <div className="blogs-carousel animate-up">
                         <button className="blog-nav-btn prev" onClick={handlePrevBlog} aria-label="Previous blog">
