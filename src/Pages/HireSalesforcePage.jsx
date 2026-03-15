@@ -356,7 +356,10 @@ const HireSalesforcePage = () => {
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="tech-stack-header animate-up">
                         <span className="tech-stack-label">Our Expertise</span>
-                        <h2 className="tech-stack-heading">Salesforce Technologies<br/>We Specialize In</h2>
+                        <h2 className="tech-stack-heading">
+                            <span className="tech-stack-heading-main">Salesforce Technologies</span>
+                            <span className="tech-stack-heading-accent">We Specialize In</span>
+                        </h2>
                     </div>
                     
                     <div className="tech-stack-grid">
@@ -429,30 +432,28 @@ const HireSalesforcePage = () => {
                 <div className="container">
                     <div className="steps-grid-header animate-up">
                         <span className="steps-grid-label">Our Process</span>
-                        <h2 className="steps-grid-heading">Hire Salesforce Expertise<br/>in 4 Simple Steps</h2>
+                        <h2 className="steps-grid-heading">Hire Salesforce Expertise<br/><span className="steps-heading-accent">in 4 Simple Steps</span></h2>
                     </div>
                     
-                    <div className="steps-interlock-container">
-                        <div className="steps-path-line"></div>
-                        <div className="steps-interlock-grid">
-                            {[
-                                { step: "01", title: "Requirement Discovery", icon: "🔍", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
-                                { step: "02", title: "Expert Matching", icon: "🧩", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
-                                { step: "03", title: "Interview & Vetting", icon: "✅", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
-                                { step: "04", title: "Seamless Onboarding", icon: "🚀", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
-                            ].map((item, i) => (
-                                <div key={i} className={`interlock-card card-${i + 1} animate-up`} style={{ animationDelay: `${i * 0.15}s` }}>
-                                    <div className="interlock-node">
-                                        <div className="interlock-icon">{item.icon}</div>
-                                        <div className="interlock-num">{item.step}</div>
-                                    </div>
-                                    <div className="interlock-content">
-                                        <h3>{item.title}</h3>
-                                        <p>{item.text}</p>
-                                    </div>
+                    <div className="steps-timeline">
+                        <div className="timeline-track"></div>
+                        {[
+                            { step: "01", title: "Requirement Discovery", icon: "🔍", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
+                            { step: "02", title: "Expert Matching", icon: "🧩", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
+                            { step: "03", title: "Interview & Vetting", icon: "✅", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
+                            { step: "04", title: "Seamless Onboarding", icon: "🚀", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
+                        ].map((item, i) => (
+                            <div key={i} className="timeline-step animate-up" style={{ animationDelay: `${i * 0.12}s` }}>
+                                <div className="timeline-point">
+                                    <span className="timeline-step-num">{item.step}</span>
                                 </div>
-                            ))}
-                        </div>
+                                <div className="timeline-card">
+                                    <div className="timeline-icon">{item.icon}</div>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.text}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
