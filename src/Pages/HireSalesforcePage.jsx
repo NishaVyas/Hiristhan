@@ -102,6 +102,61 @@ const HireSalesforcePage = () => {
         return () => clearInterval(intervalId);
     }, [blogPosts.length]);
 
+    const renderBentoIcon = (iconName) => {
+        switch (iconName) {
+            case 'crm':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="4" width="8" height="7" rx="1.5"></rect>
+                        <rect x="13" y="4" width="8" height="7" rx="1.5"></rect>
+                        <rect x="3" y="13" width="8" height="7" rx="1.5"></rect>
+                        <path d="M13 16h8"></path>
+                        <path d="M17 13v7"></path>
+                    </svg>
+                );
+            case 'lwc':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"></path>
+                    </svg>
+                );
+            case 'appx':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 19c4-1 7-4 8-8 2-1 4-4 3-6-2-1-5 1-6 3-4 1-7 4-8 8l3 0 0 3z"></path>
+                        <circle cx="15" cy="9" r="1.5"></circle>
+                    </svg>
+                );
+            case 'integration':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 13l4-4"></path>
+                        <path d="M8 16l-2 2a3 3 0 01-4-4l2-2"></path>
+                        <path d="M16 8l2-2a3 3 0 114 4l-2 2"></path>
+                    </svg>
+                );
+            case 'migration':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3v11"></path>
+                        <path d="M8 10l4 4 4-4"></path>
+                        <rect x="4" y="16" width="16" height="5" rx="1.5"></rect>
+                    </svg>
+                );
+            case 'strategy':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 19h16"></path>
+                        <rect x="6" y="11" width="3" height="6" rx="0.8"></rect>
+                        <rect x="11" y="8" width="3" height="9" rx="0.8"></rect>
+                        <rect x="16" y="5" width="3" height="12" rx="0.8"></rect>
+                    </svg>
+                );
+            default:
+                return null;
+        }
+    };
+
     return (
         <div className="salesforce-page">
             <Navbar />
@@ -112,7 +167,6 @@ const HireSalesforcePage = () => {
                 <div className="hero-bg-elements">
                     <div className="hero-blob blob-1"></div>
                     <div className="hero-blob blob-2"></div>
-                    <div className="hero-grid"></div>
                 </div>
 
                 <div className="container unique-hero-container">
@@ -123,13 +177,8 @@ const HireSalesforcePage = () => {
                         </div>
                         
                         <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
-                            Transform Your Vision Into Reality With <br/>
-                            <span className="hero-highlight">
-                                Elite Salesforce <br/> Developers
-                                <svg className="highlight-underline" viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M 0 15 Q 100 0, 200 10 T 400 15" fill="none" stroke="#2D6A4F" strokeWidth="4" strokeLinecap="round"/>
-                                </svg>
-                            </span>
+                            <span className="hero-heading-line">Transform Your Vision Into Reality With</span>
+                            <span className="hero-highlight">Elite Salesforce Developers</span>
                         </h1>
 
                         <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>
@@ -162,58 +211,8 @@ const HireSalesforcePage = () => {
                     </div>
 
                     <div className="hero-visual animate-up" style={{ animationDelay: '0.5s' }}>
-                        <div className="orbit-system">
-                            <div className="center-planet">
-                                <div className="sf-icon-wrapper">
-                                    ☁️
-                                </div>
-                                <div className="pulse-ring"></div>
-                                <div className="pulse-ring delay-1"></div>
-                            </div>
-
-                            <div className="orbit orbit-1">
-                                <div className="satellite sat-1">
-                                    <span className="sat-icon">⚡</span>
-                                    <span className="sat-label">Lightning</span>
-                                </div>
-                            </div>
-
-                            <div className="orbit orbit-2">
-                                <div className="satellite sat-2">
-                                    <span className="sat-icon">📊</span>
-                                    <span className="sat-label">Sales Cloud</span>
-                                </div>
-                                <div className="satellite sat-3">
-                                    <span className="sat-icon">⚙️</span>
-                                    <span className="sat-label">Apex</span>
-                                </div>
-                            </div>
-
-                            <div className="orbit orbit-3">
-                                <div className="satellite sat-4">
-                                    <span className="sat-icon">🔗</span>
-                                    <span className="sat-label">MuleSoft</span>
-                                </div>
-                                <div className="satellite sat-5">
-                                    <span className="sat-icon">🤖</span>
-                                    <span className="sat-label">Einstein</span>
-                                </div>
-                            </div>
-                            
-                            {/* Floating Glass Panels */}
-                            <div className="glass-panel panel-left float-slow">
-                                <div className="panel-header">Performance</div>
-                                <div className="panel-value">↑ 3x ROI</div>
-                                <div className="panel-chart"></div>
-                            </div>
-                            
-                            <div className="glass-panel panel-right float-fast">
-                                <div className="panel-header">Efficiency</div>
-                                <div className="panel-value">+ 45%</div>
-                                <div className="panel-progress">
-                                    <div className="progress-fill"></div>
-                                </div>
-                            </div>
+                        <div className="hero-image-frame">
+                            <img src={serviceImage} alt="Salesforce development service" className="hero-side-image" />
                         </div>
                     </div>
                 </div>
@@ -226,7 +225,7 @@ const HireSalesforcePage = () => {
                     <div className="logo-item-static">
                         <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
                             <path d="M49.8 21.5c3.2-3.3 7.6-5.4 12.5-5.4 6 0 11.3 3.2 14.3 8 2.5-1.1 5.2-1.7 8.1-1.7 11.2 0 20.3 9.1 20.3 20.4 0 11.2-9.1 20.3-20.3 20.3-.9 0-1.8-.1-2.6-.2-2.7 5-7.9 8.4-14 8.4-2.5 0-4.9-.6-7-1.7-2.7 6-8.7 10.2-15.7 10.2-6.6 0-12.3-3.7-15.2-9.2-1.3.3-2.6.4-4 .4-9.8 0-17.7-7.9-17.7-17.7 0-6.6 3.6-12.4 9-15.5-.6-1.7-.9-3.5-.9-5.4 0-9.1 7.4-16.5 16.5-16.5 5.3 0 10 2.5 13 6.4" fill="#00A1E0"/>
-                            <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Arial, sans-serif" fontWeight="bold">Salesforce</text>
+                            <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Poppins, sans-serif" fontWeight="bold">Salesforce</text>
                         </svg>
                     </div>
                     {/* Slack */}
@@ -239,7 +238,7 @@ const HireSalesforcePage = () => {
                             <rect x="30" y="30" width="12" height="8" rx="4" fill="#2EB67D"/>
                             <rect x="42" y="22" width="8" height="8" rx="4" fill="#36C5F0"/>
                             <rect x="18" y="30" width="12" height="8" rx="4" fill="#36C5F0"/>
-                            <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="'Lato', Arial, sans-serif" fontWeight="bold">Slack</text>
+                            <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="Poppins, sans-serif" fontWeight="bold">Slack</text>
                         </svg>
                     </div>
                     {/* MuleSoft */}
@@ -247,7 +246,7 @@ const HireSalesforcePage = () => {
                         <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="MuleSoft">
                             <circle cx="30" cy="30" r="14" fill="#00A0DF"/>
                             <circle cx="30" cy="30" r="7" fill="#fff"/>
-                            <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="bold">MuleSoft</text>
+                            <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">MuleSoft</text>
                         </svg>
                     </div>
                     {/* Tableau */}
@@ -257,7 +256,7 @@ const HireSalesforcePage = () => {
                             <rect x="19" y="20" width="20" height="6" fill="#E8762D"/>
                             <rect x="42" y="20" width="6" height="26" fill="#5B9BD5"/>
                             <rect x="36" y="26" width="18" height="6" fill="#5B9BD5"/>
-                            <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="bold">Tableau</text>
+                            <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Tableau</text>
                         </svg>
                     </div>
                     {/* Heroku */}
@@ -266,7 +265,7 @@ const HireSalesforcePage = () => {
                             <rect x="16" y="8" width="24" height="44" rx="6" fill="#6762A6"/>
                             <path d="M24 42 L24 28 L33 36 Z" fill="#fff"/>
                             <path d="M28 20 Q32 16 36 20" stroke="#fff" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                            <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Arial, sans-serif" fontWeight="bold">Heroku</text>
+                            <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Heroku</text>
                         </svg>
                     </div>
                     {/* AWS */}
@@ -274,8 +273,8 @@ const HireSalesforcePage = () => {
                         <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="AWS">
                             <path d="M20 38 Q30 45 40 38 Q30 50 20 38Z" fill="#FF9900"/>
                             <path d="M18 36 L30 32 L42 36" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                            <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Arial, sans-serif" fontWeight="bold">AWS</text>
-                            <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Arial, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
+                            <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Poppins, sans-serif" fontWeight="bold">AWS</text>
+                            <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Poppins, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
                         </svg>
                     </div>
                 </div>
@@ -297,12 +296,12 @@ const HireSalesforcePage = () => {
                     {/* Bento Grid */}
                     <div className="bento-grid">
                         {[
-                            { title: "Custom CRM Solutions", icon: "💎", num: "01", desc: "We architect tailored Salesforce instances designed around your unique business workflows for maximum efficiency.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"], featured: true },
-                            { title: "Lightning Web Components", icon: "⚡", num: "02", desc: "Fast, responsive UX/UI built on the modern LWC framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"], featured: false },
-                            { title: "AppExchange Development", icon: "🚀", num: "03", desc: "End-to-end development of robust AppExchange products that pass security reviews.", tags: ["Product Engineering", "Security Review", "Publishing"], featured: false },
-                            { title: "Enterprise Integration", icon: "🔗", num: "04", desc: "Seamless connectivity between Salesforce and your enterprise tech stack using MuleSoft and APIs.", tags: ["MuleSoft", "API Hub", "Middleware"], featured: false },
-                            { title: "Migration & Data Upgrades", icon: "📤", num: "05", desc: "Risk-free, zero-downtime data transitions from legacy CRM systems into modern Lightning.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"], featured: false },
-                            { title: "Consulting & Strategy", icon: "📊", num: "06", desc: "Strategic roadmaps, environment audits, and execution plans to maximize your Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"], featured: true }
+                            { title: "Custom CRM Solutions", icon: "crm", num: "01", desc: "We architect tailored Salesforce instances designed around your unique business workflows for maximum efficiency.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"], featured: true },
+                            { title: "Lightning Web Components", icon: "lwc", num: "02", desc: "Fast, responsive UX/UI built on the modern LWC framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"], featured: false },
+                            { title: "AppExchange Development", icon: "appx", num: "03", desc: "End-to-end development of robust AppExchange products that pass security reviews.", tags: ["Product Engineering", "Security Review", "Publishing"], featured: false },
+                            { title: "Enterprise Integration", icon: "integration", num: "04", desc: "Seamless connectivity between Salesforce and your enterprise tech stack using MuleSoft and APIs.", tags: ["MuleSoft", "API Hub", "Middleware"], featured: false },
+                            { title: "Migration & Data Upgrades", icon: "migration", num: "05", desc: "Risk-free, zero-downtime data transitions from legacy CRM systems into modern Lightning.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"], featured: false },
+                            { title: "Consulting & Strategy", icon: "strategy", num: "06", desc: "Strategic roadmaps, environment audits, and execution plans to maximize your Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"], featured: true }
                         ].map((service, i) => (
                             <div
                                 key={i}
@@ -329,7 +328,7 @@ const HireSalesforcePage = () => {
                                 <div className="bento-card-border"></div>
                                 <div className="bento-card-inner">
                                     <span className="bento-num">{service.num}</span>
-                                    <div className="bento-icon">{service.icon}</div>
+                                    <div className="bento-icon">{renderBentoIcon(service.icon)}</div>
                                     <h3 className="bento-card-title">{service.title}</h3>
                                     <p className="bento-card-desc">{service.desc}</p>
                                     <div className="bento-card-footer">
