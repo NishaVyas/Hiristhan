@@ -86,6 +86,9 @@ const HireSalesforcePage = () => {
         }
     ];
 
+    const renderedBlogPosts = [...blogPosts, ...blogPosts];
+    const blogTranslate = activeBlogSlide * (100 / renderedBlogPosts.length);
+
     const handlePrevBlog = () => {
         setActiveBlogSlide((prev) => (prev === 0 ? blogPosts.length - 1 : prev - 1));
     };
@@ -101,6 +104,38 @@ const HireSalesforcePage = () => {
 
         return () => clearInterval(intervalId);
     }, [blogPosts.length]);
+
+    const skillIconMap = {
+        // Salesforce Platforms
+        "Customer 360 Platform": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
+        "Force.com": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>,
+        "Heroku": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 10l6-4"/><path d="M9 14h6"/></svg>,
+        "Salesforce Mobile App": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>,
+        "Lightning Experience": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>,
+        "Salesforce Data Cloud": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10a6 6 0 0 0-12 0"/><path d="M6 10a6 6 0 0 0 6 6 6 6 0 0 0 6-6"/><path d="M8 14h8"/><path d="M12 6v4"/></svg>,
+        "Industries Cloud like Vlocity/Omnistudio": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="5" height="14" rx="1"/><rect x="9.5" y="3" width="5" height="18" rx="1"/><rect x="17" y="10" width="5" height="11" rx="1"/></svg>,
+        "Hyperforce (Infrastructure knowledge)": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="5" rx="1.5"/><rect x="2" y="10" width="20" height="5" rx="1.5"/><rect x="2" y="17" width="20" height="4" rx="1.5"/><circle cx="18" cy="5.5" r="0.8" fill="currentColor"/><circle cx="18" cy="12.5" r="0.8" fill="currentColor"/></svg>,
+        "Tableau": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20V10"/><path d="M8 20V4"/><path d="M12 20v-7"/><path d="M16 20V8"/><path d="M20 20v-4"/></svg>,
+        "Agentforce vibes": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9.5" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="14.5" cy="13.5" r="1.2" fill="currentColor" stroke="none"/><path d="M9 17h6"/></svg>,
+        // Integration & API
+        "MuleSoft": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 12h4l2-5h2"/><path d="M13 12l2 5h2"/></svg>,
+        "REST/SOAP APIs": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13l4-4"/><path d="M8 17l-2 1a3 3 0 01-4-4l1-2"/><path d="M16 7l2-1a3 3 0 114 4l-1 2"/></svg>,
+        "Platform Events": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>,
+        "Change Data Capture": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>,
+        "Data Loader": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><rect x="4" y="17" width="16" height="4" rx="1.5"/></svg>,
+        // AI & Automation
+        "Einstein AI": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9.5 2A7 7 0 0 0 3 9c0 3.2 2.1 5.9 5 6.7V18h8v-2.3c2.9-.8 5-3.5 5-6.7A7 7 0 0 0 14.5 2z"/><path d="M9 18v3"/><path d="M15 18v3"/><path d="M9 21h6"/><circle cx="9.5" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="9" r="1" fill="currentColor" stroke="none"/></svg>,
+        "Flow Builder": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="5" height="4" rx="1"/><rect x="16" y="9" width="5" height="4" rx="1"/><rect x="3" y="17" width="5" height="4" rx="1"/><path d="M8 5h5a3 3 0 0 1 3 3v1"/><path d="M8 19h5a3 3 0 0 0 3-3v-1"/></svg>,
+        "Apex Triggers": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
+        "Next Best Action": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>,
+        "OmniStudio": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="5" rx="1.5"/><rect x="2" y="10" width="20" height="5" rx="1.5"/><rect x="2" y="17" width="20" height="4" rx="1.5"/></svg>,
+        // Dev Tools
+        "Salesforce CLI": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 9l3 3-3 3"/><path d="M13 15h4"/></svg>,
+        "VS Code": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3L8 12l9 9"/><path d="M3 6l5 6-5 6"/></svg>,
+        "GitHub Actions": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>,
+        "Scratch Orgs": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>,
+        "SFDX": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>,
+    };
 
     const renderBentoIcon = (iconName) => {
         switch (iconName) {
@@ -172,7 +207,6 @@ const HireSalesforcePage = () => {
                 <div className="container unique-hero-container">
                     <div className="hero-content">
                         <div className="hero-badge animate-up">
-                            <span className="badge-icon">✨</span>
                             <span className="badge-text">Premium Salesforce Talent Network</span>
                         </div>
                         
@@ -488,7 +522,7 @@ const HireSalesforcePage = () => {
                                     <div key={i} className="expertise-card" style={{ animationDelay: `${i * 0.05}s` }}>
                                         <div className="card-glare"></div>
                                         <div className="expertise-icon">
-                                            {activeTab === 0 ? "☁️" : activeTab === 1 ? "🔗" : activeTab === 2 ? "🤖" : "⚙️"}
+                                            {skillIconMap[skill] || <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>}
                                         </div>
                                         <span className="expertise-skill-name">{skill}</span>
                                     </div>
@@ -503,10 +537,7 @@ const HireSalesforcePage = () => {
             <section className="testimonials-section">
                 <div className="container">
                     <div className="section-header testimonials-header animate-up">
-                        <span className="testimonials-kicker">
-                            <span className="kicker-dot"></span>
-                            Testimonials
-                        </span>
+                        <span className="bento-label">Testimonials</span>
                         <h2 className="testimonials-title">Success Stories</h2>
                         <p className="section-sub testimonials-sub">Hear from industry leaders who scaled their Salesforce teams with us.</p>
                     </div>
@@ -550,11 +581,30 @@ const HireSalesforcePage = () => {
             {/* CTA Section */}
             <section className="cta-banner-section">
                 <div className="container">
-                    <h2 className="animate-up gradient-heading">CTA</h2>
-                    <div className="cta-content animate-up">
-                        <h3>Access Our Pool of Verified Salesforce Experts Ready to Join Your Team</h3>
-                        <p>Meet pre-screened Salesforce experts with comprehensive platform knowledge, verified experience, and relevant certifications.</p>
-                        <button className="cta-button-green">Contact Us</button>
+                    <div className="cta-inner">
+                        <div className="cta-text-col animate-up">
+                            <span className="bento-label">Get Started</span>
+                            <h2 className="cta-main-heading">Access Our Pool of Verified Salesforce<br/><span className="cta-heading-accent">Experts Ready to Join Your Team</span></h2>
+                            <p className="cta-desc">Meet pre-screened Salesforce experts with comprehensive platform knowledge, verified experience, and relevant certifications.</p>
+                            <div className="cta-actions">
+                                <button className="cta-button-primary">Contact Us &rarr;</button>
+                                <button className="cta-button-outline">View Talent Pool</button>
+                            </div>
+                            <div className="cta-trust">
+                                <span className="cta-trust-item">✓ No long-term contracts</span>
+                                <span className="cta-trust-item">✓ 7-day free trial</span>
+                                <span className="cta-trust-item">✓ Certified developers</span>
+                            </div>
+                        </div>
+                        <div className="cta-img-col animate-up">
+                            <div className="cta-img-frame">
+                                <img src={serviceImage} alt="Salesforce experts collaborating" className="cta-img" />
+                                <div className="cta-img-badge">
+                                    <span className="cta-badge-num">500+</span>
+                                    <span className="cta-badge-text">Vetted Experts</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -563,8 +613,10 @@ const HireSalesforcePage = () => {
             <section className="resources-section">
                 <div className="container">
                     <div className="section-header resources-header-alt animate-up">
-                        <span className="resources-kicker">Scale Further</span>
-                        <h2 className="resources-heading-alt">Hire More Salesforce Experts</h2>
+                        <h2 className="resources-heading-alt">
+                            <span className="resources-heading-line">Hire More Salesforce</span>
+                            <span className="resources-heading-accent">Experts</span>
+                        </h2>
                         <p className="section-sub resources-sub-alt">Beyond developers, we provide specialized talent to optimize every aspect of your Salesforce ecosystem.</p>
                     </div>
                     <div className="resources-premium-grid">
@@ -639,7 +691,10 @@ const HireSalesforcePage = () => {
                 <div className="container">
                     <div className="section-header blogs-header animate-up">
                         <span className="blogs-kicker">Knowledge Center</span>
-                        <h2 className="blogs-heading">Expert Insights & Updates</h2>
+                        <h2 className="blogs-heading">
+                            <span className="blogs-heading-line">Expert Insights &</span>
+                            <span className="blogs-heading-accent">Updates</span>
+                        </h2>
                     </div>
                     <div className="blogs-carousel animate-up">
                         <button className="blog-nav-btn prev" onClick={handlePrevBlog} aria-label="Previous blog">
@@ -647,8 +702,8 @@ const HireSalesforcePage = () => {
                         </button>
 
                         <div className="blogs-viewport">
-                            <div className="blogs-track" style={{ transform: `translateX(-${activeBlogSlide * 100}%)` }}>
-                                {blogPosts.map((blog, i) => (
+                            <div className="blogs-track" style={{ transform: `translateX(-${blogTranslate}%)` }}>
+                                {renderedBlogPosts.map((blog, i) => (
                                     <div key={i} className="blog-slide">
                                         <div className="blog-card-premium">
                                 <div className="blog-img-container">
