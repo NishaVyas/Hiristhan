@@ -2471,12 +2471,13 @@
 /* ===== LIGHT & ELEGANT TECH STACK SECTION ===== */
 .tech-stack-section {
     position: relative;
-    padding: 48px 0 72px;
+    padding: 32px 0 8px;
     background: #ffffff;
     color: #1a202c;
     --tech-stack-scroll-distance: 0px;
     --tech-stack-scroll-progress: 0;
-    min-height: 100vh;
+    animation: none !important;
+    transform: none !important;
 }
 
 .tech-stack-section::before {
@@ -2515,6 +2516,7 @@
 .tech-stack-sticky {
     position: sticky;
     top: 108px;
+    align-self: start;
 }
 
 .tech-stack-label {
@@ -2572,6 +2574,7 @@
 
 .tech-stack-scroll-area {
     position: relative;
+    align-self: start;
 }
 
 .tech-stack-viewport {
@@ -2580,6 +2583,7 @@
     height: min(640px, calc(100vh - 140px));
     overflow: hidden;
     padding-bottom: 8px;
+    align-self: start;
 }
 
 .tech-stack-intro {

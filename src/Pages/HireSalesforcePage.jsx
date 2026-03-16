@@ -15,6 +15,7 @@ const HireSalesforcePage = () => {
     const [activeBlogSlide, setActiveBlogSlide] = useState(0);
     const serviceCardsRef = useRef([]);
     const techStackSectionRef = useRef(null);
+    const techStackScrollAreaRef = useRef(null);
     const techStackViewportRef = useRef(null);
     const techStackRailRef = useRef(null);
 
@@ -110,10 +111,11 @@ const HireSalesforcePage = () => {
 
     useEffect(() => {
         const section = techStackSectionRef.current;
+        const scrollArea = techStackScrollAreaRef.current;
         const viewport = techStackViewportRef.current;
         const rail = techStackRailRef.current;
 
-        if (!section || !viewport || !rail) {
+        if (!section || !scrollArea || !viewport || !rail) {
             return undefined;
         }
 
@@ -123,13 +125,13 @@ const HireSalesforcePage = () => {
             if (window.innerWidth <= 1024) {
                 section.style.removeProperty('--tech-stack-scroll-distance');
                 section.style.removeProperty('--tech-stack-scroll-progress');
-                section.style.minHeight = '';
+                scrollArea.style.height = '';
                 return;
             }
 
             const scrollDistance = Math.max(0, rail.scrollHeight - viewport.clientHeight);
             section.style.setProperty('--tech-stack-scroll-distance', `${scrollDistance}px`);
-            section.style.minHeight = `${viewport.clientHeight + scrollDistance + 180}px`;
+            scrollArea.style.height = `${viewport.clientHeight + scrollDistance}px`;
         };
 
         const updateScrollProgress = () => {
@@ -145,8 +147,8 @@ const HireSalesforcePage = () => {
             }
 
             const stickyTop = 108;
-            const sectionRect = section.getBoundingClientRect();
-            const traveled = Math.min(Math.max(stickyTop - sectionRect.top, 0), scrollDistance);
+            const scrollAreaRect = scrollArea.getBoundingClientRect();
+            const traveled = Math.min(Math.max(stickyTop - scrollAreaRect.top, 0), scrollDistance);
             section.style.setProperty('--tech-stack-scroll-progress', `${traveled / scrollDistance}`);
         };
 
@@ -548,7 +550,7 @@ const HireSalesforcePage = () => {
                 </div>
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="tech-stack-layout">
-                        <div className="tech-stack-header tech-stack-sticky animate-up">
+                        <div className="tech-stack-header tech-stack-sticky">
                             <span className="tech-stack-label">Our Expertise</span>
                             <h2 className="tech-stack-heading">
                                 <span className="tech-stack-heading-main">Salesforce Technologies</span>
@@ -557,7 +559,7 @@ const HireSalesforcePage = () => {
                             <p className="tech-stack-intro">Explore the Salesforce capabilities we use to design scalable platforms, automate workflows, and deliver enterprise-grade customer experiences.</p>
                         </div>
 
-                        <div className="tech-stack-scroll-area">
+                        <div className="tech-stack-scroll-area" ref={techStackScrollAreaRef}>
                         <div className="tech-stack-viewport" ref={techStackViewportRef}>
                         <div className="tech-stack-rail" ref={techStackRailRef}>
                         {[
