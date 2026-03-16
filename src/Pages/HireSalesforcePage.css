@@ -1664,7 +1664,7 @@
 
 /* CTA Banner Section */
 .cta-banner-section {
-    padding: 72px 0;
+    padding: 100px 0;
     background: linear-gradient(135deg, #f0f7f4 0%, #e8f5ef 50%, #f7faf9 100%);
     position: relative;
     overflow: hidden;
@@ -1806,6 +1806,7 @@
 }
 
 @media (max-width: 900px) {
+    .cta-banner-section { padding: 84px 0; }
     .cta-inner { flex-direction: column; }
     .cta-img-col { flex: unset; width: 100%; }
     .cta-text-col { align-items: center; text-align: center; }
