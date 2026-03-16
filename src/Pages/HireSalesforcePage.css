@@ -1181,7 +1181,7 @@
     position: relative;
     max-width: 1150px;
     margin: 0 auto;
-    padding: 8px 0 10px;
+    padding: 0 0 10px;
     display: grid;
     grid-template-columns: repeat(4, minmax(220px, 1fr));
     gap: 20px;
@@ -1189,7 +1189,7 @@
 
 .timeline-track {
     position: absolute;
-    top: 64px;
+    top: 29px;
     left: 8%;
     right: 8%;
     height: 2px;
