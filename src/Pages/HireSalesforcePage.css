@@ -258,6 +258,14 @@
     font-weight: 700;
 }
 
+.hero-highlight-inline {
+    color: #0D4D3A;
+}
+
+.hero-highlight-final {
+    margin-top: 0;
+}
+
 .hero-description {
     font-size: 1.05rem;
     color: #4a5568;
