@@ -14,6 +14,9 @@ const HireSalesforcePage = () => {
     const [openFaq, setOpenFaq] = useState(null);
     const [activeBlogSlide, setActiveBlogSlide] = useState(0);
     const serviceCardsRef = useRef([]);
+    const techStackSectionRef = useRef(null);
+    const techStackViewportRef = useRef(null);
+    const techStackRailRef = useRef(null);
 
     const toggleFaq = (index) => {
         setOpenFaq(openFaq === index ? null : index);
@@ -104,6 +107,72 @@ const HireSalesforcePage = () => {
 
         return () => clearInterval(intervalId);
     }, [blogPosts.length]);
+
+    useEffect(() => {
+        const section = techStackSectionRef.current;
+        const viewport = techStackViewportRef.current;
+        const rail = techStackRailRef.current;
+
+        if (!section || !viewport || !rail) {
+            return undefined;
+        }
+
+        let animationFrameId = null;
+
+        const updateMetrics = () => {
+            if (window.innerWidth <= 1024) {
+                section.style.removeProperty('--tech-stack-scroll-distance');
+                section.style.removeProperty('--tech-stack-scroll-progress');
+                section.style.minHeight = '';
+                return;
+            }
+
+            const scrollDistance = Math.max(0, rail.scrollHeight - viewport.clientHeight);
+            section.style.setProperty('--tech-stack-scroll-distance', `${scrollDistance}px`);
+            section.style.minHeight = `${viewport.clientHeight + scrollDistance + 180}px`;
+        };
+
+        const updateScrollProgress = () => {
+            if (window.innerWidth <= 1024) {
+                section.style.removeProperty('--tech-stack-scroll-progress');
+                return;
+            }
+
+            const scrollDistance = parseFloat(section.style.getPropertyValue('--tech-stack-scroll-distance')) || 0;
+            if (!scrollDistance) {
+                section.style.setProperty('--tech-stack-scroll-progress', '0');
+                return;
+            }
+
+            const stickyTop = 108;
+            const sectionRect = section.getBoundingClientRect();
+            const traveled = Math.min(Math.max(stickyTop - sectionRect.top, 0), scrollDistance);
+            section.style.setProperty('--tech-stack-scroll-progress', `${traveled / scrollDistance}`);
+        };
+
+        const requestUpdate = () => {
+            if (animationFrameId !== null) {
+                cancelAnimationFrame(animationFrameId);
+            }
+
+            animationFrameId = requestAnimationFrame(() => {
+                updateMetrics();
+                updateScrollProgress();
+            });
+        };
+
+        requestUpdate();
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate);
+
+        return () => {
+            if (animationFrameId !== null) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            window.removeEventListener('scroll', requestUpdate);
+            window.removeEventListener('resize', requestUpdate);
+        };
+    }, []);
 
     const skillIconMap = {
         // Salesforce Platforms
@@ -472,21 +541,25 @@ const HireSalesforcePage = () => {
 
 
             {/* Elegant Tech Stack Section */}
-            <section className="tech-stack-section">
+            <section className="tech-stack-section" ref={techStackSectionRef}>
                 <div className="tech-stack-bg">
                     <div className="tech-glow glow-1"></div>
                     <div className="tech-glow glow-2"></div>
                 </div>
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                    <div className="tech-stack-header animate-up">
-                        <span className="tech-stack-label">Our Expertise</span>
-                        <h2 className="tech-stack-heading">
-                            <span className="tech-stack-heading-main">Salesforce Technologies</span>
-                            <span className="tech-stack-heading-accent">We Specialize In</span>
-                        </h2>
-                    </div>
-                    
-                    <div className="tech-stack-grid">
+                    <div className="tech-stack-layout">
+                        <div className="tech-stack-header tech-stack-sticky animate-up">
+                            <span className="tech-stack-label">Our Expertise</span>
+                            <h2 className="tech-stack-heading">
+                                <span className="tech-stack-heading-main">Salesforce Technologies</span>
+                                <span className="tech-stack-heading-accent">We Specialize In</span>
+                            </h2>
+                            <p className="tech-stack-intro">Explore the Salesforce capabilities we use to design scalable platforms, automate workflows, and deliver enterprise-grade customer experiences.</p>
+                        </div>
+
+                        <div className="tech-stack-scroll-area">
+                        <div className="tech-stack-viewport" ref={techStackViewportRef}>
+                        <div className="tech-stack-rail" ref={techStackRailRef}>
                         {[
                             { name: "Sales Cloud", icon: "salesCloud", desc: "Drive growth with AI-powered sales automation and complete customer lifecycle management." },
                             { name: "Service Cloud", icon: "serviceCloud", desc: "Deliver personalized, intelligent service experiences across every channel." },
@@ -496,12 +569,17 @@ const HireSalesforcePage = () => {
                             { name: "Salesforce Shield", icon: "shield", desc: "Enhance trust, compliance, and governance with premium platform encryption." }
                         ].map((tech, i) => (
                             <div key={i} className="tech-stack-card animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
+                                <div className="tech-stack-card-num">0{i + 1}</div>
                                 <div className="tech-stack-icon">{renderTechStackIcon(tech.icon)}</div>
-                                <h3 className="tech-stack-title">{tech.name}</h3>
-                                <p className="tech-stack-desc">{tech.desc}</p>
-                                <div className="tech-stack-border"></div>
+                                <div className="tech-stack-copy">
+                                    <h3 className="tech-stack-title">{tech.name}</h3>
+                                    <p className="tech-stack-desc">{tech.desc}</p>
+                                </div>
                             </div>
                         ))}
+                        </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </section>
