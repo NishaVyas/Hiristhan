@@ -1669,8 +1669,10 @@
 }
 
 .test-role {
-    font-size: 0.9rem;
+    display: block;
+    font-size: 0.8rem;
     color: #718096;
+    white-space: nowrap;
 }
 
 /* CTA Banner Section */
