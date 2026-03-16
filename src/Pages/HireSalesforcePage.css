@@ -1190,8 +1190,8 @@
 .timeline-track {
     position: absolute;
     top: 29px;
-    left: 8%;
-    right: 8%;
+    left: calc(12.5% - 7.5px);
+    right: calc(12.5% - 7.5px);
     height: 2px;
     background: rgba(47, 111, 83, 0.2);
     z-index: 1;
@@ -1283,8 +1283,8 @@
         scrollbar-width: thin;
     }
     .timeline-track {
-        left: 40px;
-        right: 40px;
+        left: calc(12.5% - 7.5px);
+        right: calc(12.5% - 7.5px);
     }
 }
 
