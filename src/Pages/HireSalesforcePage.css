@@ -571,9 +571,9 @@
 .bento-card {
     position: relative;
     border-radius: 16px;
-    background: #3C5E50;
+    background: #2F6F53;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 4px solid #3C5E50;
+    border-left: 4px solid #2F6F53;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
     cursor: pointer;
     overflow: hidden;
@@ -611,7 +611,7 @@
 /* Featured card spans 2 columns */
 .bento-featured {
     grid-column: span 2;
-    background: #3C5E50 !important;
+    background: #2F6F53 !important;
 }
 
 .bento-grid .bento-card.bento-featured:last-child {
@@ -624,7 +624,7 @@
     inset: 0;
     border-radius: 16px;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(60, 94, 80, 0), rgba(60, 94, 80, 0.4), rgba(60, 94, 80, 0));
+    background: linear-gradient(135deg, rgba(47, 111, 83, 0), rgba(47, 111, 83, 0.4), rgba(47, 111, 83, 0));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -649,9 +649,9 @@
 }
 
 .bento-card:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 40px rgba(60, 94, 80, 0.2);
-    border-left-color: #3C5E50;
-    background: #3C5E50;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 40px rgba(47, 111, 83, 0.2);
+    border-left-color: #2F6F53;
+    background: #2F6F53;
 }
 
 /* Card Inner */
@@ -1239,8 +1239,23 @@
 }
 
 .timeline-icon {
-    font-size: 1.45rem;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2F6F53;
     margin-bottom: 12px;
+}
+
+.timeline-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .timeline-card h3 {
@@ -2549,8 +2564,19 @@
     border: 1px solid rgba(45, 106, 79, 0.1);
     border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.35rem; margin-bottom: 16px;
+    color: #2F6F53;
+    margin-bottom: 16px;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease;
+}
+
+.tech-stack-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .tech-stack-card:hover .tech-stack-icon {

@@ -192,6 +192,95 @@ const HireSalesforcePage = () => {
         }
     };
 
+    const renderTechStackIcon = (iconName) => {
+        switch (iconName) {
+            case 'salesCloud':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 20V10"></path>
+                        <path d="M8 20V4"></path>
+                        <path d="M12 20v-7"></path>
+                        <path d="M16 20V8"></path>
+                        <path d="M20 20v-4"></path>
+                    </svg>
+                );
+            case 'serviceCloud':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                );
+            case 'marketingCloud':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <line x1="12" y1="3" x2="12" y2="6"></line>
+                        <line x1="12" y1="18" x2="12" y2="21"></line>
+                        <line x1="3" y1="12" x2="6" y2="12"></line>
+                        <line x1="18" y1="12" x2="21" y2="12"></line>
+                    </svg>
+                );
+            case 'lwc':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M13 2L4 14h6l-1 8 9-12h-6z"></path>
+                    </svg>
+                );
+            case 'apex':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5v14"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                    </svg>
+                );
+            case 'shield':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"></path>
+                    </svg>
+                );
+            default:
+                return null;
+        }
+    };
+
+    const renderTimelineIcon = (iconName) => {
+        switch (iconName) {
+            case 'discovery':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="M21 21l-4.3-4.3"></path>
+                    </svg>
+                );
+            case 'matching':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 8l4 4 4-4"></path>
+                        <path d="M8 16l4-4 4 4"></path>
+                    </svg>
+                );
+            case 'vetting':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7"></path>
+                    </svg>
+                );
+            case 'onboarding':
+                return (
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                    </svg>
+                );
+            default:
+                return null;
+        }
+    };
+
     return (
         <div className="salesforce-page">
             <Navbar />
@@ -211,8 +300,8 @@ const HireSalesforcePage = () => {
                         </div>
                         
                         <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
-                            <span className="hero-heading-line">Transform Your Vision Into Reality With</span>
-                            <span className="hero-highlight">Elite Salesforce Developers</span>
+                            <span className="hero-heading-line">Transform Your Vision Into Reality</span>
+                            <span className="hero-highlight">With Elite Salesforce Developers</span>
                         </h1>
 
                         <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>
@@ -398,15 +487,15 @@ const HireSalesforcePage = () => {
                     
                     <div className="tech-stack-grid">
                         {[
-                            { name: "Sales Cloud", icon: "📊", desc: "Drive growth with AI-powered sales automation and complete customer lifecycle management." },
-                            { name: "Service Cloud", icon: "🎧", desc: "Deliver personalized, intelligent service experiences across every channel." },
-                            { name: "Marketing Cloud", icon: "🎯", desc: "Create 1-to-1 customer journeys and optimize multi-channel campaigns." },
-                            { name: "Lightning Web Components", icon: "⚡", desc: "Build lightning-fast, enterprise-grade custom UI with modern web standards." },
-                            { name: "Apex & Visualforce", icon: "⚙️", desc: "Develop robust backend logic and complex server-side architectures." },
-                            { name: "Salesforce Shield", icon: "🛡️", desc: "Enhance trust, compliance, and governance with premium platform encryption." }
+                            { name: "Sales Cloud", icon: "salesCloud", desc: "Drive growth with AI-powered sales automation and complete customer lifecycle management." },
+                            { name: "Service Cloud", icon: "serviceCloud", desc: "Deliver personalized, intelligent service experiences across every channel." },
+                            { name: "Marketing Cloud", icon: "marketingCloud", desc: "Create 1-to-1 customer journeys and optimize multi-channel campaigns." },
+                            { name: "Lightning Web Components", icon: "lwc", desc: "Build lightning-fast, enterprise-grade custom UI with modern web standards." },
+                            { name: "Apex & Visualforce", icon: "apex", desc: "Develop robust backend logic and complex server-side architectures." },
+                            { name: "Salesforce Shield", icon: "shield", desc: "Enhance trust, compliance, and governance with premium platform encryption." }
                         ].map((tech, i) => (
                             <div key={i} className="tech-stack-card animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
-                                <div className="tech-stack-icon">{tech.icon}</div>
+                                <div className="tech-stack-icon">{renderTechStackIcon(tech.icon)}</div>
                                 <h3 className="tech-stack-title">{tech.name}</h3>
                                 <p className="tech-stack-desc">{tech.desc}</p>
                                 <div className="tech-stack-border"></div>
@@ -472,17 +561,17 @@ const HireSalesforcePage = () => {
                     <div className="steps-timeline">
                         <div className="timeline-track"></div>
                         {[
-                            { step: "01", title: "Requirement Discovery", icon: "🔍", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
-                            { step: "02", title: "Expert Matching", icon: "🧩", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
-                            { step: "03", title: "Interview & Vetting", icon: "✅", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
-                            { step: "04", title: "Seamless Onboarding", icon: "🚀", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
+                            { step: "01", title: "Requirement Discovery", icon: "discovery", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
+                            { step: "02", title: "Expert Matching", icon: "matching", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
+                            { step: "03", title: "Interview & Vetting", icon: "vetting", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
+                            { step: "04", title: "Seamless Onboarding", icon: "onboarding", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
                         ].map((item, i) => (
                             <div key={i} className="timeline-step animate-up" style={{ animationDelay: `${i * 0.12}s` }}>
                                 <div className="timeline-point">
                                     <span className="timeline-step-num">{item.step}</span>
                                 </div>
                                 <div className="timeline-card">
-                                    <div className="timeline-icon">{item.icon}</div>
+                                    <div className="timeline-icon">{renderTimelineIcon(item.icon)}</div>
                                     <h3>{item.title}</h3>
                                     <p>{item.text}</p>
                                 </div>
