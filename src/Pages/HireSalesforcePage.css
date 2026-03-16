@@ -1605,6 +1605,8 @@
     border-radius: 24px;
     padding: 40px;
     position: relative;
+    display: flex;
+    flex-direction: column;
     transition: all 0.4s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
@@ -1638,6 +1640,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-top: auto;
 }
 
 .test-avatar {
