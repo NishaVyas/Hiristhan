@@ -2518,7 +2518,7 @@
     align-self: flex-start;
     z-index: 10;
     background: linear-gradient(-45deg, #f8fafc, #edf2f7, #fdfbf7, #f8fafc);
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 24px;
 }
 
