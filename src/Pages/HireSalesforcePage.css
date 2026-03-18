@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 .salesforce-page {
     font-family: 'Poppins', sans-serif;
@@ -17,7 +18,27 @@
 
 .salesforce-page,
 .salesforce-page * {
-    font-family: unset !important;
+    font-family: inherit;
+}
+
+.salesforce-page p,
+.hero-description,
+.bento-sub,
+.bento-card-desc,
+.tech-stack-intro,
+.tech-stack-desc,
+.engagement-sub,
+.engagement-features li,
+.timeline-card p,
+.expertise-sub,
+.test-text,
+.test-role,
+.cta-desc,
+.resources-sub-alt,
+.res-card-desc,
+.faq-answer,
+.blog-desc-premium {
+    font-family: 'Work Sans', sans-serif !important;
 }
 
 /* Ambient Floating Background Orbs */
