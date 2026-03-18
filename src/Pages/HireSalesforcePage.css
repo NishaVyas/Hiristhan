@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 .salesforce-page {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     --brand-green: #0D4D3A;
     color: #1a202c;
     background: linear-gradient(-45deg, #f8fafc, #edf2f7, #fdfbf7, #f8fafc);
@@ -18,26 +18,6 @@
 
 .salesforce-page,
 .salesforce-page * {
-    font-family: inherit;
-}
-
-.salesforce-page p,
-.hero-description,
-.bento-sub,
-.bento-card-desc,
-.tech-stack-intro,
-.tech-stack-desc,
-.engagement-sub,
-.engagement-features li,
-.timeline-card p,
-.expertise-sub,
-.test-text,
-.test-role,
-.cta-desc,
-.resources-sub-alt,
-.res-card-desc,
-.faq-answer,
-.blog-desc-premium {
     font-family: 'Work Sans', sans-serif !important;
 }
 
