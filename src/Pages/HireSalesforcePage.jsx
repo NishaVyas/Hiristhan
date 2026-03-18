@@ -415,63 +415,67 @@ const HireSalesforcePage = () => {
 
             {/* Logos Section */}
             <section className="logos-section">
-                <div className="logos-grid-static animate-up">
-                    {/* Salesforce */}
-                    <div className="logo-item-static">
-                        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
-                            <path d="M49.8 21.5c3.2-3.3 7.6-5.4 12.5-5.4 6 0 11.3 3.2 14.3 8 2.5-1.1 5.2-1.7 8.1-1.7 11.2 0 20.3 9.1 20.3 20.4 0 11.2-9.1 20.3-20.3 20.3-.9 0-1.8-.1-2.6-.2-2.7 5-7.9 8.4-14 8.4-2.5 0-4.9-.6-7-1.7-2.7 6-8.7 10.2-15.7 10.2-6.6 0-12.3-3.7-15.2-9.2-1.3.3-2.6.4-4 .4-9.8 0-17.7-7.9-17.7-17.7 0-6.6 3.6-12.4 9-15.5-.6-1.7-.9-3.5-.9-5.4 0-9.1 7.4-16.5 16.5-16.5 5.3 0 10 2.5 13 6.4" fill="#00A1E0"/>
-                            <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Poppins, sans-serif" fontWeight="bold">Salesforce</text>
-                        </svg>
-                    </div>
-                    {/* Slack */}
-                    <div className="logo-item-static">
-                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Slack">
-                            <rect x="18" y="22" width="8" height="16" rx="4" fill="#E01E5A"/>
-                            <rect x="30" y="22" width="16" height="8" rx="4" fill="#E01E5A"/>
-                            <rect x="30" y="14" width="8" height="8" rx="4" fill="#ECB22E"/>
-                            <rect x="42" y="30" width="8" height="16" rx="4" fill="#2EB67D"/>
-                            <rect x="30" y="30" width="12" height="8" rx="4" fill="#2EB67D"/>
-                            <rect x="42" y="22" width="8" height="8" rx="4" fill="#36C5F0"/>
-                            <rect x="18" y="30" width="12" height="8" rx="4" fill="#36C5F0"/>
-                            <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="Poppins, sans-serif" fontWeight="bold">Slack</text>
-                        </svg>
-                    </div>
-                    {/* MuleSoft */}
-                    <div className="logo-item-static">
-                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="MuleSoft">
-                            <circle cx="30" cy="30" r="14" fill="#00A0DF"/>
-                            <circle cx="30" cy="30" r="7" fill="#fff"/>
-                            <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">MuleSoft</text>
-                        </svg>
-                    </div>
-                    {/* Tableau */}
-                    <div className="logo-item-static">
-                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau">
-                            <rect x="26" y="10" width="6" height="40" fill="#E8762D"/>
-                            <rect x="19" y="20" width="20" height="6" fill="#E8762D"/>
-                            <rect x="42" y="20" width="6" height="26" fill="#5B9BD5"/>
-                            <rect x="36" y="26" width="18" height="6" fill="#5B9BD5"/>
-                            <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Tableau</text>
-                        </svg>
-                    </div>
-                    {/* Heroku */}
-                    <div className="logo-item-static">
-                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Heroku">
-                            <rect x="16" y="8" width="24" height="44" rx="6" fill="#6762A6"/>
-                            <path d="M24 42 L24 28 L33 36 Z" fill="#fff"/>
-                            <path d="M28 20 Q32 16 36 20" stroke="#fff" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                            <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Heroku</text>
-                        </svg>
-                    </div>
-                    {/* AWS */}
-                    <div className="logo-item-static">
-                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="AWS">
-                            <path d="M20 38 Q30 45 40 38 Q30 50 20 38Z" fill="#FF9900"/>
-                            <path d="M18 36 L30 32 L42 36" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                            <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Poppins, sans-serif" fontWeight="bold">AWS</text>
-                            <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Poppins, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
-                        </svg>
-                    </div>
+                <div className="logos-track animate-up">
+                    {[1, 2].map((setIndex) => (
+                        <div key={setIndex} className="logos-grid-static">
+                            {/* Salesforce */}
+                            <div className="logo-item-static">
+                                <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
+                                    <path d="M49.8 21.5c3.2-3.3 7.6-5.4 12.5-5.4 6 0 11.3 3.2 14.3 8 2.5-1.1 5.2-1.7 8.1-1.7 11.2 0 20.3 9.1 20.3 20.4 0 11.2-9.1 20.3-20.3 20.3-.9 0-1.8-.1-2.6-.2-2.7 5-7.9 8.4-14 8.4-2.5 0-4.9-.6-7-1.7-2.7 6-8.7 10.2-15.7 10.2-6.6 0-12.3-3.7-15.2-9.2-1.3.3-2.6.4-4 .4-9.8 0-17.7-7.9-17.7-17.7 0-6.6 3.6-12.4 9-15.5-.6-1.7-.9-3.5-.9-5.4 0-9.1 7.4-16.5 16.5-16.5 5.3 0 10 2.5 13 6.4" fill="#00A1E0"/>
+                                    <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Poppins, sans-serif" fontWeight="bold">Salesforce</text>
+                                </svg>
+                            </div>
+                            {/* Slack */}
+                            <div className="logo-item-static">
+                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Slack">
+                                    <rect x="18" y="22" width="8" height="16" rx="4" fill="#E01E5A"/>
+                                    <rect x="30" y="22" width="16" height="8" rx="4" fill="#E01E5A"/>
+                                    <rect x="30" y="14" width="8" height="8" rx="4" fill="#ECB22E"/>
+                                    <rect x="42" y="30" width="8" height="16" rx="4" fill="#2EB67D"/>
+                                    <rect x="30" y="30" width="12" height="8" rx="4" fill="#2EB67D"/>
+                                    <rect x="42" y="22" width="8" height="8" rx="4" fill="#36C5F0"/>
+                                    <rect x="18" y="30" width="12" height="8" rx="4" fill="#36C5F0"/>
+                                    <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="Poppins, sans-serif" fontWeight="bold">Slack</text>
+                                </svg>
+                            </div>
+                            {/* MuleSoft */}
+                            <div className="logo-item-static">
+                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="MuleSoft">
+                                    <circle cx="30" cy="30" r="14" fill="#00A0DF"/>
+                                    <circle cx="30" cy="30" r="7" fill="#fff"/>
+                                    <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">MuleSoft</text>
+                                </svg>
+                            </div>
+                            {/* Tableau */}
+                            <div className="logo-item-static">
+                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau">
+                                    <rect x="26" y="10" width="6" height="40" fill="#E8762D"/>
+                                    <rect x="19" y="20" width="20" height="6" fill="#E8762D"/>
+                                    <rect x="42" y="20" width="6" height="26" fill="#5B9BD5"/>
+                                    <rect x="36" y="26" width="18" height="6" fill="#5B9BD5"/>
+                                    <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Tableau</text>
+                                </svg>
+                            </div>
+                            {/* Heroku */}
+                            <div className="logo-item-static">
+                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Heroku">
+                                    <rect x="16" y="8" width="24" height="44" rx="6" fill="#6762A6"/>
+                                    <path d="M24 42 L24 28 L33 36 Z" fill="#fff"/>
+                                    <path d="M28 20 Q32 16 36 20" stroke="#fff" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                                    <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Heroku</text>
+                                </svg>
+                            </div>
+                            {/* AWS */}
+                            <div className="logo-item-static">
+                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="AWS">
+                                    <path d="M20 38 Q30 45 40 38 Q30 50 20 38Z" fill="#FF9900"/>
+                                    <path d="M18 36 L30 32 L42 36" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                                    <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Poppins, sans-serif" fontWeight="bold">AWS</text>
+                                    <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Poppins, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
+                                </svg>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
 
