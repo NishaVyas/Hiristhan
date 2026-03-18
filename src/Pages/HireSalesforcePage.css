@@ -2500,16 +2500,16 @@
 
 .tech-stack-layout {
     display: flex;
-    gap: 48px;
+    gap: clamp(80px, 12vw, 200px);
     align-items: flex-start;
     position: relative;
     z-index: 2;
 }
 
 .tech-stack-header {
-    width: 340px;
-    min-width: 280px;
-    max-width: 360px;
+    width: 300px;
+    min-width: 260px;
+    max-width: 320px;
 }
 
 .tech-stack-header.tech-stack-sticky {
@@ -2522,14 +2522,14 @@
 }
 
 .tech-stack-header {
-    width: 340px;
-    min-width: 280px;
-    max-width: 360px;
+    width: 300px;
+    min-width: 260px;
+    max-width: 320px;
 }
 
 .tech-stack-layout {
     display: flex;
-    gap: 48px;
+    gap: clamp(80px, 12vw, 200px);
     align-items: flex-start;
     position: relative;
     z-index: 2;
@@ -2637,26 +2637,27 @@
 .tech-stack-rail {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 14px;
     position: relative;
     z-index: 2;
     transform: translateY(calc(var(--tech-stack-scroll-progress) * -1 * var(--tech-stack-scroll-distance)));
     will-change: transform;
+    max-width: 580px;
 }
 
 .tech-stack-card {
     position: relative;
     background: #F6FBF9;
     border: 1px solid rgba(45, 106, 79, 0.08);
-    border-radius: 24px;
-    padding: 26px;
+    border-radius: 18px;
+    padding: 18px 20px;
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     cursor: pointer;
     overflow: hidden;
     display: grid;
     grid-template-columns: auto auto minmax(0, 1fr);
-    gap: 18px;
+    gap: 14px;
     align-items: start;
 }
 
@@ -2683,20 +2684,20 @@
 }
 
 .tech-stack-card-num {
-    min-width: 40px;
-    padding-top: 14px;
-    font-size: 0.9rem;
+    min-width: 32px;
+    padding-top: 8px;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     color: rgba(13, 77, 58, 0.55);
 }
 
 .tech-stack-icon {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     background: rgba(13, 77, 58, 0.06);
     border: 1px solid rgba(13, 77, 58, 0.1);
-    border-radius: 14px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2705,8 +2706,8 @@
 }
 
 .tech-stack-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     stroke: currentColor;
     fill: none;
     stroke-width: 1.9;
@@ -2724,17 +2725,17 @@
 }
 
 .tech-stack-title {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: #1a202c;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .tech-stack-desc {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     color: #4a5568;
-    line-height: 1.65;
+    line-height: 1.55;
 }
 
 @media (max-width: 1024px) {
