@@ -46,23 +46,57 @@ const HireSalesforcePage = () => {
 
     const skillCategories = [
         {
-            name: "Salesforce Platforms & Core Technologies",
+            name: "Sales",
             skills: [
-                "Customer 360 Platform", "Force.com", "Heroku", "Salesforce Mobile App", "Lightning Experience",
-                "Salesforce Data Cloud", "Industries Cloud like Vlocity/Omnistudio", "Hyperforce (Infrastructure knowledge)", "Tableau", "Agentforce vibes"
+                "Sales Force Automation", "Sales Team Productivity", "Partner Relationship Management", "Channel Revenue Management",
+                "Conversation Intelligence", "Revenue Lifecycle Management", "Configure, Price, Quote (CPQ)", "Revenue Cloud Billing",
+                "Incentive Compensation Management", "Revenue Intelligence", "Sales Engagement", "Sales Planning",
+                "Sales Programs", "Salesforce Maps", "Buyer Engagement", "Sales AI"
             ]
         },
         {
+            name: "Service",
+            skills: ["Customer Service AI", "Field Service", "Contact Center", "Agentforce IT Service", "Service Portal", "Digital Channels", "Asset Service Lifecycle Management", "Visual Remote Assistance", "Customer Service Incident Management", "Service Analytics"]
+        },
+        {
+            name: "Marketing",
+            skills: ["Data 360 for Marketing", "Salesforce Personalization", "Marketing Cloud Engagement", "Marketing Cloud Account Engagement", "Marketing Intelligence", "Loyalty Management", "Referral Marketing", "Marketing AI", "Marketing Cloud Growth Edition"]
+        },
+        {
+            name: "Commerce",
+            skills: ["B2C Commerce", "B2B Commerce", "Order Management", "Payments", "Point of Sales", "Commerce AI"]
+        },
+        {
+            name: "Salesforce Analytics",
+            skills: ["Tableau Next", "Tableau Semantics", "Tableau", "CRM Analytics", "Embedded Analytics", "Tableau Pulse", "Tableau Exchange", "Marketing Analytics"]
+        },
+        {
+            name: "Data",
+            skills: ["Data 360 for Snowflake", "Data 360 for Databricks", "Data 360 for Google", "Data 360 for AWS", "Data 360 for IBM"]
+        },
+        {
+            name: "Agentforce",
+            skills: ["Agentforce Builder", "Agentforce Script", "Agentforce Voice", "Agentforce Dev Tools", "Agentforce Observability", "AgentExchange"]
+        },
+        {
             name: "Integration & API Tools",
-            skills: ["MuleSoft", "REST/SOAP APIs", "Platform Events", "Change Data Capture", "Data Loader"]
+            skills: ["MuleSoft Anypoint Platform", "REST & SOAP APIs", "Salesforce Connect & External Objects", "DataWeave Transformation", "Heroku Connect", "ETL Tools (Informatica, Talend)", "Platform Events & Streaming API", "Bulk API & Metadata API", "AWS, Azure & GCP Connectors"]
         },
         {
-            name: "AI, Automation & Advanced Capabilities",
-            skills: ["Einstein AI", "Flow Builder", "Apex Triggers", "Next Best Action", "OmniStudio"]
+            name: "Development & Platform",
+            skills: ["Force.com Platform", "Heroku", "Salesforce DX (SFDX)", "Lightning Web Components (LWC)", "Apex Programming Language", "Visualforce", "Salesforce Functions", "AppExchange", "Salesforce CLI", "Hyperforce (Cloud Infrastructure)"]
         },
         {
-            name: "Development Tools",
-            skills: ["Salesforce CLI", "VS Code", "GitHub Actions", "Scratch Orgs", "SFDX"]
+            name: "DevOps & Release Management",
+            skills: ["Copado", "Gearset", "AutoRABIT", "Salesforce DevOps Center", "Change Sets", "Sandboxes (Developer, Partial, Full)", "Scratch Orgs", "CI/CD Pipeline Integration", "Version Control (Git-Based)"]
+        },
+        {
+            name: "Security & Compliance",
+            skills: ["Salesforce Shield", "Identity & Access Management (IAM)", "Multi-Factor Authentication (MFA)", "Salesforce Authenticator", "Privacy Center (GDPR & CCPA)", "Data Mask", "Health Check & Security Score", "Audit Trail", "Named Credentials", "Connected Apps & OAuth"]
+        },
+        {
+            name: "Testing & QA",
+            skills: ["Apex Test Classes", "Jest (LWC Unit Testing)", "Provar (Salesforce Test Automation)", "Selenium (UI Testing)", "Copado Robotic Testing", "Scratch Org-Based Testing", "UAT Sandboxes", "Code Coverage Frameworks", "Static Code Analysis (PMD, Clayton)"]
         }
     ];
 
@@ -367,26 +401,26 @@ const HireSalesforcePage = () => {
                 <div className="container unique-hero-container">
                     <div className="hero-content">
                         <div className="hero-badge animate-up">
-                            <span className="badge-text">Premium Salesforce Talent Network</span>
+                            <span className="badge-text">Hire Salesforce Developers Within 7 Days</span>
                         </div>
                         
                         <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
-                            <span className="hero-heading-line">Transform Your Vision</span>
-                            <span className="hero-heading-line">Into Reality <span className="hero-highlight-inline">With Elite</span></span>
-                            <span className="hero-highlight hero-highlight-final">Salesforce Developers</span>
+                            <span className="hero-heading-line">Hire Salesforce</span>
+                            <span className="hero-heading-line">Developers <span className="hero-highlight-inline">Within</span></span>
+                            <span className="hero-highlight hero-highlight-final">7 Days</span>
                         </h1>
 
                         <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>
-                            Bridge the gap between your ambitious goals and technical execution. We provide pre-vetted, certified professionals ready to integrate into your team.
+                            Skip job posting, multiple interviews, and a long period. With Hiristan, you will have instant access to pre-vetted, certified Salesforce developers ready for onboarding within 7 days. Our talent pool includes Salesforce developers across junior, mid-level, and senior experience levels.
                         </p>
 
                         <div className="hero-cta-group animate-up" style={{ animationDelay: '0.3s' }}>
                             <button className="btn-primary-glow">
-                                <span>Start Hiring Now</span>
+                                <span>Hire Salesforce Developers Now</span>
                                 <div className="btn-arrow">→</div>
                             </button>
                             <button className="btn-outline">
-                                View Engagement Models
+                                See How It Works
                             </button>
                         </div>
                         
@@ -415,67 +449,63 @@ const HireSalesforcePage = () => {
 
             {/* Logos Section */}
             <section className="logos-section">
-                <div className="logos-track animate-up">
-                    {[1, 2].map((setIndex) => (
-                        <div key={setIndex} className="logos-grid-static">
-                            {/* Salesforce */}
-                            <div className="logo-item-static">
-                                <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
-                                    <path d="M49.8 21.5c3.2-3.3 7.6-5.4 12.5-5.4 6 0 11.3 3.2 14.3 8 2.5-1.1 5.2-1.7 8.1-1.7 11.2 0 20.3 9.1 20.3 20.4 0 11.2-9.1 20.3-20.3 20.3-.9 0-1.8-.1-2.6-.2-2.7 5-7.9 8.4-14 8.4-2.5 0-4.9-.6-7-1.7-2.7 6-8.7 10.2-15.7 10.2-6.6 0-12.3-3.7-15.2-9.2-1.3.3-2.6.4-4 .4-9.8 0-17.7-7.9-17.7-17.7 0-6.6 3.6-12.4 9-15.5-.6-1.7-.9-3.5-.9-5.4 0-9.1 7.4-16.5 16.5-16.5 5.3 0 10 2.5 13 6.4" fill="#00A1E0"/>
-                                    <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Poppins, sans-serif" fontWeight="bold">Salesforce</text>
-                                </svg>
-                            </div>
-                            {/* Slack */}
-                            <div className="logo-item-static">
-                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Slack">
-                                    <rect x="18" y="22" width="8" height="16" rx="4" fill="#E01E5A"/>
-                                    <rect x="30" y="22" width="16" height="8" rx="4" fill="#E01E5A"/>
-                                    <rect x="30" y="14" width="8" height="8" rx="4" fill="#ECB22E"/>
-                                    <rect x="42" y="30" width="8" height="16" rx="4" fill="#2EB67D"/>
-                                    <rect x="30" y="30" width="12" height="8" rx="4" fill="#2EB67D"/>
-                                    <rect x="42" y="22" width="8" height="8" rx="4" fill="#36C5F0"/>
-                                    <rect x="18" y="30" width="12" height="8" rx="4" fill="#36C5F0"/>
-                                    <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="Poppins, sans-serif" fontWeight="bold">Slack</text>
-                                </svg>
-                            </div>
-                            {/* MuleSoft */}
-                            <div className="logo-item-static">
-                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="MuleSoft">
-                                    <circle cx="30" cy="30" r="14" fill="#00A0DF"/>
-                                    <circle cx="30" cy="30" r="7" fill="#fff"/>
-                                    <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">MuleSoft</text>
-                                </svg>
-                            </div>
-                            {/* Tableau */}
-                            <div className="logo-item-static">
-                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau">
-                                    <rect x="26" y="10" width="6" height="40" fill="#E8762D"/>
-                                    <rect x="19" y="20" width="20" height="6" fill="#E8762D"/>
-                                    <rect x="42" y="20" width="6" height="26" fill="#5B9BD5"/>
-                                    <rect x="36" y="26" width="18" height="6" fill="#5B9BD5"/>
-                                    <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Tableau</text>
-                                </svg>
-                            </div>
-                            {/* Heroku */}
-                            <div className="logo-item-static">
-                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Heroku">
-                                    <rect x="16" y="8" width="24" height="44" rx="6" fill="#6762A6"/>
-                                    <path d="M24 42 L24 28 L33 36 Z" fill="#fff"/>
-                                    <path d="M28 20 Q32 16 36 20" stroke="#fff" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                                    <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Heroku</text>
-                                </svg>
-                            </div>
-                            {/* AWS */}
-                            <div className="logo-item-static">
-                                <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="AWS">
-                                    <path d="M20 38 Q30 45 40 38 Q30 50 20 38Z" fill="#FF9900"/>
-                                    <path d="M18 36 L30 32 L42 36" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                                    <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Poppins, sans-serif" fontWeight="bold">AWS</text>
-                                    <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Poppins, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
-                                </svg>
-                            </div>
-                        </div>
-                    ))}
+                <div className="logos-grid-static animate-up">
+                    {/* Salesforce */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
+                            <path d="M49.8 21.5c3.2-3.3 7.6-5.4 12.5-5.4 6 0 11.3 3.2 14.3 8 2.5-1.1 5.2-1.7 8.1-1.7 11.2 0 20.3 9.1 20.3 20.4 0 11.2-9.1 20.3-20.3 20.3-.9 0-1.8-.1-2.6-.2-2.7 5-7.9 8.4-14 8.4-2.5 0-4.9-.6-7-1.7-2.7 6-8.7 10.2-15.7 10.2-6.6 0-12.3-3.7-15.2-9.2-1.3.3-2.6.4-4 .4-9.8 0-17.7-7.9-17.7-17.7 0-6.6 3.6-12.4 9-15.5-.6-1.7-.9-3.5-.9-5.4 0-9.1 7.4-16.5 16.5-16.5 5.3 0 10 2.5 13 6.4" fill="#00A1E0"/>
+                            <text x="60" y="52" textAnchor="middle" fill="#fff" fontSize="11" fontFamily="Poppins, sans-serif" fontWeight="bold">Salesforce</text>
+                        </svg>
+                    </div>
+                    {/* Slack */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Slack">
+                            <rect x="18" y="22" width="8" height="16" rx="4" fill="#E01E5A"/>
+                            <rect x="30" y="22" width="16" height="8" rx="4" fill="#E01E5A"/>
+                            <rect x="30" y="14" width="8" height="8" rx="4" fill="#ECB22E"/>
+                            <rect x="42" y="30" width="8" height="16" rx="4" fill="#2EB67D"/>
+                            <rect x="30" y="30" width="12" height="8" rx="4" fill="#2EB67D"/>
+                            <rect x="42" y="22" width="8" height="8" rx="4" fill="#36C5F0"/>
+                            <rect x="18" y="30" width="12" height="8" rx="4" fill="#36C5F0"/>
+                            <text x="80" y="36" textAnchor="middle" fill="#1D1D1D" fontSize="16" fontFamily="Poppins, sans-serif" fontWeight="bold">Slack</text>
+                        </svg>
+                    </div>
+                    {/* MuleSoft */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="MuleSoft">
+                            <circle cx="30" cy="30" r="14" fill="#00A0DF"/>
+                            <circle cx="30" cy="30" r="7" fill="#fff"/>
+                            <text x="72" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">MuleSoft</text>
+                        </svg>
+                    </div>
+                    {/* Tableau */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau">
+                            <rect x="26" y="10" width="6" height="40" fill="#E8762D"/>
+                            <rect x="19" y="20" width="20" height="6" fill="#E8762D"/>
+                            <rect x="42" y="20" width="6" height="26" fill="#5B9BD5"/>
+                            <rect x="36" y="26" width="18" height="6" fill="#5B9BD5"/>
+                            <text x="84" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Tableau</text>
+                        </svg>
+                    </div>
+                    {/* Heroku */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="Heroku">
+                            <rect x="16" y="8" width="24" height="44" rx="6" fill="#6762A6"/>
+                            <path d="M24 42 L24 28 L33 36 Z" fill="#fff"/>
+                            <path d="M28 20 Q32 16 36 20" stroke="#fff" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                            <text x="78" y="35" textAnchor="middle" fill="#333" fontSize="12" fontFamily="Poppins, sans-serif" fontWeight="bold">Heroku</text>
+                        </svg>
+                    </div>
+                    {/* AWS */}
+                    <div className="logo-item-static">
+                        <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-label="AWS">
+                            <path d="M20 38 Q30 45 40 38 Q30 50 20 38Z" fill="#FF9900"/>
+                            <path d="M18 36 L30 32 L42 36" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                            <text x="80" y="32" textAnchor="middle" fill="#232F3E" fontSize="14" fontFamily="Poppins, sans-serif" fontWeight="bold">AWS</text>
+                            <text x="80" y="45" textAnchor="middle" fill="#FF9900" fontSize="7" fontFamily="Poppins, sans-serif" letterSpacing="1">AMAZON WEB SERVICES</text>
+                        </svg>
+                    </div>
                 </div>
             </section>
 
@@ -484,23 +514,23 @@ const HireSalesforcePage = () => {
                 <div className="bento-container">
                     {/* Header */}
                     <div className="bento-header">
-                        <span className="bento-label">✦ What We Do Best</span>
+                        <span className="bento-label">✦ Cloud Specializations</span>
                         <h2 className="bento-heading">
-                            Services That Drive<br/>
-                            <span className="bento-heading-accent">Real Growth</span>
+                            Hire a Certified Salesforce Developer<br/>
+                            <span className="bento-heading-accent">Specialized in the Cloud You Need</span>
                         </h2>
-                        <p className="bento-sub">Our comprehensive Salesforce solutions, engineered to transform your business.</p>
+                        <p className="bento-sub">Our business is built on one principle: never place a developer we wouldn't stake our name on. Every professional in the Hiristan network holds active Salesforce certifications and verified, cloud-specific hands-on experience.</p>
                     </div>
 
                     {/* Bento Grid */}
                     <div className="bento-grid">
                         {[
-                            { title: "Custom CRM Solutions", icon: "crm", num: "01", desc: "We architect tailored Salesforce instances designed around your unique business workflows for maximum efficiency.", tags: ["Architecture", "Workflow Optimization", "Custom Builds"], featured: true },
-                            { title: "Lightning Web Components", icon: "lwc", num: "02", desc: "Fast, responsive UX/UI built on the modern LWC framework, replacing clunky legacy interfaces.", tags: ["UX/UI Design", "LWC", "Performance Tuning"], featured: false },
-                            { title: "AppExchange Development", icon: "appx", num: "03", desc: "End-to-end development of robust AppExchange products that pass security reviews.", tags: ["Product Engineering", "Security Review", "Publishing"], featured: false },
-                            { title: "Enterprise Integration", icon: "integration", num: "04", desc: "Seamless connectivity between Salesforce and your enterprise tech stack using MuleSoft and APIs.", tags: ["MuleSoft", "API Hub", "Middleware"], featured: false },
-                            { title: "Migration & Data Upgrades", icon: "migration", num: "05", desc: "Risk-free, zero-downtime data transitions from legacy CRM systems into modern Lightning.", tags: ["Classic to Lightning", "Data Cleansing", "Zero Downtime"], featured: false },
-                            { title: "Consulting & Strategy", icon: "strategy", num: "06", desc: "Strategic roadmaps, environment audits, and execution plans to maximize your Salesforce ROI.", tags: ["Audits", "Roadmaps", "ROI Analysis"], featured: true }
+                            { title: "Sales Cloud (Agentforce Sales)", icon: "crm", num: "01", desc: "Hire Sales Cloud developers with expertise to build and optimize sales processes using Apex, Flow, and CPQ.", tags: ["Apex", "Flow", "CPQ"], featured: true },
+                            { title: "Service Cloud (Agentforce Service)", icon: "lwc", num: "02", desc: "Certified Service Cloud developers proficient in building scalable support systems with case automation, Omni-Channel routing, SLA management, and CTI/chat integrations.", tags: ["Omni-Channel", "Case Automation", "CTI"], featured: false },
+                            { title: "Marketing Cloud (Agentforce Marketing)", icon: "appx", num: "03", desc: "From developing personalized journeys using AMPscript, Journey Builder, data extensions, and API integrations with other Salesforce Cloud, hire Marketing Cloud developers serving all needs.", tags: ["AMPscript", "Journey Builder", "Data Extensions"], featured: false },
+                            { title: "Commerce Cloud (Agentforce Commerce)", icon: "integration", num: "04", desc: "Hire Commerce Cloud developers having expertise in building FRA cartridges and PWA kits for B2C, account-based pricing for B2B, and subscription commerce with CRM-connected data pipelines for D2C.", tags: ["B2C", "B2B", "D2C"], featured: false },
+                            { title: "Agentforce", icon: "migration", num: "05", desc: "From Agentforce Builder, Voice, DevTools, to AgentExchange, hire Agentforce developers with the experience and expertise you need to leverage the power of autonomous AI agents.", tags: ["Builder", "Voice", "AgentExchange"], featured: false },
+                            { title: "Tableau", icon: "strategy", num: "06", desc: "Hire Tableau developers experienced in building data models, dashboards, implementing predictive analytics, and integrating multiple data sources.", tags: ["Dashboards", "Predictive Analytics", "Data Models"], featured: true }
                         ].map((service, i) => (
                             <div
                                 key={i}
@@ -555,24 +585,24 @@ const HireSalesforcePage = () => {
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="tech-stack-layout">
                         <div className="tech-stack-header tech-stack-sticky">
-                            <span className="tech-stack-label">Our Expertise</span>
+                            <span className="tech-stack-label">More Cloud Expertise</span>
                             <h2 className="tech-stack-heading">
-                                <span className="tech-stack-heading-main">Salesforce Technologies</span>
-                                <span className="tech-stack-heading-accent">We Specialize In</span>
+                                <span className="tech-stack-heading-main">Also Hire Developers For</span>
+                                <span className="tech-stack-heading-accent">These Salesforce Clouds</span>
                             </h2>
-                            <p className="tech-stack-intro">Explore the Salesforce capabilities we use to design scalable platforms, automate workflows, and deliver enterprise-grade customer experiences.</p>
+                            <p className="tech-stack-intro">Beyond the major clouds, our network includes certified developers for MuleSoft, Slack, Loyalty Cloud, Data Cloud, Nonprofit Cloud, and Revenue Cloud.</p>
                         </div>
 
                         <div className="tech-stack-scroll-area" ref={techStackScrollAreaRef}>
                         <div className="tech-stack-viewport" ref={techStackViewportRef}>
                         <div className="tech-stack-rail" ref={techStackRailRef}>
                         {[
-                            { name: "Sales Cloud", icon: "salesCloud", desc: "Drive growth with AI-powered sales automation and complete customer lifecycle management." },
-                            { name: "Service Cloud", icon: "serviceCloud", desc: "Deliver personalized, intelligent service experiences across every channel." },
-                            { name: "Marketing Cloud", icon: "marketingCloud", desc: "Create 1-to-1 customer journeys and optimize multi-channel campaigns." },
-                            { name: "Lightning Web Components", icon: "lwc", desc: "Build lightning-fast, enterprise-grade custom UI with modern web standards." },
-                            { name: "Apex & Visualforce", icon: "apex", desc: "Develop robust backend logic and complex server-side architectures." },
-                            { name: "Salesforce Shield", icon: "shield", desc: "Enhance trust, compliance, and governance with premium platform encryption." }
+                            { name: "MuleSoft (Agentforce MuleSoft)", icon: "salesCloud", desc: "Whether your project needs expertise in MuleSoft AnyPoint Platform, Connectors, IDP, RPA, or Salesforce Flow, Hiristan can help you hire MuleSoft developers." },
+                            { name: "Slack", icon: "serviceCloud", desc: "Hire Slack developers to create workflow automations, bots, event-driven notifications, and collaboration tools, or a custom Slack from scratch." },
+                            { name: "Loyalty Cloud", icon: "marketingCloud", desc: "Hire Loyalty Cloud developers with expertise in creating & setting up loyalty programs, tracking members' activities across any industry, catering to both B2B and B2C businesses." },
+                            { name: "Data Cloud (Data 360)", icon: "lwc", desc: "From designing unified data model schemes, configuring real-time data streaming, writing segmentation logics, or activating data across any of Salesforce Clouds." },
+                            { name: "Nonprofit Cloud", icon: "apex", desc: "Hire Nonprofit Cloud developers experienced in building solutions for donor management, fundraising automation, grant tracking, and program operations." },
+                            { name: "Revenue Cloud", icon: "shield", desc: "From configuring CPQ pricing rules and discount approval workflows to automating contract amendments and renewal cycles and setting up billing schedules." }
                         ].map((tech, i) => (
                             <div key={i} className="tech-stack-card animate-stagger" style={{ animationDelay: `${i * 0.15}s` }}>
                                 <div className="tech-stack-card-num">0{i + 1}</div>
@@ -595,41 +625,41 @@ const HireSalesforcePage = () => {
                 <div className="container">
                     <div className="engagement-header animate-up">
                         <span className="engagement-label">How We Work</span>
-                        <h2 className="engagement-heading">Engagement Models</h2>
-                        <p className="engagement-sub">Flexible hiring tailored to your project scope and timeline.</p>
+                        <h2 className="engagement-heading">Flexible Engagement Models</h2>
+                        <p className="engagement-sub">Choose the engagement model to hire remote Salesforce developers, aligning with your project scope, timeline, and budget, with the freedom to scale or downscale whenever needed.</p>
                     </div>
                     
                     <div className="engagement-grid">
                         <div className="engagement-card animate-stagger">
                             <div className="engagement-media">
-                                <img src={salesforceImage} alt="Full-time Salesforce developer collaboration" />
-                                <span className="engagement-tag">Best for long-term projects</span>
+                                <img src={salesforceImage} alt="Hourly Salesforce developer engagement" />
+                                <span className="engagement-tag">Short-term projects with variable requirements</span>
                             </div>
-                            <h3>Full-time Dedicated</h3>
-                            <div className="engagement-price">160 Hours/Month</div>
+                            <h3>Hourly Engagement Model</h3>
+                            <div className="engagement-price">Pay as You Go</div>
                             <ul className="engagement-features">
-                                <li>Dedicated Salesforce Expert</li>
-                                <li>Direct Communication & Reporting</li>
-                                <li>Long-term project continuity</li>
-                                <li>Seamless team integration</li>
+                                <li>Pay only for hours worked</li>
+                                <li>Scale hours up and down based on needs</li>
+                                <li>Detailed timesheets and progress reports</li>
+                                <li>Direct access to the developer</li>
                             </ul>
-                            <button className="engagement-btn">Hire Full-time →</button>
+                            <button className="engagement-btn">Hire Hourly →</button>
                         </div>
                         
                         <div className="engagement-card animate-stagger" style={{ animationDelay: '0.2s' }}>
                             <div className="engagement-media">
-                                <img src={serviceImage} alt="Part-time Salesforce support and delivery" />
-                                <span className="engagement-tag">Ideal for flexible workloads</span>
+                                <img src={serviceImage} alt="Dedicated Salesforce developer" />
+                                <span className="engagement-tag">Ongoing Salesforce development needs</span>
                             </div>
-                            <h3>Hourly / Part-time</h3>
-                            <div className="engagement-price">Pay as You Go</div>
+                            <h3>Dedicated Salesforce Developer</h3>
+                            <div className="engagement-price">Monthly Fixed Contract</div>
                             <ul className="engagement-features">
-                                <li>Flexible hours & scaling</li>
-                                <li>Perfect for smaller tasks</li>
-                                <li>Quick bug fixes & updates</li>
-                                <li>Ongoing admin support</li>
+                                <li>A developer exclusively dedicated to your project</li>
+                                <li>Directly integrated into your team</li>
+                                <li>Daily standups, sprint planning, and progress reporting</li>
+                                <li>Monthly fixed contract fee</li>
                             </ul>
-                            <button className="engagement-btn">Hire Hourly →</button>
+                            <button className="engagement-btn">Hire a Dedicated Salesforce Developer →</button>
                         </div>
                     </div>
                 </div>
@@ -640,16 +670,17 @@ const HireSalesforcePage = () => {
                 <div className="container">
                     <div className="steps-grid-header animate-up">
                         <span className="steps-grid-label">Our Process</span>
-                        <h2 className="steps-grid-heading">Hire Salesforce Expertise<br/><span className="steps-heading-accent">in 4 Simple Steps</span></h2>
+                        <h2 className="steps-grid-heading">Hire Salesforce Developers<br/><span className="steps-heading-accent">in 4 Simple Steps</span></h2>
+                        <p className="steps-grid-sub">From your first conversation with Hiristan to your developer's first day of working, every step is organized to onboard the right certified Salesforce developer on your project within 7 days.</p>
                     </div>
                     
                     <div className="steps-timeline">
                         <div className="timeline-track"></div>
                         {[
-                            { step: "01", title: "Requirement Discovery", icon: "discovery", text: "We sit down to understand your specific Salesforce needs, project scope, and technical requirements in detail." },
-                            { step: "02", title: "Expert Matching", icon: "matching", text: "Our team selects the best-fit developers from our pool of certified Salesforce experts based on your needs." },
-                            { step: "03", title: "Interview & Vetting", icon: "vetting", text: "You interview the shortlisted candidates to ensure they align with your company culture and technical standards." },
-                            { step: "04", title: "Seamless Onboarding", icon: "onboarding", text: "Once selected, we handle the integration process, ensuring the developer starts contributing to your project immediately." }
+                            { step: "01", title: "Share Job Description (JD)", icon: "discovery", text: "Share your requirement that mentions the specialization, preferred experience level, certifications, engagement model, contract duration, and timezone. The more specific the job description, the more suited our match will be." },
+                            { step: "02", title: "Developer Shortlisting", icon: "matching", text: "Within 24-48 hours, you will have the profiles of pre-vetted Salesforce developers with an above 90% match to your job description. Each profile we share will be backed by hands-on experience and certifications." },
+                            { step: "03", title: "Interview and Selection", icon: "vetting", text: "Although every developer is pre-vetted against your job description, we welcome you to interview the profiles submitted. All developers will be available for screening or a further round of interview as per your requirement immediately." },
+                            { step: "04", title: "Onboard Salesforce Developer", icon: "onboarding", text: "Once the Salesforce developer is selected, the Hiristan team will handle everything from onboarding documentation, contractual setup, to integrating the developer into your team." }
                         ].map((item, i) => (
                             <div key={i} className="timeline-step animate-up" style={{ animationDelay: `${i * 0.12}s` }}>
                                 <div className="timeline-point">
@@ -672,8 +703,8 @@ const HireSalesforcePage = () => {
                 <div className="container" style={{ position: 'relative', zIndex: 10 }}>
                     <div className="expertise-header animate-up">
                         <span className="expertise-label">Core Competencies</span>
-                        <h2 className="expertise-heading">Our Salesforce <span className="text-gradient">Tech Stack</span></h2>
-                        <p className="expertise-sub">Mastering the technologies that drive modern enterprise success.</p>
+                        <h2 className="expertise-heading">Hire Salesforce Developers with <span className="text-gradient">Experience Working on</span></h2>
+                        <p className="expertise-sub">Our developers bring deep, hands-on expertise across the entire Salesforce ecosystem.</p>
                     </div>
 
                     <div className="expertise-layout">
@@ -758,15 +789,15 @@ const HireSalesforcePage = () => {
                     <div className="cta-inner">
                         <div className="cta-text-col animate-up">
                             <span className="bento-label">Get Started</span>
-                            <h2 className="cta-main-heading">Access Our Pool of Verified Salesforce<br/><span className="cta-heading-accent">Experts Ready to Join Your Team</span></h2>
-                            <p className="cta-desc">Meet pre-screened Salesforce experts with comprehensive platform knowledge, verified experience, and relevant certifications.</p>
+                            <h2 className="cta-main-heading">Your Salesforce Developer is Already Vetted.<br/><span className="cta-heading-accent">You Just Need to Pick One</span></h2>
+                            <p className="cta-desc">Pre-vetted, certified Salesforce developers ready to work productively on your project within 7 days. Tell us what you need, and we'll share the profiles with you within 24-48 hours.</p>
                             <div className="cta-actions">
-                                <button className="cta-button-primary">Contact Us &rarr;</button>
+                                <button className="cta-button-primary">Start Hiring Today &rarr;</button>
                                 <button className="cta-button-outline">View Talent Pool</button>
                             </div>
                             <div className="cta-trust">
                                 <span className="cta-trust-item">✓ No long-term contracts</span>
-                                <span className="cta-trust-item">✓ 7-day free trial</span>
+                                <span className="cta-trust-item">✓ 7-day onboarding</span>
                                 <span className="cta-trust-item">✓ Certified developers</span>
                             </div>
                         </div>
@@ -836,10 +867,16 @@ const HireSalesforcePage = () => {
                     </div>
                     <div className="faq-list animate-up">
                         {[
-                            { q: "What is the typical experience level of your developers?", a: "Our developers typically have 5+ years of experience and hold multiple Salesforce certifications including Platform Developer I & II." },
-                            { q: "How quickly can I onboard a developer?", a: "Depending on your requirements, we can typically have a developer ready to start within 3-5 business days." },
-                            { q: "Do you offer post-implementation support?", a: "Yes, we provide flexible support packages to ensure your Salesforce environment remains optimized and up-to-date." },
-                            { q: "Can I interview the developers before hiring?", a: "Absolutely! We encourage interviews to ensure there is a perfect match both technically and culturally." }
+                            { q: "Is there any minimum contract duration for hiring remote Salesforce developers from Hiristan?", a: "Yes, for hourly engagement, we ask for a minimum engagement of 20 hours with no fixed contract duration. For full-time hiring, we work on monthly contracts, with no long-term commitment needed to make." },
+                            { q: "Are there any hidden costs beyond the hourly or monthly rate of a Salesforce developer?", a: "No, we believe in transparency. All the costs involved with your engagement will be shared with you upfront. Put simply, what you see is what you pay." },
+                            { q: "How much does it cost to hire a remote Salesforce developer?", a: "Salesforce developer hiring cost varies depending on multiple factors, such as experience, specialization, and contract duration. Longer contract duration typically has lower prices. Additionally, you can connect with us to structure the cost that works best for you." },
+                            { q: "Do you charge separately for the Salesforce developer replacement if they don't meet expectations?", a: "No, with Hiristan, our clients' interests are put first. So, if a developer failed to meet your expectations, we will replace them at no additional cost to ensure the project continuity." },
+                            { q: "Who owns the code and intellectual property developed by your Salesforce developers?", a: "You do. All code, configurations, and intellectual property produced during the engagement belong entirely to your organization. This is explicitly covered in the NDA and contract signed at the start of the contract duration." },
+                            { q: "Can your developers work within our existing Salesforce development and deployment process?", a: "Yes. Our developers integrate into your existing DevOps workflow — whether you use Copado, Gearset, AutoRABIT, or a Git-based CI/CD pipeline. They adapt to your process, not the other way around." },
+                            { q: "Will we communicate directly with our developer or through a project manager?", a: "You communicate directly with your developer through your preferred tools such as Slack, Teams, Zoom, or Jira. A Hiristan account manager remains available in the background for escalations, but your developer is your primary point of contact." },
+                            { q: "What timezone will our dedicated Salesforce developer be working in?", a: "We match developers to your timezone or preferred overlap window during the requirement stage. Most of our developers offer a minimum 4-hour overlap with your core business hours, regardless of their location." },
+                            { q: "Can we include the Hiristan developer in our internal team meetings and sprint cycles?", a: "Yes, our developers are embedded into your team; they attend standups, sprint planning, retrospectives, and any other meetings you include them in. They operate as a direct extension of your internal team." },
+                            { q: "How do you vet Salesforce developers before adding them to your network?", a: "Every developer goes through a multi-stage vetting process that includes active certification verification against Salesforce's official database, cloud-specific technical assessment, live coding evaluation, communication screening, and reference checks from previous Salesforce project deliveries." }
                         ].map((faq, i) => (
                             <div key={i} className={`faq-item-premium ${openFaq === i ? 'open' : ''}`} onClick={() => toggleFaq(i)}>
                                 <div className="faq-question">
