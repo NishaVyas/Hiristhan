@@ -484,6 +484,17 @@
     display: block;
 }
 
+.cert-logo-item {
+    padding: 10px 14px;
+}
+
+.cert-logo-img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
 .logo-item-static:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(13, 77, 58, 0.12);
