@@ -8,10 +8,25 @@ import salesImage from '../assets/images/Servicepage/sales.png';
 import projectImage from '../assets/images/Homepage/project.jpg';
 import teamImage from '../assets/images/Homepage/team.jpg';
 import hourlyImage from '../assets/images/Homepage/hourly.jpg';
-import agentforceCert from '../assets/images/certs/agentforce.png';
-import cpqCert from '../assets/images/certs/cpq.png';
-import javascriptCert from '../assets/images/certs/javascript.png';
-import marketingCert from '../assets/images/certs/marketing.png';
+import cert4 from '../assets/images/certs/download (4).png';
+import cert5 from '../assets/images/certs/download (5).png';
+import cert6 from '../assets/images/certs/download (6).png';
+import cert7 from '../assets/images/certs/download (7).png';
+import cert8 from '../assets/images/certs/download (8).png';
+import cert9 from '../assets/images/certs/download (9).png';
+import cert10 from '../assets/images/certs/download (10).png';
+import cert11 from '../assets/images/certs/download (11).png';
+import cert12 from '../assets/images/certs/download (12).png';
+import cert13 from '../assets/images/certs/download (13).png';
+import cert14 from '../assets/images/certs/download (14).png';
+import cert15 from '../assets/images/certs/download (15).png';
+import cert16 from '../assets/images/certs/download (16).png';
+import cert17 from '../assets/images/certs/download (17).png';
+
+const certImages = [
+    cert4, cert5, cert6, cert7, cert8, cert9, cert10, 
+    cert11, cert12, cert13, cert14, cert15, cert16, cert17
+];
 
 const HireSalesforcePage = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -452,20 +467,24 @@ const HireSalesforcePage = () => {
             </section>
 
             {/* Logos Section */}
+            {/* Logos Section - Continuous Slider */}
             <section className="logos-section">
-                <div className="logos-grid-static animate-up">
-                    {/* Certification Badges */}
-                    <div className="logo-item-static cert-logo-item">
-                        <img src={javascriptCert} alt="Certified JavaScript Developer" className="cert-logo-img" />
-                    </div>
-                    <div className="logo-item-static cert-logo-item">
-                        <img src={cpqCert} alt="Certified Industries CPQ Developer" className="cert-logo-img" />
-                    </div>
-                    <div className="logo-item-static cert-logo-item">
-                        <img src={agentforceCert} alt="Certified Agentforce Developer" className="cert-logo-img" />
-                    </div>
-                    <div className="logo-item-static cert-logo-item">
-                        <img src={marketingCert} alt="Certified Marketing Cloud Developer" className="cert-logo-img" />
+                <div className="logos-slider">
+                    <div className="logos-slider-track">
+                        <div className="logos-slide-group">
+                            {certImages.map((cert, index) => (
+                                <div key={`cert-1-${index}`} className="logo-item-static cert-logo-item">
+                                    <img src={cert} alt={`Salesforce Certification ${index + 1}`} className="cert-logo-img" />
+                                </div>
+                            ))}
+                        </div>
+                        <div className="logos-slide-group">
+                            {certImages.map((cert, index) => (
+                                <div key={`cert-2-${index}`} className="logo-item-static cert-logo-item">
+                                    <img src={cert} alt={`Salesforce Certification ${index + 1}`} className="cert-logo-img" />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

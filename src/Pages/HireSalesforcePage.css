@@ -441,25 +441,58 @@
     100% { transform: translateX(-50%); }
 }
 
-/* Logos Section */
+/* Logos Section - Continuous Slider */
 .logos-section {
-    padding: 60px 40px;
+    padding: 60px 0;
     background: transparent;
     border-top: 1px solid rgba(226, 232, 240, 0.5);
     border-bottom: 1px solid rgba(226, 232, 240, 0.5);
     position: relative;
+    overflow: hidden;
 }
 
-.logos-grid-static {
+.logos-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.logos-slider::before,
+.logos-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logos-slider::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.logos-slider::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+.logos-slider-track {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    width: max-content;
+    animation: slideRight 45s linear infinite;
+}
+
+.logos-slide-group {
+    display: flex;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+@keyframes slideRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 .logo-item-static {
@@ -467,12 +500,7 @@
     align-items: center;
     justify-content: center;
     padding: 14px 20px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(13, 77, 58, 0.1);
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease;
     cursor: default;
     min-width: 110px;
     flex-shrink: 0;
@@ -497,8 +525,6 @@
 
 .logo-item-static:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(13, 77, 58, 0.12);
-    border-color: rgba(13, 77, 58, 0.25);
 }
 
 /* ===== BENTO SERVICES SECTION ===== */
