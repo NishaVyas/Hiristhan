@@ -10,6 +10,7 @@ import Footer from './Components/Footer';
 import About from './Pages/About';
 import HireSalesforcePage from './Pages/HireSalesforcePage';
 import HireServiceNowPage from './Pages/HireServiceNowPage';
+import HireServiceNowITSMPage from './Pages/HireServiceNowITSMPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/*" element={<Homepage />} />
         <Route path="/hire-servicenow-professionals" element={<HireServiceNowPage />} /> 
+        <Route path="/hire-servicenow-itsm-developer" element={<HireServiceNowITSMPage />} />
         <Route path="/hire-salesforce-professionals" element={<ServicePage2 />} /> 
         <Route path="/hire-salesforce-developer" element={<HireSalesforcePage />} /> 
         <Route path="/about" element={<About />} /> 

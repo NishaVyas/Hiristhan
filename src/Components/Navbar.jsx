@@ -46,6 +46,9 @@ const Navbar = () => {
                 <li className="dropdown-item">
                   <Link to="/hire-servicenow-professionals">ServiceNow</Link>
                 </li>
+                <li className="dropdown-item">
+                  <Link to="/hire-servicenow-itsm-developer">ServiceNow ITSM Developer</Link>
+                </li>
               </ul>
             )}
           </li>
