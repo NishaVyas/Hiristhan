@@ -5,14 +5,8 @@ import Logo from '../assets/images/Homepage/HIRISTAN.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleServicesDropdown = () => {
-    setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
 
   return (
@@ -32,30 +26,28 @@ const Navbar = () => {
       <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
         <ul className="navbar-items">
           <li className="navbar-item navbar-item-dropdown">
-            <span onClick={toggleServicesDropdown} className="dropdown-toggle">
+            <span className="dropdown-toggle">
               Services
             </span>
-            {isServicesDropdownOpen && (
-              <ul className="dropdown-menu">
-                <li className="dropdown-item dropdown-item-nested">
-                  <Link to="/hire-salesforce-professionals">Salesforce Professionals</Link>
-                  <ul className="nested-dropdown-menu">
-                    <li className="nested-dropdown-item">
-                      <Link to="/hire-commerce-cloud-developer">Salesforce Commerce Cloud</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li className="dropdown-item">
-                  <Link to="/hire-salesforce-developer">Salesforce Developer</Link>
-                </li>
-                <li className="dropdown-item">
-                  <Link to="/hire-servicenow-professionals">ServiceNow</Link>
-                </li>
-                <li className="dropdown-item">
-                  <Link to="/hire-servicenow-itsm-developer">ServiceNow ITSM Developer</Link>
-                </li>
-              </ul>
-            )}
+            <ul className="dropdown-menu">
+              <li className="dropdown-item">
+                <Link to="/hire-salesforce-professionals">Salesforce Professionals</Link>
+              </li>
+              <li className="dropdown-item">
+                <Link to="/hire-servicenow-professionals">ServiceNow</Link>
+              </li>
+              <li className="dropdown-item dropdown-item-nested">
+                <Link to="/hire-salesforce-developer">Salesforce Developer</Link>
+                <ul className="nested-dropdown-menu">
+                  <li className="nested-dropdown-item">
+                    <Link to="/hire-servicenow-itsm-developer">ServiceNow ITSM Developer</Link>
+                  </li>
+                  <li className="nested-dropdown-item">
+                    <Link to="/hire-commerce-cloud-developer">Salesforce Commerce Cloud</Link>
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </li>
           <li className="navbar-item">
             <Link to="/about">About</Link>

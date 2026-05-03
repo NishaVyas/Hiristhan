@@ -660,9 +660,7 @@
     background: #0D4D3A !important;
 }
 
-.bento-grid .bento-card.bento-featured:last-child {
-    grid-column: 1 / -1;
-}
+
 
 /* Animated gradient border */
 .bento-card-border {
@@ -857,9 +855,7 @@
     .bento-featured {
         grid-column: span 2;
     }
-    .bento-grid .bento-card.bento-featured:last-child {
-        grid-column: 1 / -1;
-    }
+    
     .bento-heading {
         font-size: 2.8rem;
     }
@@ -875,9 +871,7 @@
     .bento-featured {
         grid-column: span 1;
     }
-    .bento-grid .bento-card.bento-featured:last-child {
-        grid-column: span 1;
-    }
+    
     .bento-heading {
         font-size: 2.2rem;
     }
@@ -2945,9 +2939,7 @@
     .bento-featured {
         grid-column: span 1 !important;
     }
-    .bento-grid .bento-card.bento-featured:last-child {
-        grid-column: span 1 !important;
-    }
+    
     .hero-heading {
         font-size: 1.6rem !important;
         line-height: 1.2 !important;

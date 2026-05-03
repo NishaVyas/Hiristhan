@@ -105,6 +105,11 @@
   min-width: 200px;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.navbar-item-dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 .dropdown-item {
@@ -159,13 +164,7 @@
   color: var(--primary-color);
 }
 
-/* Arrow indicator for nested dropdown */
-.dropdown-item-nested > a::after {
-  content: ' ›';
-  float: right;
-  font-size: 1.2rem;
-  line-height: 1;
-}
+
 
 .navbar-action {
   margin-left: 40px;
@@ -293,6 +292,11 @@
     border: none;
     box-shadow: none;
     padding: 10px 0;
+    display: none;
+  }
+  
+  .navbar-item-dropdown:hover .dropdown-menu {
+    display: block;
   }
 
   .dropdown-item {
