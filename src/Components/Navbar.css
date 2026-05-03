@@ -121,6 +121,52 @@
   color: var(--primary-color);
 }
 
+/* Nested Dropdown Styles */
+.dropdown-item-nested {
+  position: relative;
+}
+
+.nested-dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  border: 1px solid rgb(241, 241, 241);
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 200px;
+  z-index: 1001;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.dropdown-item-nested:hover .nested-dropdown-menu {
+  display: block;
+}
+
+.nested-dropdown-item {
+  padding: 8px 20px;
+}
+
+.nested-dropdown-item a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  display: block;
+}
+
+.nested-dropdown-item:hover a {
+  color: var(--primary-color);
+}
+
+/* Arrow indicator for nested dropdown */
+.dropdown-item-nested > a::after {
+  content: ' ›';
+  float: right;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 .navbar-action {
   margin-left: 40px;
 }
@@ -251,6 +297,20 @@
 
   .dropdown-item {
     padding: 8px 0;
+  }
+
+  .nested-dropdown-menu {
+    position: static;
+    display: block; /* Show by default in mobile for simplicity, or we can make it toggleable */
+    width: 100%;
+    background-color: #f0f0f0;
+    border: none;
+    box-shadow: none;
+    padding: 5px 0 5px 20px;
+  }
+
+  .nested-dropdown-item {
+    padding: 5px 0;
   }
 
   .navbar-action {

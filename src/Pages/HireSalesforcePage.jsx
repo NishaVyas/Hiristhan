@@ -424,9 +424,7 @@ const HireSalesforcePage = () => {
                         </div>
                         
                         <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
-                            <span className="hero-heading-line">Hire Salesforce</span>
-                            <span className="hero-heading-line">Developers <span className="hero-highlight-inline">Within</span></span>
-                            <span className="hero-highlight hero-highlight-final">7 Days</span>
+                            Hire Salesforce Developers <span className="hero-highlight hero-highlight-final">Within 7 Days</span>
                         </h1>
 
                         <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>

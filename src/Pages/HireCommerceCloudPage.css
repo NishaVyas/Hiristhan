@@ -803,11 +803,11 @@
 }
 
 .bento-tag {
-    font-size: 0.62rem;
+    font-size: 0.55rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.9);
     background: rgba(255, 255, 255, 0.12);
-    padding: 3px 9px;
+    padding: 2px 7px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;

@@ -37,8 +37,13 @@ const Navbar = () => {
             </span>
             {isServicesDropdownOpen && (
               <ul className="dropdown-menu">
-                <li className="dropdown-item">
+                <li className="dropdown-item dropdown-item-nested">
                   <Link to="/hire-salesforce-professionals">Salesforce Professionals</Link>
+                  <ul className="nested-dropdown-menu">
+                    <li className="nested-dropdown-item">
+                      <Link to="/hire-commerce-cloud-developer">Salesforce Commerce Cloud</Link>
+                    </li>
+                  </ul>
                 </li>
                 <li className="dropdown-item">
                   <Link to="/hire-salesforce-developer">Salesforce Developer</Link>

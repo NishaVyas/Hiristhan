@@ -90,12 +90,12 @@
     from {
         opacity: 0;
         transform: translateY(30px);
-        filter: blur(10px);
+        
     }
     to {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0);
+        
     }
 }
 
@@ -140,7 +140,7 @@
 
 .glass-card {
     background: rgba(255, 255, 255, 0.7) !important;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07) !important;
 }
@@ -643,7 +643,7 @@
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
-        filter: blur(0);
+        
     }
 }
 
@@ -795,9 +795,11 @@
 
 /* Tags */
 .bento-tags {
+    flex-wrap: nowrap !important;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+    flex-wrap: nowrap !important;
+    gap: 4px;
+    overflow: hidden;
 }
 
 .bento-tag {
@@ -960,7 +962,7 @@
     position: absolute;
     inset: 2px;
     background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) !important;
     border-radius: 18px;
     transition: all 0.5s ease;
     z-index: -1;
@@ -1402,7 +1404,7 @@
     padding: 24px;
     border-radius: 20px;
     border: 1px solid rgba(226, 232, 240, 0.8); /* Slate border */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) !important;
 }
 
 .expertise-tab {
@@ -2933,4 +2935,65 @@
     background: #0D4D3A !important;
     color: #ffffff !important;
     border-color: #0D4D3A !important;
+}
+
+/* Global Responsive Overrides */
+@media (max-width: 850px) {
+    .bento-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .bento-featured {
+        grid-column: span 1 !important;
+    }
+    .bento-grid .bento-card.bento-featured:last-child {
+        grid-column: span 1 !important;
+    }
+    .hero-heading {
+        font-size: 1.6rem !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+    }
+    .hero-heading-line {
+        display: inline !important;
+    }
+}
+
+
+/* Additional Mobile Responsiveness Fixes */
+@media (max-width: 768px) {
+    /* Fix for '4 Simple Steps' section */
+    .steps-timeline {
+        grid-template-columns: 1fr !important;
+        overflow-x: hidden !important;
+        padding-bottom: 0 !important;
+        gap: 30px !important;
+    }
+    .timeline-track {
+        display: none !important;
+    }
+    .timeline-step {
+        width: 100% !important;
+    }
+    .timeline-card {
+        min-height: auto !important;
+    }
+    
+    /* Fix for Tech Expertise Tabs */
+    .expertise-sidebar {
+        flex-wrap: wrap !important;
+        white-space: normal !important;
+        overflow-x: visible !important;
+        justify-content: center !important;
+    }
+    .expertise-tab {
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .expertise-tab {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+    }
 }

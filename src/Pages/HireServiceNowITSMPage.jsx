@@ -394,9 +394,7 @@ const HireServiceNowITSMPage = () => {
                         </div>
                         
                         <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
-                            <span className="hero-heading-line">Hire a ServiceNow</span>
-                            <span className="hero-heading-line">ITSM <span className="hero-highlight-inline">Developer</span></span>
-                            <span className="hero-highlight hero-highlight-final">Within 7 Days</span>
+                            Hire a ServiceNow ITSM Developer <span className="hero-highlight hero-highlight-final">Within 7 Days</span>
                         </h1>
 
                         <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>
@@ -438,26 +436,7 @@ const HireServiceNowITSMPage = () => {
 
             {/* Logos Section */}
             {/* Logos Section - Continuous Slider */}
-            <section className="logos-section">
-                <div className="logos-slider">
-                    <div className="logos-slider-track">
-                        <div className="logos-slide-group">
-                            {certImages.map((cert, index) => (
-                                <div key={`cert-1-${index}`} className="logo-item-static cert-logo-item">
-                                    <img src={cert} alt={`ServiceNow Certification ${index + 1}`} className="cert-logo-img" />
-                                </div>
-                            ))}
-                        </div>
-                        <div className="logos-slide-group">
-                            {certImages.map((cert, index) => (
-                                <div key={`cert-2-${index}`} className="logo-item-static cert-logo-item">
-                                    <img src={cert} alt={`ServiceNow Certification ${index + 1}`} className="cert-logo-img" />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* ===== BENTO SERVICES SECTION ===== */}
             <section className="bento-section">

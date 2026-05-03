@@ -1,51 +1,65 @@
-import re
+import os
 
-css_file = 'src/Pages/HireServiceNowPage.css'
-with open(css_file, 'r', encoding='utf-8') as f:
-    css = f.read()
+files = [
+    r"c:\Users\WIN 11\Desktop\dhwada\Hiristhan\src\Pages\HireCommerceCloudPage.css",
+    r"c:\Users\WIN 11\Desktop\dhwada\Hiristhan\src\Pages\HireSalesforcePage.css",
+    r"c:\Users\WIN 11\Desktop\dhwada\Hiristhan\src\Pages\HireServiceNowITSMPage.css",
+    r"c:\Users\WIN 11\Desktop\dhwada\Hiristhan\src\Pages\HireServiceNowPage.css"
+]
 
-# Replace the grid definition to use flexbox (it's simpler and automatically handles centering on the last row without complex grid-column math that might break on intermediate breakpoints like tablets)
-flex_grid = """
-.engagement-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
+def update_css(filepath):
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # 1. Remove blur from fadeInUp
+    content = content.replace('filter: blur(10px);', '')
+    content = content.replace('filter: blur(0);', '')
+    
+    # 2. Ensure bento-grid is 1 column at 768px and below
+    # We'll just force it in the media query
+    if '@media (max-width: 768px)' in content:
+        # Find the bento-grid block inside this media query
+        # This is a bit complex with regex, let's just append an override at the end
+        pass
+
+    # 3. Add the nowrap fix for bento-tags if missing
+    if '.bento-tags {' in content:
+        # Replace the block
+        import re
+        content = re.sub(r'\.bento-tags\s*\{[^}]*\}', 
+                         '.bento-tags {\n    display: flex;\n    flex-wrap: nowrap !important;\n    gap: 4px;\n    overflow: hidden;\n}', 
+                         content)
+    
+    # 4. Force 1 column grid at the end of the file to be sure
+    content += """
+/* Global Responsive Overrides */
+@media (max-width: 850px) {
+    .bento-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .bento-featured {
+        grid-column: span 1 !important;
+    }
+    .bento-grid .bento-card.bento-featured:last-child {
+        grid-column: span 1 !important;
+    }
+    .hero-heading {
+        font-size: 1.6rem !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+    }
+    .hero-heading-line {
+        display: inline !important;
+    }
 }
 """
-css = re.sub(r'\.engagement-grid\s*\{[^}]*\}', flex_grid.strip(), css, count=1)
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-# Modify the engagement-card to have width calc
-card_match = re.search(r'\.engagement-card\s*\{([^}]*)\}', css)
-if card_match:
-    inner = card_match.group(1)
-    if 'width:' not in inner:
-        new_card = f".engagement-card {{{inner}    width: calc(33.333% - 14px);\n}}"
-        css = css.replace(card_match.group(0), new_card)
-
-# Remove all the last-child blocks
-css = re.sub(r'\.engagement-grid \.engagement-card:last-child\s*\{[^}]*\}\s*', '', css)
-css = re.sub(r'\.engagement-grid \.engagement-card:last-child h3,\s*\.engagement-grid \.engagement-card:last-child \.engagement-price,\s*\.engagement-grid \.engagement-card:last-child \.engagement-features li\s*\{[^}]*\}\s*', '', css)
-css = re.sub(r'\.engagement-grid \.engagement-card:last-child \.engagement-price\s*\{[^}]*\}\s*', '', css)
-css = re.sub(r'\.engagement-grid \.engagement-card:last-child \.engagement-btn\s*\{[^}]*\}\s*', '', css)
-css = re.sub(r'\.engagement-grid \.engagement-card:last-child:hover \.engagement-btn\s*\{[^}]*\}\s*', '', css)
-
-# Update mobile media query
-# First, let's find the media query block
-mobile_mq = re.search(r'@media \(max-width: 768px\) \{[^{}]*?\.engagement-grid[^}]*?\s*\}', css)
-if mobile_mq:
-    # Need to make sure cards take 100% width on mobile
-    mq_text = mobile_mq.group(0)
-    mq_text = mq_text.replace('.engagement-grid { grid-template-columns: 1fr; }', '.engagement-grid { flex-direction: column; }\n    .engagement-card { width: 100%; }')
-    css = css.replace(mobile_mq.group(0), mq_text)
-else:
-    # If we couldn't easily replace it inside the media query, just append the fix at the end
-    css += "\n@media (max-width: 768px) {\n    .engagement-grid { flex-direction: column; }\n    .engagement-card { width: 100% !important; }\n}\n"
-
-with open(css_file, 'w', encoding='utf-8') as f:
-    f.write(css)
-
-print('CSS Updated successfully!')
+for f in files:
+    if os.path.exists(f):
+        update_css(f)
+        print(f"Updated {f}")
+    else:
+        print(f"File not found: {f}")

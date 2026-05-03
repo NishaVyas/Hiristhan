@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import './HireServiceNowPage.css';
+import './HireCommerceCloudPage.css';
 import salesforceImage from '../assets/images/Servicepage/salesforce.jpg';
 import serviceImage from '../assets/images/Servicepage/service.jpg';
 import salesImage from '../assets/images/Servicepage/sales.png';
@@ -28,7 +28,7 @@ const certImages = [
     cert11, cert12, cert13, cert14, cert15, cert16, cert17
 ];
 
-const HireServiceNowPage = () => {
+const HireCommerceCloudPage = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [openFaq, setOpenFaq] = useState(null);
     const [activeBlogSlide, setActiveBlogSlide] = useState(0);
@@ -65,73 +65,74 @@ const HireServiceNowPage = () => {
 
     const skillCategories = [
         {
-            name: "IT Solutions",
+            name: "B2C Commerce",
             skills: [
-                "IT Service Management (ITSM)", "IT Operations Management (ITOM)", "IT Asset Management (ITAM)", "Enterprise Architecture",
-                "Service Operations Workspace", "Cloud Governance Suite", "Operational Technology Management", "ServiceNow Cloud Observability",
-                "Strategic Portfolio Management", "Digital End-User Experience"
+                "SFRA Development", "PWA Kit", "Cartridge Development", "OCAPI Integration",
+                "SCAPI Integration", "Core Web Vitals", "SEO Optimization", "Storefront Customization",
+                "Page Designer", "Content Slots"
             ]
         },
         {
-            name: "CRM",
+            name: "B2B Commerce",
             skills: [
-                "Customer Service Management (CSM)", "Field Service Management (FSM)", "Sales and Order Management", "Configure, Price, and Quote (CPQ)",
-                "Financial Services Operations", "Healthcare and Life Sciences Service Management", "Sales and Order Management for Technology Providers",
-                "Sales and Order Management for Telecommunications", "Public Sector Digital Services", "Telecommunication Service Management",
-                "Technology Provider Service Management"
+                "Account-Specific Pricing", "Complex Product Catalogs", "Punchout Integrations",
+                "ERP Integration (SAP, Oracle, NetSuite)", "Inventory Sync", "Order Sync",
+                "Lightning Commerce", "Buyer Experience"
             ]
         },
         {
-            name: "Risk and Security",
+            name: "D2C & Storefront",
             skills: [
-                "Security Operations", "Security Incident Response", "Vulnerability Response", "Threat Intelligence Security Center",
-                "Integrated Risk Management", "Third-Party Risk Management", "Security Posture Control", "Privacy Management"
+                "Quick-Start Templates", "Localized Checkout", "Einstein Product Discovery",
+                "CRM Integration", "Multi-Language Support", "Mobile Commerce",
+                "Headless Commerce", "Composable Storefront"
             ]
         },
         {
-            name: "Employee Experience",
+            name: "Order Management",
             skills: [
-                "HR Service Delivery (HRSD)", "Talent Development", "Legal Service Delivery", "Workplace Service Delivery",
-                "Accounts Payable Operations", "Sourcing and Procurement Operations", "Supplier Lifecycle Operations", "EmployeeWorks"
+                "Order Orchestration", "Routing & Splitting", "Allocation Logic",
+                "Multi-Warehouse Fulfillment", "3PL Integration", "WMS Integration",
+                "Shipping Systems", "Real-Time Status Updates"
             ]
         },
         {
-            name: "App Development",
+            name: "Payments & PoS",
             skills: [
-                "App Engine", "ServiceNow Studio", "App Engine Management Center", "Creator Studio", "Now Assist for Creator",
-                "Source Control Integration (Git, GitHub, GitLab, Bitbucket)", "ServiceNow CLI", "Automated Test Framework (ATF)",
-                "Instance Scan", "Performance Analytics", "CI/CD Pipelines", "Scoped Applications"
+                "Stripe Integration", "Adyen Integration", "PayPal Integration", "Cybersource",
+                "Tokenization", "PCI Compliance", "Multi-Currency Support",
+                "PoS Configuration", "Hardware Integration", "Unified Commerce"
             ]
         },
         {
-            name: "Integration",
+            name: "Commerce AI",
             skills: [
-                "IntegrationHub", "REST and SOAP APIs", "MID Server", "Import Sets", "Transform Maps", "Data Sources",
-                "JDBC and LDAP Integrations", "MuleSoft, Boomi, Workato Integrations", "Azure, AWS, and GCP Connectors",
-                "Microsoft Teams and Slack Integrations", "Jira and Azure DevOps Connectors"
+                "Einstein Recommendations", "Predictive Sort", "Personalized Promotions",
+                "Commerce Insights", "Data Cloud Integration", "A/B Testing",
+                "Conversion Optimization", "Revenue Analytics"
             ]
         }
     ];
 
     const blogPosts = [
         {
-            title: "Future of Now Assist AI",
+            title: "Future of Agentforce Commerce",
             date: "Oct 12, 2025",
-            desc: "Exploring how generative AI is transforming ServiceNow workflows.",
+            desc: "Exploring how generative AI is transforming Salesforce Commerce Cloud workflows.",
             category: "AI",
             image: projectImage
         },
         {
-            title: "Service Portal Modernization",
+            title: "SFRA Storefront Modernization",
             date: "Sep 28, 2025",
-            desc: "Redesign your employee experience with modern ServiceNow Portals.",
+            desc: "Redesign your shopping experience with modern SFRA and PWA Kit storefronts.",
             category: "Development",
             image: teamImage
         },
         {
-            title: "Integration Hub Best Practices",
+            title: "Order Management Best Practices",
             date: "Aug 15, 2025",
-            desc: "Seamless data flow between ServiceNow and your enterprise systems.",
+            desc: "Seamless fulfillment and order orchestration between Salesforce and your ERP systems.",
             category: "Integration",
             image: hourlyImage
         }
@@ -224,11 +225,11 @@ const HireServiceNowPage = () => {
     }, []);
 
     const skillIconMap = {
-        "IT Service Management (ITSM)": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>,
-        "Customer Service Management (CSM)": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>,
-        "App Engine": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 10l6-4"/><path d="M9 14h6"/></svg>,
-        "IntegrationHub": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>,
-        "Now Assist for Creator": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+        "SFRA Development": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
+        "B2C Commerce": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>,
+        "Order Management": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10"/><path d="M9 16v4"/><path d="M15 16v4"/></svg>,
+        "Commerce AI": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="M12 14v8"/><path d="M4.93 4.93l5.66 5.66"/><path d="M13.41 13.41l5.66 5.66"/><path d="M2 12h8"/><path d="M14 12h8"/><path d="M4.93 19.07l5.66-5.66"/><path d="M13.41 10.59l5.66-5.66"/></svg>,
+        "Payments & PoS": <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
     };
 
     const renderBentoIcon = (iconName) => {
@@ -390,20 +391,20 @@ const HireServiceNowPage = () => {
                 <div className="container unique-hero-container">
                     <div className="hero-content">
                         <div className="hero-badge animate-up">
-                            <span className="badge-text">Hire ServiceNow Developers Fast | Onboard in 48–72 Hours</span>
+                            <span className="badge-text">Hire Salesforce Commerce Cloud Developers | Vetted SFCC Experts</span>
                         </div>
                         
                         <h1 className="hero-heading animate-up" style={{ animationDelay: '0.1s' }}>
-                            Hire ServiceNow Developers <span className="hero-highlight hero-highlight-final">Within 7 Days</span>
+                            Hire Salesforce Commerce Cloud Developers <span className="hero-highlight hero-highlight-final">Within 7 Days</span>
                         </h1>
 
                         <p className="hero-description animate-up" style={{ animationDelay: '0.2s' }}>
-                            Tell us the module you're implementing: ITSM, ITOM, ITAM, HRSD, CSM, SecOps, or a custom Now Platform build, and we'll match you with certified ServiceNow developers who've verified hands-on experience. Hire ServiceNow developers on C2C, C2H, ODC, MSP, or freelance terms, and have them be productive on your instance within a week.
+                            Hiristan is one of the best places to hire Salesforce Commerce Cloud (Agentforce Commerce) developers on contract. Every developer in our network is Salesforce certified with verified storefront delivery experience across B2C Commerce, B2B Commerce, D2C Commerce, Order Management, and Payments. Tell us what you're building, pick your engagement model such as C2C, C2H, ODC, MSP, or freelance, and we'll send matched profiles within 24-48 hours.
                         </p>
 
                         <div className="hero-cta-group animate-up" style={{ animationDelay: '0.3s' }}>
                             <button className="btn-primary-glow">
-                                <span>Hire ServiceNow Developers Now</span>
+                                <span>Hire Commerce Cloud Developer</span>
                                 <div className="btn-arrow">→</div>
                             </button>
                             <button className="btn-outline">
@@ -428,7 +429,7 @@ const HireServiceNowPage = () => {
 
                     <div className="hero-visual animate-up" style={{ animationDelay: '0.5s' }}>
                         <div className="hero-image-frame">
-                            <img src={serviceImage} alt="ServiceNow development service" className="hero-side-image" />
+                            <img src={salesforceImage} alt="Salesforce Commerce Cloud development service" className="hero-side-image" />
                         </div>
                     </div>
                 </div>
@@ -436,40 +437,50 @@ const HireServiceNowPage = () => {
 
             {/* Logos Section */}
             {/* Logos Section - Continuous Slider */}
-
+            <section className="logos-section">
+                <div className="logos-slider">
+                    <div className="logos-slider-track">
+                        <div className="logos-slide-group">
+                            {certImages.map((cert, index) => (
+                                <div key={`cert-1-${index}`} className="logo-item-static cert-logo-item">
+                                    <img src={cert} alt={`Salesforce Certification ${index + 1}`} className="cert-logo-img" />
+                                </div>
+                            ))}
+                        </div>
+                        <div className="logos-slide-group">
+                            {certImages.map((cert, index) => (
+                                <div key={`cert-2-${index}`} className="logo-item-static cert-logo-item">
+                                    <img src={cert} alt={`ServiceNow Certification ${index + 1}`} className="cert-logo-img" />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ===== BENTO SERVICES SECTION ===== */}
             <section className="bento-section">
                 <div className="bento-container">
                     {/* Header */}
                     <div className="bento-header">
-                        <span className="bento-label">✦ Module Specializations</span>
+                        <span className="bento-label">✦ Core Commerce Capabilities</span>
                         <h2 className="bento-heading">
-                            Hire a Certified ServiceNow Developer<br/>
-                            <span className="bento-heading-accent">Specialized in the Module You Need</span>
+                            Hire a Salesforce Commerce Cloud Developer<br/>
+                            <span className="bento-heading-accent">With Experience Working on</span>
                         </h2>
-                        <p className="bento-sub">Every ServiceNow developer in Hiristan's team holds active certification and verified hands-on experience in their respective module, so you get a specialist, not a generalist, from day one.</p>
+                        <p className="bento-sub">Every Commerce Cloud developer in Hiristan's network specializes in specific capabilities,<br/>so you get someone who's built exactly what you need,<br/>not someone learning on your storefront.</p>
                     </div>
 
                     {/* Bento Grid */}
                     <div className="bento-grid">
                         {[
-                            { title: "ServiceNow ITSM", icon: "crm", num: "01", desc: "Our ITSM developers configure and customize Incident, Problem, Change, and Request Management workflows, build service catalog items with complex approval chains, implement SLA frameworks, and integrate ITSM modules with third-party monitoring and ticketing tools.", tags: ["Incident Management", "SLA Frameworks", "Service Catalog"], featured: true },
-                            { title: "ServiceNow ITOM", icon: "lwc", num: "02", desc: "From implementing Discovery, Service Mapping, Event Management, to configuring CMDB population rules, building integration pipelines with network monitoring tools, and designing automated remediation workflows, hire ServiceNow developers with experience serving all your needs.", tags: ["Discovery", "CMDB", "Event Management"], featured: false },
-                            { title: "ServiceNow ITAM", icon: "appx", num: "03", desc: "Hire ITAM developers with experience building and configuring asset lifecycle workflows spanning procurement, deployment, maintenance, and retirement, implement normalization rules for accurate asset data, and integrate ITAM with procurement systems and CMDB for full asset visibility.", tags: ["Asset Lifecycle", "Procurement", "Normalization"], featured: false },
-                            { title: "ServiceNow CSM", icon: "integration", num: "04", desc: "Build customer-facing service portals, configure case management workflows with SLA enforcement, implement omnichannel communication integrations, and develop proactive customer service models that connect field operations. You can count on ServiceNow CSM developers, Hiristan has.", tags: ["Portals", "Case Management", "Omnichannel"], featured: false },
-                            { title: "ServiceNow HRSD", icon: "migration", num: "05", desc: "Looking to hire ServiceNow HRSD developers to configure employee service centers, build case and knowledge management workflows for HR operations, and implement lifecycle event automation for onboarding and offboarding, we've got you covered with the right expertise available immediately.", tags: ["Service Centers", "Knowledge Management", "Lifecycle Events"], featured: false },
-                            { title: "ServiceNow FSM", icon: "strategy", num: "06", desc: "Dispatching the right technician with the right parts at the right time is harder than it sounds. Hire ServiceNow FSM developers to configure work order management and build dynamic scheduling rules based on technician skills and geolocation.", tags: ["Work Orders", "Dynamic Scheduling", "Geolocation"], featured: false },
-                            { title: "ServiceNow App Engine", icon: "crm", num: "07", desc: "Need a custom app on the Now Platform that doesn't fit any out-of-the-box module? Hire App Engine developers who build scoped applications from scratch using App Engine Studio. So, let us know your requirements, and we'll match you with the right developer.", tags: ["Custom Apps", "App Engine Studio", "Scoped Applications"], featured: false },
-                            { title: "ServiceNow EAM", icon: "lwc", num: "08", desc: "Our pool of certified ServiceNow EAM developers has experience working on configuring preventive maintenance schedules, downtime tracking, spare parts management, and asset hierarchies. We'll map your requirements with the skills of ServiceNow developers to ensure your project progresses.", tags: ["Asset Hierarchies", "Maintenance Schedules", "Downtime Tracking"], featured: false },
-                            { title: "ServiceNow AI Agents", icon: "appx", num: "09", desc: "Agentic AI is the biggest shift ServiceNow has made in years. Hire developers who already know how to build it. From deploying AI agents across IT, HR, and customer service workflows, defining agent skills, and setting guardrails, we've got you covered.", tags: ["Agentic AI", "Guardrails", "Workflow Deployments"], featured: false },
-                            { title: "ServiceNow AI Control Tower", icon: "integration", num: "10", desc: "From setting up the model inventories, defining governance policies, and building compliance guardrails, hire ServiceNow developers on contract having experience across all. Additionally, they monitor usage, flag risk, and bring third-party AI models under the same oversight as ServiceNow-native ones.", tags: ["Governance", "Compliance", "Model Inventories"], featured: false },
-                            { title: "ServiceNow SecOps", icon: "migration", num: "11", desc: "ServiceNow SecOps developers have experience in configuring Security Incident Response, Vulnerability Response, and Threat Intelligence to ensure fewer steps between detection and response.", tags: ["Security Incident", "Vulnerability", "Threat Intelligence"], featured: false },
-                            { title: "ServiceNow GRC", icon: "strategy", num: "12", desc: "Hire GRC developers to configure Policy and Compliance, Risk Management, Audit Management, and Vendor Risk. Additionally, they map frameworks like SOX, ISO 27001, and NIST to your control libraries.", tags: ["Policy & Compliance", "Risk Management", "Audit Management"], featured: false },
-                            { title: "Sales & Order Mgmt", icon: "crm", num: "13", desc: "Our Sales and Order Management developers configure product catalogs, pricing rules, and quote-to-cash workflows. From handling order decomposition, orchestration across fulfillment systems, and contract renewals, they can help you with all your needs.", tags: ["Product Catalogs", "Quote-to-cash", "Contract Renewals"], featured: false },
-                            { title: "Integration Hub", icon: "lwc", num: "14", desc: "Integration Hub is where most ServiceNow projects succeed or fall apart. Hire ServiceNow developers who can build custom spokes, configure connectors for Microsoft, AWS, Jira, and Slack, and design Flow Designer workflows that hold up under real load.", tags: ["Custom Spokes", "Flow Designer", "Connectors"], featured: false },
-                            { title: "ServiceNow Now Assist", icon: "appx", num: "15", desc: "Now Assist is ServiceNow's generative AI layer, and getting real value out of it takes setup. Our developers enable Now Assist skills for ITSM, CSM, HRSD, and Creator. They tune prompts, apply guardrails, and track productivity metrics before and after rollout.", tags: ["Generative AI", "Prompts", "Productivity Metrics"], featured: true },
-                            { title: "ServiceNow AI Platform", icon: "integration", num: "16", desc: "AI Platform covers the full ServiceNow AI stack — Predictive Intelligence, machine learning, NLU, and generative AI. Hire developers who train classification and similarity models on your instance data, build Virtual Agent conversations, and tune recommendation engines.", tags: ["Machine Learning", "Virtual Agent", "Predictive Intelligence"], featured: false }
+                            { title: "B2C Commerce Cloud", icon: "crm", num: "01", desc: "Hire B2C Commerce Cloud developers who specialize in developing custom storefronts using Storefront Reference Architecture (SFRA) and PWA Kit. They are experts in cartridge development, OCAPI/SCAPI integrations, and frontend performance tuning to improve Core Web Vitals and SEO rankings.", tags: ["SFRA", "PWA Kit", "OCAPI/SCAPI"], featured: true },
+                            { title: "B2B Commerce Cloud", icon: "lwc", num: "02", desc: "Modernize your wholesale operations with Salesforce B2B Commerce (on Lightning or Classic). Our developers excel at account-specific pricing, complex product catalogs, and punchout integrations. They can also integrate B2B Commerce with ERP systems like SAP, Oracle, or NetSuite for real-time inventory and order sync.", tags: ["Account Pricing", "ERP Integration", "Product Catalogs"], featured: false },
+                            { title: "D2C Commerce Cloud", icon: "appx", num: "03", desc: "Our Salesforce D2C Commerce developers can help you launch a direct-to-consumer store with quick-start templates, localized checkout, and Einstein-powered product discovery. They specialize in building agile, high-converting storefronts that integrate seamlessly with your existing Salesforce CRM.", tags: ["D2C Storefronts", "Einstein Discovery", "CRM Integration"], featured: false },
+                            { title: "Order Management", icon: "integration", num: "04", desc: "From configuring order orchestration workflows such as routing, splitting, allocation, and fulfillment across multiple warehouses, stores, and third-party logistics providers, our developers have experience across all. They also build integrations with ERP, WMS, and shipping systems so every order status update flows back to the customer in real time.", tags: ["Order Orchestration", "Fulfillment", "WMS Integration"], featured: false },
+                            { title: "Payment Configuration", icon: "migration", num: "05", desc: "Our developers integrate payment processors like Stripe, Adyen, PayPal, and Cybersource. They can configure tokenization, PCI-compliant checkout flows, and stored payment methods. Additionally, they can also help you to set up multi-currency and multi-payment-method support for global storefronts.", tags: ["Stripe/Adyen/PayPal", "PCI Compliance", "Multi-Currency"], featured: false },
+                            { title: "Point of Sale (PoS)", icon: "strategy", num: "06", desc: "Welcome a single unified experience by connecting in-store and online commerce. Our Commerce Cloud developers can configure Salesforce PoS to sync inventory, customer profiles, and order history across physical and digital channels, and they can also integrate PoS terminals with payment hardware, receipt printers, and barcode scanners.", tags: ["Unified Commerce", "Inventory Sync", "Hardware Integration"], featured: false },
+                            { title: "Commerce AI", icon: "crm", num: "07", desc: "Our developers implement Einstein product recommendations, predictive sort on category and search pages, and personalized promotions based on browsing and purchase behavior. They configure Commerce Insights dashboards to surface revenue trends, conversion bottlenecks, and merchandising opportunities.", tags: ["Einstein AI", "Product Recommendations", "Commerce Insights"], featured: true }
                         ].map((service, i) => (
                             <div
                                 key={i}
@@ -521,8 +532,8 @@ const HireServiceNowPage = () => {
                 <div className="container">
                     <div className="engagement-header animate-up">
                         <span className="engagement-label">How We Work</span>
-                        <h2 className="engagement-heading">Flexible Engagement Models to Hire a ServiceNow Developer</h2>
-                        <p className="engagement-sub">Choose the engagement model to hire ServiceNow developers, aligning with your project scope, timeline, and budget, with the freedom to scale or downscale whenever needed.</p>
+                        <h2 className="engagement-heading">Flexible Engagement Models to Hire a Commerce Cloud Developer</h2>
+                        <p className="engagement-sub">Choose the engagement model to hire a Commerce Cloud developer aligning with your project scope, timeline, and budget, with the freedom to scale up or down whenever needed.</p>
                     </div>
                     
                     <div className="engagement-grid">
@@ -539,12 +550,12 @@ const HireServiceNowPage = () => {
                                 <li>Developers work as an extension of your delivery team</li>
                                 <li>Flexible contract durations with monthly billing</li>
                             </ul>
-                            <button className="engagement-btn">Hire a ServiceNow Developer on C2C →</button>
+                            <button className="engagement-btn">Hire a Salesforce Commerce Cloud Developer on C2C →</button>
                         </div>
                         
                         <div className="engagement-card animate-stagger" style={{ animationDelay: '0.1s' }}>
                             <div className="engagement-media">
-                                <img src={serviceImage} alt="C2H Engagement Model" />
+                                <img src={salesImage} alt="C2H Engagement Model" />
                                 <span className="engagement-tag">Evaluate before commitment</span>
                             </div>
                             <h3>C2H (Contract-to-Hire)</h3>
@@ -552,17 +563,17 @@ const HireServiceNowPage = () => {
                             <ul className="engagement-features">
                                 <li>Start with a contract engagement, convert to full-time when ready</li>
                                 <li>Reduces hiring risk on senior and specialized roles</li>
-                                <li>Transparent conversion terms agreed upfront</li>
-                                <li>Developer remains fully productive from day one</li>
+                                <li>Seamless transition with zero disruption to the ongoing project</li>
+                                <li>Hiristan handles all initial recruitment and onboarding overhead</li>
                             </ul>
-                            <button className="engagement-btn">Hire a ServiceNow Developer on C2H →</button>
+                            <button className="engagement-btn">Hire a Salesforce Commerce Cloud Developer on C2H →</button>
                         </div>
                         <div className="engagement-card animate-stagger" style={{ animationDelay: '0.2s' }}>
                             <div className="engagement-media">
                                 <img src={teamImage} alt="ODC Engagement Model" />
                                 <span className="engagement-tag">Long-term, dedicated team</span>
                             </div>
-                            <h3>Offshore ServiceNow Development Center (ODC)</h3>
+                            <h3>Offshore Salesforce Development Center (ODC)</h3>
                             <div className="engagement-price">Predictable monthly cost per resource</div>
                             <ul className="engagement-features">
                                 <li>A dedicated team working exclusively on your projects</li>
@@ -570,7 +581,7 @@ const HireServiceNowPage = () => {
                                 <li>Direct reporting to your engineering or delivery leadership</li>
                                 <li>Hiristan handles infrastructure, HR, and operations</li>
                             </ul>
-                            <button className="engagement-btn">Build Offshore ServiceNow Development Center →</button>
+                            <button className="engagement-btn">Build Offshore Salesforce Development Center →</button>
                         </div>
                         <div className="engagement-card animate-stagger" style={{ animationDelay: '0.3s' }}>
                             <div className="engagement-media">
@@ -580,27 +591,27 @@ const HireServiceNowPage = () => {
                             <h3>Managed Services Provider (MSP)</h3>
                             <div className="engagement-price">Outcome-based engagement</div>
                             <ul className="engagement-features">
-                                <li>Full-service ownership of your ServiceNow environment or project</li>
+                                <li>Full-service ownership of your Salesforce project</li>
                                 <li>Includes development, administration, support, and ongoing optimization</li>
                                 <li>Dedicated delivery manager and defined SLAs</li>
                                 <li>Ideal for org maintenance, AMS, and continuous enhancement programs</li>
                             </ul>
-                            <button className="engagement-btn">Hire ServiceNow Managed Services Provider →</button>
+                            <button className="engagement-btn">Hire Salesforce Managed Services Provider →</button>
                         </div>
                         <div className="engagement-card animate-stagger" style={{ animationDelay: '0.4s' }}>
                             <div className="engagement-media">
                                 <img src={hourlyImage} alt="Freelance Engagement Model" />
                                 <span className="engagement-tag">Short-term, project-scoped work</span>
                             </div>
-                            <h3>Freelance ServiceNow Developer</h3>
-                            <div className="engagement-price">Pay per project milestone or hourly</div>
+                            <h3>Freelance Commerce Cloud Developer</h3>
+                            <div className="engagement-price">Hourly or project-based billing</div>
                             <ul className="engagement-features">
-                                <li>Engage a developer for a specific deliverable or sprint</li>
-                                <li>Fastest onboarding, often within 48 hours</li>
-                                <li>Ideal for fixes, migrations, integrations, or one-off builds</li>
-                                <li>No long-term commitment</li>
+                                <li>Immediate access to specialized Salesforce experts</li>
+                                <li>Ideal for quick troubleshooting, audits, or small feature builds</li>
+                                <li>No long-term contractual commitment</li>
+                                <li>Rapid onboarding and execution</li>
                             </ul>
-                            <button className="engagement-btn">Hire Freelance ServiceNow Developer →</button>
+                            <button className="engagement-btn">Hire Salesforce Freelance Developer →</button>
                         </div>
                     </div>
                 </div>
@@ -611,17 +622,17 @@ const HireServiceNowPage = () => {
                 <div className="container">
                     <div className="steps-grid-header animate-up">
                         <span className="steps-grid-label">Our Process</span>
-                        <h2 className="steps-grid-heading">Hire ServiceNow Developers<br/><span className="steps-heading-accent">in 4 Simple Steps</span></h2>
-                        <p className="steps-grid-sub">From your first conversation with Hiristan to your developer's first day of working, every step is organized to onboard the right certified ServiceNow developer on your project within 7 days.</p>
+                        <h2 className="steps-grid-heading">Hire Salesforce Commerce Cloud Developers<br/><span className="steps-heading-accent">in 4 Simple Steps</span></h2>
+                        <p className="steps-grid-sub">From your first conversation with Hiristan to your developer's first day of working, every step is organized to onboard the right certified Commerce Cloud developer on your project within 7 days.</p>
                     </div>
                     
                     <div className="steps-timeline">
                         <div className="timeline-track"></div>
                         {[
-                            { step: "01", title: "Share Job Description (JD)", icon: "discovery", text: "Share your requirement that mentions the specialization, preferred experience level, certifications, engagement model, contract duration, and timezone. The more specific the job description, the more suited our match will be." },
-                            { step: "02", title: "Developer Shortlisting", icon: "matching", text: "Within 24-48 hours, you will have the profiles of pre-vetted ServiceNow developers with an above 90% match to your job description. Each profile we share will be backed by hands-on experience and certifications." },
+                            { step: "01", title: "Tell Us What You Need", icon: "discovery", text: "Start by filling out our simple inquiry form or booking a discovery call. Tell us about your project scope, the specific Salesforce products you're using (Sales, Service, Commerce, etc.), and the level of expertise you're looking for." },
+                            { step: "02", title: "Resume and Developer Selection", icon: "matching", text: "Within 24-48 hours, Hiristan provides a curated list of developer profiles that match your specific requirements. Every profile shared is a certified Salesforce professional who has already cleared our internal technical vetting." },
                             { step: "03", title: "Interview and Selection", icon: "vetting", text: "Although every developer is pre-vetted against your job description, we welcome you to interview the profiles submitted. All developers will be available for screening or a further round of interview as per your requirement immediately." },
-                            { step: "04", title: "Onboard ServiceNow Developer", icon: "onboarding", text: "Once the ServiceNow developer is selected, the Hiristan team will handle everything from onboarding documentation, contractual setup, to integrating the developer into your team." }
+                            { step: "04", title: "Onboard Commerce Cloud Developer", icon: "onboarding", text: "Once the Commerce Cloud developer is selected, the Hiristan team will handle everything from onboarding documentation, contractual setup, to integrating the developer into your team." }
                         ].map((item, i) => (
                             <div key={i} className="timeline-step animate-up" style={{ animationDelay: `${i * 0.12}s` }}>
                                 <div className="timeline-point">
@@ -644,8 +655,8 @@ const HireServiceNowPage = () => {
                 <div className="container" style={{ position: 'relative', zIndex: 10 }}>
                     <div className="expertise-header animate-up">
                         <span className="expertise-label">Core Competencies</span>
-                        <h2 className="expertise-heading">Hire ServiceNow Developers with <span className="text-gradient">Experience Working on</span></h2>
-                        <p className="expertise-sub">Our developers bring deep, hands-on expertise across the entire ServiceNow ecosystem.</p>
+                        <h2 className="expertise-heading">Hire Commerce Cloud Developers with <span className="text-gradient">Experience Working on</span></h2>
+                        <p className="expertise-sub">Our Commerce Cloud developers bring deep, hands-on expertise across the entire Salesforce Commerce ecosystem.</p>
                     </div>
 
                     <div className="expertise-layout">
@@ -686,26 +697,26 @@ const HireServiceNowPage = () => {
                     <div className="section-header testimonials-header animate-up">
                         <span className="bento-label">Testimonials</span>
                         <h2 className="testimonials-title">Success Stories</h2>
-                        <p className="section-sub testimonials-sub">Hear from industry leaders who scaled their ServiceNow teams with us.</p>
+                        <p className="section-sub testimonials-sub">Hear from industry leaders who scaled their Commerce Cloud teams with us.</p>
                     </div>
                     <div className="testimonials-grid">
                         {[
                             { 
                                 name: "Sarah Jenkins", 
-                                role: "VP of Engineering, CloudScale", 
-                                text: "The expertise Hiristhan brought to our project was transformative. We onboarded a Senior ServiceNow Developer in just 4 days, and his integration was seamless.",
+                                role: "VP of E-commerce, FashionBrand", 
+                                text: "The expertise Hiristhan brought to our project was transformative. We onboarded a Senior SFCC Developer in just 4 days, and our storefront performance improved by 40%.",
                                 image: "https://i.pravatar.cc/150?u=sarah"
                             },
                             { 
                                 name: "Michael Cheng", 
-                                role: "Product Owner, FinTech Solutions", 
-                                text: "Finding certified ServiceNow talent was a bottleneck for us. Hiristhan's vetting process is top-notch – the developer surpassed our expectations.",
+                                role: "Head of Digital, RetailGiant", 
+                                text: "Finding certified Commerce Cloud talent was a bottleneck for us. Hiristhan's vetting process is top-notch – the developer mastered our complex SFRA customizations instantly.",
                                 image: "https://i.pravatar.cc/150?u=michael"
                             },
                             { 
                                 name: "Elena Rodriguez", 
-                                role: "CTO, Global Retail Group", 
-                                text: "They don't just provide developers; they provide partners. The strategic approach to our CRM migration saved us months of rework.",
+                                role: "CTO, Global Omni-Channel", 
+                                text: "They don't just provide developers; they provide partners. The strategic approach to our Headless Commerce migration saved us months of rework.",
                                 image: "https://i.pravatar.cc/150?u=elena"
                             }
                         ].map((t, i) => (
@@ -733,10 +744,10 @@ const HireServiceNowPage = () => {
                     <div className="cta-inner">
                         <div className="cta-text-col animate-up">
                             <span className="bento-label">Get Started</span>
-                            <h2 className="cta-main-heading">Your Next ServiceNow Developer is Already Vetted.<br/><span className="cta-heading-accent">Ready to Deploy</span></h2>
-                            <p className="cta-desc">Tell us what you're building and the engagement model you prefer. You'll have profiles of pre-vetted, certified ServiceNow developers within 24-48 hours, and the one you choose will be productive on your instance within 7 days.</p>
+                            <h2 className="cta-main-heading">Certified Commerce Cloud Developers, Mapped to Your Requirements.<br/><span className="cta-heading-accent">Ready to Deploy</span></h2>
+                            <p className="cta-desc">B2C, B2B, D2C, Order Management, Payments, or PoS — tell Hiristan what your Commerce Cloud project needs. You'll receive profiles of pre-vetted, certified developers within 24-48 hours, and the one you choose will be productive on your instance within 7 days.</p>
                             <div className="cta-actions">
-                                <button className="cta-button-primary">Hire a ServiceNow Developer &rarr;</button>
+                                <button className="cta-button-primary">Hire a Commerce Cloud Developer &rarr;</button>
                                 <button className="cta-button-outline">View Talent Pool</button>
                             </div>
                             <div className="cta-trust">
@@ -747,9 +758,9 @@ const HireServiceNowPage = () => {
                         </div>
                         <div className="cta-img-col animate-up">
                             <div className="cta-img-frame">
-                                <img src={serviceImage} alt="ServiceNow experts collaborating" className="cta-img" />
+                                <img src={salesforceImage} alt="Commerce Cloud experts collaborating" className="cta-img" />
                                 <div className="cta-img-badge">
-                                    <span className="cta-badge-num">500+</span>
+                                    <span className="cta-badge-num">100+</span>
                                     <span className="cta-badge-text">Vetted Experts</span>
                                 </div>
                             </div>
@@ -765,17 +776,17 @@ const HireServiceNowPage = () => {
                 <div className="container">
                     <div className="section-header resources-header-alt animate-up">
                         <h2 className="resources-heading-alt">
-                            <span className="resources-heading-line">Hire More ServiceNow</span>
+                            <span className="resources-heading-line">Hire More Commerce Cloud</span>
                             <span className="resources-heading-accent">Experts</span>
                         </h2>
-                        <p className="section-sub resources-sub-alt">Beyond developers, we provide specialized talent to optimize every aspect of your ServiceNow ecosystem.</p>
+                        <p className="section-sub resources-sub-alt">Beyond developers, we provide specialized talent to optimize every aspect of your Commerce Cloud ecosystem.</p>
                     </div>
                     <div className="resources-premium-grid">
                         {[
                             { 
-                                title: "ServiceNow QA Engineers", 
+                                title: "SFCC QA Engineers", 
                                 desc: "Rigorous testing and quality assurance to ensure bug-free, scalable deployments.",
-                                image: serviceImage
+                                image: salesImage
                             },
                             { 
                                 title: "Business Analysts", 
@@ -814,10 +825,8 @@ const HireServiceNowPage = () => {
                     </div>
                     <div className="faq-list animate-up">
                         {[
-                            { q: "Can I hire a ServiceNow developer who's also a certified administrator or architect?", a: "Yes, with Hiristan, you can hire ServiceNow experts with multiple certifications. In our network, we have many ServiceNow developers with multiple certifications, including but not limited to Developer + Admin, Developer + CIS specialist, or Developer + CTA (Certified Technical Architect). Let us know your needs, and we'll handle the rest." },
-                            { q: "Do your ServiceNow developers sign NDAs and data protection agreements?", a: "Every developer signs an NDA, data protection agreement, and IP assignment clause before accessing your instance. For regulated industries (healthcare, finance, public sector), we also sign BAA, DPA under GDPR, and any client-specific security add-ons you require." },
-                            { q: "How do you handle ServiceNow developer turnover during a long engagement?", a: "If a developer leaves mid-engagement, Hiristan manages the transition. We identify a replacement from our network, overlap them with the outgoing developer for knowledge transfer, and update your documentation. With us, your project continuity is assured." },
-                            { q: "Can I hire a ServiceNow developer with experience in a specific industry?", a: "Yes. Our network includes developers with hands-on experience in banking and financial services, healthcare, telecom, public sector, manufacturing, and retail. Industry experience matters on modules like Financial Services Operations, Telecom Service Management, and Healthcare CSM." }
+                            { q: "What's the typical contract duration for a Commerce Cloud developer engagement?", a: "It varies by project type. A storefront launch or replatforming typically runs 4 to 8 months. Ongoing optimization, A/B testing, and feature additions work well as rolling monthly contracts. Short-scoped work like payment gateway integration or PoS setup can be handled in 4 to 8 weeks on a freelance contract. Hiristan can help you estimate duration based on your scope." },
+                            { q: "Can I hire Salesforce Commerce Cloud developers from Hiristan for a project based in the US while the developer works remotely from another country?", a: "Yes. Most Commerce Cloud developers on Hiristan work remotely across time zones. For US-based projects, we match developers with a minimum 4-hour overlap with your business hours. The engagement runs on C2C terms between your company and Hiristan, so there's no visa, payroll, or compliance complexity on your side. Direct communication with the developer through Slack, Teams, or Zoom — no middleman project manager layer unless you want one." }
                         ].map((faq, i) => (
                             <div key={i} className={`faq-item-premium ${openFaq === i ? 'open' : ''}`} onClick={() => toggleFaq(i)}>
                                 <div className="faq-question">
@@ -901,4 +910,4 @@ const HireServiceNowPage = () => {
     );
 };
 
-export default HireServiceNowPage;
+export default HireCommerceCloudPage;
