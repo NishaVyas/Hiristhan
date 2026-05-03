@@ -1057,7 +1057,7 @@
 .engagement-card {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #ffffff 100%);
     border-radius: 22px;
-    padding: 16px 20px 20px;
+    padding: 18px 20px 20px;
     border: 1px solid rgba(226, 232, 240, 0.95);
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
     position: relative;
@@ -1077,8 +1077,8 @@
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    height: 150px;
-    margin-bottom: 20px;
+    height: 180px;
+    margin-bottom: 16px;
 }
 
 .engagement-media img {
@@ -1122,17 +1122,17 @@
 
 .engagement-price {
     font-size: 1.05rem; font-weight: 700; color: #0D4D3A;
-    margin-bottom: 24px; padding-bottom: 20px;
+    margin-bottom: 16px; padding-bottom: 12px;
     border-bottom: 1px dashed rgba(203, 213, 225, 0.9);
 }
 
 .engagement-features {
-    list-style: none; padding: 0; margin: 0 0 28px 0; flex-grow: 1;
+    list-style: none; padding: 0; margin: 0 0 18px 0; flex-grow: 1;
 }
 
 .engagement-features li {
-    font-size: 1rem; color: #475569; margin-bottom: 14px;
-    padding-left: 32px; position: relative; line-height: 1.55;
+    font-size: 0.95rem; color: #475569; margin-bottom: 8px;
+    padding-left: 32px; position: relative; line-height: 1.45;
 }
 
 .engagement-features li::before {
@@ -2902,4 +2902,35 @@
 @media (max-width: 768px) {
     .engagement-grid { flex-direction: column; }
     .engagement-card { width: 100% !important; }
+}
+
+/* Force white background for the last engagement card */
+.engagement-grid .engagement-card:last-child {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #ffffff 100%) !important;
+    border-color: rgba(226, 232, 240, 0.95) !important;
+}
+
+.engagement-grid .engagement-card:last-child h3 {
+    color: #1a202c !important;
+}
+
+.engagement-grid .engagement-card:last-child .engagement-price {
+    color: #0D4D3A !important;
+    border-bottom-color: rgba(203, 213, 225, 0.9) !important;
+}
+
+.engagement-grid .engagement-card:last-child .engagement-features li {
+    color: #475569 !important;
+}
+
+.engagement-grid .engagement-card:last-child .engagement-btn {
+    background: #f8fafc !important;
+    color: #1a202c !important;
+    border-color: #d9e2ec !important;
+}
+
+.engagement-grid .engagement-card:last-child:hover .engagement-btn {
+    background: #0D4D3A !important;
+    color: #ffffff !important;
+    border-color: #0D4D3A !important;
 }
