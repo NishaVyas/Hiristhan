@@ -1045,8 +1045,9 @@
 }
 
 .engagement-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     position: relative;
     max-width: 1200px;
@@ -1063,6 +1064,7 @@
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     display: flex;
     flex-direction: column;
+    width: calc(33.333% - 14px);
 }
 
 .engagement-card:hover {
@@ -1116,38 +1118,6 @@
     font-family: \'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4rem; font-weight: 600; color: #1a202c; margin-bottom: 8px;
     line-height: 1.2;
-}
-
-.engagement-grid .engagement-card:last-child {
-    background: #0D4D3A;
-    border-color: #0D4D3A;
-}
-
-.engagement-grid .engagement-card:last-child h3,
-.engagement-grid .engagement-card:last-child .engagement-price,
-.engagement-grid .engagement-card:last-child .engagement-features li {
-    font-size: 0.85rem; color: #475569; margin-bottom: 10px;
-    padding-left: 28px; position: relative; line-height: 1.45;
-}
-
-.engagement-grid .engagement-card:last-child .engagement-price {
-    font-size: 0.9rem; font-weight: 700; color: #0D4D3A;
-    margin-bottom: 16px; padding-bottom: 16px;
-    border-bottom: 1px dashed rgba(203, 213, 225, 0.9);
-}
-
-.engagement-grid .engagement-card:last-child .engagement-btn {
-    width: 100%; padding: 12px 14px;
-    background: #f8fafc; color: #1a202c;
-    border: 1px solid #d9e2ec; border-radius: 12px;
-    font-size: 0.9rem; font-weight: 700;
-    cursor: pointer; transition: all 0.3s ease;
-}
-
-.engagement-grid .engagement-card:last-child:hover .engagement-btn {
-    background: #0D4D3A;
-    color: #ffffff;
-    border-color: #ffffff;
 }
 
 .engagement-price {
@@ -2927,4 +2897,9 @@
     }
     .services-section h2, .tech-section h2 { font-size: 2.2rem; }
     .intro-text { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px) {
+    .engagement-grid { flex-direction: column; }
+    .engagement-card { width: 100% !important; }
 }
